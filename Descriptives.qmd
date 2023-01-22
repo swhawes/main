@@ -1,0 +1,158 @@
+---
+title: "Descriptives"
+format: html
+editor: source
+---
+
+```{r config}
+#| echo: FALSE
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                      comment=NA, cache=T, code_folding=T,
+                      R.options=list(width=220), fig.align='center', 
+                      out.width='75%', fig.asp=.75)
+```
+
+```{r install}
+#| echo: FALSE
+
+## Install necessary packages (if not already installed)
+if (!("lme4" %in% installed.packages())) install.packages("lme4")
+if (!("lmerTest" %in% installed.packages())) install.packages("lmerTest")
+if (!("tidyverse" %in% installed.packages())) install.packages("tidyverse")
+if (!("arrow" %in% installed.packages())) install.packages("arrow")
+if (!("afex" %in% installed.packages())) install.packages("afex")
+if (!("janitor" %in% installed.packages())) install.packages("janitor")
+if (!("skimr" %in% installed.packages())) install.packages("skimr")
+if (!("sdamr" %in% installed.packages())) install.packages("sdamr")
+if (!("formatR" %in% installed.packages())) install.packages("formatR")
+if (!("report" %in% installed.packages())) install.packages("report")
+if (!("easystats" %in% installed.packages())) install.packages("easystats")
+if (!("emmeans" %in% installed.packages())) install.packages("emmeans")
+if (!("poorman" %in% installed.packages())) install.packages("poorman")
+if (!("parameters" %in% installed.packages())) install.packages("parameters")
+if (!("modelbased" %in% installed.packages())) install.packages("modelbased")
+if (!("effectsize" %in% installed.packages())) install.packages("effectsize")
+if (!("see" %in% installed.packages())) install.packages("see")
+if (!("performance" %in% installed.packages())) install.packages("performance")
+if (!("insight" %in% installed.packages())) install.packages("insight")
+if (!("DT" %in% installed.packages())) install.packages("DT")
+if (!("data.table" %in% installed.packages())) install.packages("data.table")
+if (!("arsenal" %in% installed.packages())) install.packages("arsenal")
+if (!("kableExtra" %in% installed.packages())) install.packages("kableExtra")
+if (!("equatiomatic" %in% installed.packages())) install.packages("equatiomatic")
+if (!("gtsummary" %in% installed.packages())) install.packages("gtsummary")
+if (!("ggstatsplot" %in% installed.packages())) install.packages("ggstatsplot")
+if (!("patchwork" %in% installed.packages())) install.packages("patchwork")
+if (!("papaja" %in% installed.packages())) install.packages("papaja")
+```
+
+```{r load}
+#| echo: FALSE
+
+## Load packages
+library(lme4)
+library(lmerTest)
+library(tidyverse)
+library(arrow)
+library(afex)
+#library(janitor)
+#library(skimr)
+#library(sdamr)
+library(formatR)
+library(report)
+library(easystats)
+#library(emmeans)
+#library(poorman)
+library(parameters)
+library(modelbased)
+library(effectsize)
+library(see)
+library(performance)
+library(insight)
+library(DT)
+library(data.table)
+library(arsenal)
+library(kableExtra)
+library(equatiomatic)
+library(gtsummary)
+library(ggstatsplot)
+#library(patchwork)
+library(papaja)
+```
+
+```{r datatable}
+#| echo: FALSE
+
+## Load long dataframe
+df_long <- read_parquet("./_data/df_long.pqt")#, lazy = TRUE)
+
+## Create a viewable 'datatable'
+datatable(head(df_long, 50, rownames = FALSE),extensions = 'AutoFill','ColReorder', options = list(autoFill = TRUE,colReorder = TRUE,
+  columnDefs = list(list(className = 'dt-center', targets = 10)),
+  order = list(list(3, 'asc'), list(4, 'desc')),
+  pageLength = 10,
+  lengthMenu = c(10, 15, 20),
+  initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#808080', 'color': '#fff'});",
+    "}")
+))
+
+```
+
+```{r descriptives}
+#| results: "asis"
+#| echo: FALSE
+
+## Create a (grouped) descriptives table 
+descriptives  <- tableby.control(test=FALSE, total=TRUE, cat.simplify=TRUE,
+                               numeric.test="kwt", cat.test="chisq",
+                               numeric.stats=c("N", "meansd", "median", "range" 
+                                               ), #"Nmiss2"
+                               cat.stats=c("countpct"), #"Nmiss2"
+                               stats.labels=list(N='Count', meansd="Mean (SD)",
+                                                 median ='Median', range='Min -
+                                                 Max')) #, Nmiss2 ='Missing'
+
+## Adding Variable Labels
+var_labels <- list(
+  Age = "Age",
+  VG_total = "Total # of Video Gaming Hrs",
+  CU_traits = "Callous-Unemotional Traits",
+  CBCL_Extern = "CBCL Externalizing Scale",
+  CBCL_Agg = "CBCL Aggression Scale",
+  Event = "Year",
+  Sex = "Sex",
+  Mature_vg = "Mature Video Games",
+  DBD = "DBD Group", 
+  DBDcu = "DBDcu+/DBDcu-"
+)
+
+## Separating continuous and categorical variables into separate tables
+var_table <- tableby(event ~ age + vg_total + cu_traits +
+                       cbcl_extern + cbcl_agg +
+                       sex + mature_vg + DBD + DBDcu,
+                     data=df_long, control=descriptives)
+
+# Push variable table object through kable and kable_styling
+var_table %>%
+  summary(text = TRUE, digits.pct=1, digits=1) %>%
+  kable(caption = "Study Descriptives") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, html_font = "Cambria",
+                pdfFonts("Arial"),
+                font_size = 12,
+                position = "center", fixed_thead = T) %>%
+  row_spec(2:3,  bold = F, extra_css = 'vertical-align: middle !important;') %>%
+  column_spec(1, width = "20em", background = "light grey", bold = T, border_right = T) %>%
+  column_spec(2, width = "20em", border_right = T) %>%
+  column_spec(3, width = "20em", border_right = T) %>%
+  column_spec(4, width = "20em", border_right = T) %>%
+  footnote(general = "Here is a general comments of the table. ") %>%
+  scroll_box(width = "75%", height = "500px")
+
+## removed unused objects
+rm(var_table, var_labels, descriptives) #categoricalvar_table, categoricalvar_labels
+```
+
+

@@ -1,0 +1,465 @@
+---
+title: "ETL"
+title-block-banner: true
+output:
+  html:
+---
+
+# add to etl file and remove from working draft
+
+```{r clear}
+##| include: FALSE
+## Clear workspace environment
+# rm(list = ls()) 
+
+```
+
+```{r install}
+
+## Install (if necessary) and load packages
+pacman::p_load(tidyverse, arrow, pacman, rio, here)
+
+#p_update(update = FALSE)
+# Update all the packages
+# in the module
+#gfgUpdate()
+
+# Unload the packages, and then continue
+#p_unload(ggplot2, dplyr, stringr)
+
+```
+
+```{r config}
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                      comment=NA, cache=T, code_folding=T,
+                      R.options=list(width=220), fig.align='center', 
+                      out.width='75%', fig.asp=.75)
+```
+
+```{r extract}
+#| include: FALSE
+
+# (not added) screentime_ss_weekday, screentime_ss_weekend,
+# (not found) ksads_14_853_p, ksads_14_854_p,
+
+# setwd('/path/to/repo')
+# 
+#df_ndaFile <- readRDS("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/bio_Main/_data/nda4.0.rds")
+
+
+ df_temp <- (df_ndaFile) %>%
+   select(subjectid, eventname, site_id_l, rel_family_id, sex_at_birth,
+          demo_brthdat_p, race_ethnicity, demo_prnt_income_p, demo_prnt_ed_p,
+          nihtbx_totalcomp_fullycorrected, nihtbx_flanker_fullycorrected,
+          pubertdev_ss_female_category, pubertdev_ss_male_category,
+          screentime_ss_weekday, screentime_ss_weekend,
+          screentime_13, screentime_wkdy_3,
+          screentime_wknd_9, cbcl_scr_syn_aggressive_r,
+          cbcl_scr_syn_external_r, cbcl_scr_dsm5_opposit_r,
+          cbcl_scr_dsm5_conduct_r, cbcl_scr_dsm5_opposit_t,
+          cbcl_scr_dsm5_conduct_t, cbcl_scr_syn_internal_r,
+          cbcl_scr_dsm5_depress_r, ksads_15_902_p, ksads_15_901_p,
+          ksads_16_897_p, ksads_16_899_p,
+          cbcl_q26_p, prosocial_q1_p,
+          prosocial_q2_p, prosocial_q3_p)
+
+df_preclean <- df_temp
+write_parquet(df_preclean, "./_data/df_preclean.pqt")
+write_csv(df_preclean, "./_data/df_preclean.csv")
+write_parquet(df_temp, "./_data/df_temp.pqt")
+
+# # remove unused objects
+# rm(df_ndaFile, df_preclean)
+rm(df_preclean)
+
+```
+
+```{r cleaning}
+
+df_temp <- read_parquet("./_data/df_preclean.pqt")#, lazy = TRUE)
+#df_temp2 <- read_csv("./_data/df_preclean.csv") #, lazy = TRUE)
+head(df_temp)
+
+# "ksad_adhd1"="ksads_14_853_p", "ksad_adhd2"="ksads_14_854_p",
+
+## Rename Variables
+df_temp <- df_temp %>% rename("ids" = "subjectid",
+                    "Event" = "eventname",
+                    "SiteID" = "site_id_l",
+                    "FamilyID"="rel_family_id",
+                    "Sex"="sex_at_birth",
+                    "Age"="demo_brthdat_p",
+                    "Race" = "race_ethnicity",
+                    "ParentIncome" = "demo_prnt_income_p",
+                    "ParentEducation"="demo_prnt_ed_p", 
+                    "IQ"="nihtbx_totalcomp_fullycorrected",
+                    "FlankerTest"="nihtbx_flanker_fullycorrected",
+                    "PubertalDevelopment_F"="pubertdev_ss_female_category",
+                    "PubertalDevelopment_M"="pubertdev_ss_male_category",
+                    "MatureVideoGames" = "screentime_13",
+                    "vg_wkdy" = "screentime_wkdy_3",
+                    "vg_wknd" = "screentime_wknd_9",
+                    "Aggression"="cbcl_scr_syn_aggressive_r",
+                    "Externalizing"="cbcl_scr_syn_external_r",
+                    "OppositionalDefiant"="cbcl_scr_dsm5_opposit_r",
+                    "ConductDisorder"="cbcl_scr_dsm5_conduct_r",
+                    "cbcl_oppT"="cbcl_scr_dsm5_opposit_t",
+                    "cbcl_cdT"="cbcl_scr_dsm5_conduct_t",
+                    "Internalizing" = "cbcl_scr_syn_internal_r", 
+                    "Depression"= "cbcl_scr_dsm5_depress_r", 
+                    "ksad_odd1"="ksads_15_902_p",
+                    "ksad_odd2"="ksads_15_901_p",
+                    "ksad_cdco1"="ksads_16_897_p",
+                    "ksad_cdco2"="ksads_16_899_p",
+                    "cbcl_guilt"="cbcl_q26_p",
+                    "prosoc1"="prosocial_q1_p",
+                    "prosoc2"="prosocial_q2_p",
+                    "prosoc3"="prosocial_q3_p"
+                    )
+
+## set variable types
+df_temp$ids <- as.factor(df_temp$ids)
+df_temp$Event <- as.factor(df_temp$Event)
+df_temp$SiteID <- as.factor(df_temp$SiteID)
+df_temp$FamilyID <- as.factor(df_temp$FamilyID)
+df_temp$Sex <- as.factor(df_temp$Sex)
+df_temp$Race <- as.factor(df_temp$Race)
+df_temp$Age <- as.numeric(df_temp$Age)
+df_temp$ParentIncome <- as.numeric(df_temp$ParentIncome)
+df_temp$ParentEducation <- as.numeric(df_temp$ParentEducation)
+df_temp$IQ <- as.numeric(df_temp$IQ)
+df_temp$FlankerTest <- as.numeric(df_temp$FlankerTest)
+df_temp$PubertalDevelopment_F <- as.numeric(df_temp$PubertalDevelopment_F)
+df_temp$PubertalDevelopment_M <- as.numeric(df_temp$PubertalDevelopment_M)
+df_temp$MatureVideoGames <- as.numeric(df_temp$MatureVideoGames)
+df_temp$vg_wkdy <- as.numeric(df_temp$vg_wkdy)
+df_temp$vg_wknd <- as.numeric(df_temp$vg_wknd)
+df_temp$Aggression <- as.numeric(df_temp$Aggression)
+df_temp$Externalizing <- as.numeric(df_temp$Externalizing)
+df_temp$OppositionalDefiant <- as.numeric(df_temp$OppositionalDefiant)
+df_temp$ConductDisorder <- as.numeric(df_temp$ConductDisorder)
+df_temp$cbcl_oppT <- as.numeric(df_temp$cbcl_oppT)
+df_temp$cbcl_cdT <- as.numeric(df_temp$cbcl_cdT)
+df_temp$Internalizing <- as.numeric(df_temp$Internalizing)
+df_temp$Depression <- as.numeric(df_temp$Depression)
+df_temp$ksad_odd1 <- as.factor(df_temp$ksad_odd1)
+df_temp$ksad_odd2 <- as.factor(df_temp$ksad_odd2)
+df_temp$ksad_cdco1 <- as.factor(df_temp$ksad_cdco1)
+df_temp$ksad_cdco2 <- as.factor(df_temp$ksad_cdco2)
+df_temp$cbcl_guilt <- as.numeric(df_temp$cbcl_guilt)
+df_temp$prosoc1 <- as.numeric(df_temp$prosoc1)
+df_temp$prosoc2 <- as.numeric(df_temp$prosoc2)
+df_temp$prosoc3 <- as.numeric(df_temp$prosoc3)
+
+## recode factor levels
+df_temp$Sex<-recode(df_temp$Sex, 'F' = 'Female', 'M' = 'Male')
+df_temp$Event<-recode(df_temp$Event, 'baseline_year_1_arm_1' = 'Baseline', '6_month_follow_up_arm_1' = '6_month', '1_year_follow_up_y_arm_1'= 'Year_1', '18_month_follow_up_arm_1' = '18_month', '2_year_follow_up_y_arm_1'='Year_2', '30_month_follow_up_arm_1' = '30_month', '3_year_follow_up_y_arm_1'='Year_3')
+
+## relevel factor categories
+df_temp$Event <- fct_relevel(df_temp$Event, "Baseline", "Year_1", "Year_2")
+
+## Compute mature_vg as dichotomized variable
+df_temp$MatureVideoGames <- ifelse(
+df_temp$MatureVideoGames>1
+    , "yes", "no")
+df_temp$MatureVideoGames <- as.factor(df_temp$MatureVideoGames)
+df_temp$MatureVideoGames
+
+## Reverse score the 3 prosociality questions
+prosoc_sum <- 1:3
+df_temp <- df_temp %>%
+  mutate(prosoc1_rev = min(prosoc_sum) - prosoc1 + max(prosoc_sum))%>%
+  mutate(prosoc2_rev = min(prosoc_sum) - prosoc2 + max(prosoc_sum))%>%
+  mutate(prosoc3_rev = min(prosoc_sum) - prosoc3 + max(prosoc_sum))
+
+## Compute CU traits variable
+df_temp$CU_Traits <- (df_temp$cbcl_guilt + df_temp$prosoc1_rev + 
+                      df_temp$prosoc2_rev + df_temp$prosoc3_rev)
+df_temp$CU_Traits
+
+## Compute DBD variable & set variable type
+df_temp$DBD <- ifelse(
+  df_temp$cbcl_cdT>=67 | df_temp$cbcl_oppT>=67 | df_temp$ksad_odd1==1 |  
+  df_temp$ksad_odd2==1 | df_temp$ksad_cdco1==1 | df_temp$ksad_cdco2==1,
+  "yes", "no")
+df_temp$DBD <- as.factor(df_temp$DBD)
+
+## Compute DBD/CU variable & set variable type
+df_temp$DBDcu <- ifelse(df_temp$DBD=="yes" & df_temp$CU_Traits>=8, "yes", "no")
+df_temp$DBDcu <- as.factor(df_temp$DBDcu)
+
+## Compute total video gaming hours variable & set variable type
+df_temp$TotalGamingHours <- (df_temp$vg_wkdy*5)+(df_temp$vg_wknd*2)
+df_temp$TotalGamingHours <- as.numeric(df_temp$TotalGamingHours)
+
+## Create filter to (or subset) to select cases from years 1-3
+df_temp$Eventnumeric <- df_temp$Event
+df_temp$Eventnumeric <- as.numeric(df_temp$Eventnumeric)
+
+df_temp <- df_temp %>%
+filter(df_temp$Eventnumeric <= 3)
+  
+df_temp<-df_temp %>% 
+  group_by(ids) %>% 
+  filter(any(TotalGamingHours >= 7)) %>%
+  ungroup()
+
+####################################
+####################################
+############Begin: Adding Gaming Hours provided by Bader########################
+
+Gaming_Hours_Bader <- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/Raul_VG/abcd_vg_bhvr/_data/Gaming_Hours_Bader.csv")
+
+Gaming_Hours_Bader$ids <- as.factor(Gaming_Hours_Bader$ids)
+Gaming_Hours_Bader$Event <- as.factor(Gaming_Hours_Bader$Event)
+Gaming_Hours_Bader$Weekly_Gaming_Hours <- as.numeric(Gaming_Hours_Bader$Weekly_Gaming_Hours)
+
+Gaming_Hours_Bader$Weekly_Gaming_Hours<-ifelse(Gaming_Hours_Bader$Weekly_Gaming_Hours>28,28,Gaming_Hours_Bader$Weekly_Gaming_Hours)
+
+## relevel factor categories
+Gaming_Hours_Bader$Event <- fct_relevel(Gaming_Hours_Bader$Event, "Baseline", "Year_1", "Year_2")
+
+Gaming_Hours_Bader <- (Gaming_Hours_Bader) %>%
+  select(ids, Event, Weekly_Gaming_Hours)
+
+Gaming_Hours_Bader<-Gaming_Hours_Bader %>% 
+  group_by(ids) %>% 
+  filter(any(Weekly_Gaming_Hours >= 7)) %>%
+  ungroup()
+
+####################################
+####################################
+
+df_temp <- (df_temp) %>%
+  select(ids, Event, SiteID, FamilyID, Sex, Race, Age, ParentIncome, 
+         ParentEducation, IQ, FlankerTest, PubertalDevelopment_F, PubertalDevelopment_M, 
+         MatureVideoGames, TotalGamingHours,
+         DBD, DBDcu,
+         CU_Traits, Aggression, Externalizing, 
+         Internalizing, Depression, OppositionalDefiant, ConductDisorder)
+
+df_temp <- left_join(df_temp, Gaming_Hours_Bader, by=c('ids'='ids', 'Event'='Event'))
+
+df_temp <- (df_temp) %>%
+  select(ids, Event, SiteID, FamilyID, Sex, Race, Age, ParentIncome, 
+         ParentEducation, IQ, FlankerTest, PubertalDevelopment_F, PubertalDevelopment_M, 
+         MatureVideoGames, TotalGamingHours, Weekly_Gaming_Hours,
+         DBD, DBDcu,
+         CU_Traits, Aggression, Externalizing, 
+         Internalizing, Depression, OppositionalDefiant, ConductDisorder)
+
+########
+df_long<-df_temp
+## setting var types for df_long dataframe. This portion of code needs to be cleaned and moved
+## set variable types
+df_long$ids <- as.factor(df_long$ids)
+df_long$Event <- as.factor(df_long$Event)
+df_long$SiteID <- as.factor(df_long$SiteID)
+df_long$FamilyID <- as.factor(df_long$FamilyID)
+df_long$Sex <- as.factor(df_long$Sex)
+df_long$Age <- as.numeric(df_long$Age)
+df_long$Race <- as.factor(df_long$Race)
+df_long$ParentIncome <- as.numeric(df_long$ParentIncome)
+df_long$ParentEducation <- as.numeric(df_long$ParentEducation)
+df_long$IQ <- as.numeric(df_long$IQ)
+df_long$FlankerTest <- as.numeric(df_long$FlankerTest)
+df_long$PubertalDevelopment_F <- as.numeric(df_long$PubertalDevelopment_F)
+df_long$PubertalDevelopment_M <- as.numeric(df_long$PubertalDevelopment_M)
+df_long$MatureVideoGames <- as.numeric(df_long$MatureVideoGames)
+df_long$TotalGamingHours <- as.numeric(df_long$TotalGamingHours)
+df_long$DBD <- as.factor(df_long$DBD)
+df_long$DBDcu <- as.factor(df_long$DBDcu)
+df_long$CU_Traits <- as.numeric(df_long$CU_Traits)
+df_long$Aggression <- as.numeric(df_long$Aggression)
+df_long$Externalizing <- as.numeric(df_long$Externalizing)
+df_long$Internalizing <- as.numeric(df_long$Internalizing)
+df_long$Depression <- as.numeric(df_long$Depression)
+df_long$OppositionalDefiant <- as.numeric(df_long$OppositionalDefiant)
+df_long$ConductDisorder <- as.numeric(df_long$ConductDisorder)
+
+####################################
+
+write_parquet(df_long, "./_data/df_long.pqt")
+df_long <- write_csv(df_long, "./_data/df_long.csv")
+write_parquet(df_temp, "./_data/df_temp.pqt")
+
+#Remove unused objects
+rm(prosoc_sum, Gaming_Hours_Bader)
+
+```
+
+```{r transpose}
+
+## create T0 dataframe
+df_temp_t0 <- df_long %>%
+  filter(df_long$Event == "Baseline")
+
+df_temp_t0 <- (df_temp_t0) %>%
+  select(ids, Event, SiteID, FamilyID, 
+         Sex, Race, Age, ParentIncome, 
+         ParentEducation, IQ, FlankerTest, 
+         PubertalDevelopment_F, PubertalDevelopment_M, 
+         MatureVideoGames, Weekly_Gaming_Hours,
+         DBD, DBDcu, CU_Traits, Aggression, Externalizing, 
+         Internalizing, Depression, OppositionalDefiant, ConductDisorder)
+
+## create T1 dataframe
+df_temp_t1 <- df_long %>%
+  filter(df_long$Event == "Year_1")
+df_temp_t1 <- (df_temp_t1) %>%
+  select(ids, MatureVideoGames, Weekly_Gaming_Hours,
+         Aggression, Externalizing, Internalizing)
+
+## create T2 dataframe, filtering by chosen criterion
+df_temp_t2 <- df_long %>%
+  filter(df_long$Event == "Year_2")
+df_temp_t2 <- (df_temp_t2) %>%
+  select(ids, MatureVideoGames, Weekly_Gaming_Hours,
+         Aggression, Externalizing, Internalizing)
+
+## merge dataframes together into wide format
+df_merge <- merge(df_temp_t0, df_temp_t1, by='ids')
+df_merge2 <- merge(df_merge, df_temp_t2, by='ids')
+df_merge3 <- df_merge2 %>% rename("Aggression_T2" = "Aggression",
+                                "Aggression_T0" = "Aggression.x",
+                                "Aggression_T1" = "Aggression.y",
+                                "Weekly_Gaming_Hours_T2" = "Weekly_Gaming_Hours",
+                                "Weekly_Gaming_Hours_T0" = "Weekly_Gaming_Hours.x",
+                                "Weekly_Gaming_Hours_T1" = "Weekly_Gaming_Hours.y",
+                                "Externalizing_T2" = "Externalizing",
+                                "Externalizing_T0" = "Externalizing.x",
+                                "Externalizing_T1" = "Externalizing.y",
+                                "Internalizing_T2" = "Internalizing",
+                                "Internalizing_T0" = "Internalizing.x",
+                                "Internalizing_T1" = "Internalizing.y"
+                                )
+
+df_merge3 <- fastDummies::dummy_cols(df_merge3, select_columns = "Race")
+
+## create wide dataset
+df_wide <- (df_merge3) %>%
+  select(ids, SiteID, FamilyID, Sex, Age,
+         Race_White, Race_Black, Race_Hispanic, Race_Asian, Race_Other,
+         ParentIncome, ParentEducation, IQ, FlankerTest, 
+         PubertalDevelopment_F, PubertalDevelopment_M,
+         MatureVideoGames,
+         Weekly_Gaming_Hours_T0, Weekly_Gaming_Hours_T1, Weekly_Gaming_Hours_T2, 
+         Aggression_T0, Aggression_T1, Aggression_T2, 
+         Externalizing_T0, Externalizing_T1, Externalizing_T2,
+         Internalizing_T0
+         )
+
+df_wide$Sex <- as.numeric(df_wide$Sex)
+df_wide$SiteID <- as.numeric(df_wide$SiteID)
+df_wide$FamilyID <- as.numeric(df_wide$FamilyID)
+
+# Recode missing to 999
+df_wide <- df_wide %>%
+   mutate(
+     SiteID = ifelse(is.na(SiteID), 999[1], SiteID),
+     FamilyID = ifelse(is.na(FamilyID), 999[1], FamilyID),
+     Sex = ifelse(is.na(Sex), 999[1], Sex),
+     Age = ifelse(is.na(Age), 999[1], Age),
+     Race_White = ifelse(is.na(Race_White), 999[1], Race_White),
+     Race_Black = ifelse(is.na(Race_Black), 999[1], Race_Black),
+     Race_Hispanic = ifelse(is.na(Race_Hispanic), 999[1], Race_Hispanic),
+     Race_Asian = ifelse(is.na(Race_Asian), 999[1], Race_Asian),
+     Race_Other = ifelse(is.na(Race_Other), 999[1], Race_Other),
+     ParentIncome = ifelse(is.na(ParentIncome), 999[1], ParentIncome),
+     ParentEducation = ifelse(is.na(ParentEducation), 999[1], ParentEducation),
+     IQ  = ifelse(is.na(IQ), 999[1], IQ),
+     FlankerTest = ifelse(is.na(FlankerTest), 999[1], FlankerTest),
+     PubertalDevelopment_F = ifelse(is.na(PubertalDevelopment_F), 999[1], PubertalDevelopment_F),
+     PubertalDevelopment_M = ifelse(is.na(PubertalDevelopment_M), 999[1], PubertalDevelopment_M),
+     MatureVideoGames = ifelse(is.na(MatureVideoGames), 999[1], MatureVideoGames),
+     Weekly_Gaming_Hours_T0 = ifelse(is.na(Weekly_Gaming_Hours_T0), 999[1], Weekly_Gaming_Hours_T0),
+     Weekly_Gaming_Hours_T1 = ifelse(is.na(Weekly_Gaming_Hours_T1), 999[1], Weekly_Gaming_Hours_T1),
+     Weekly_Gaming_Hours_T2 = ifelse(is.na(Weekly_Gaming_Hours_T2), 999[1], Weekly_Gaming_Hours_T2),
+     Externalizing_T0 = ifelse(is.na(Externalizing_T0), 999[1], Externalizing_T0),
+     Externalizing_T1 = ifelse(is.na(Externalizing_T1), 999[1], Externalizing_T1),
+     Externalizing_T2 = ifelse(is.na(Externalizing_T2), 999[1], Externalizing_T2),
+     Aggression_T0 = ifelse(is.na(Aggression_T0), 999[1], Aggression_T0),
+     Aggression_T1 = ifelse(is.na(Aggression_T1), 999[1], Aggression_T1),
+     Aggression_T2 = ifelse(is.na(Aggression_T2), 999[1], Aggression_T2),
+     Internalizing_T0 = ifelse(is.na(Internalizing_T0), 999[1], Internalizing_T0),
+   )
+df_wide
+
+write_parquet(df_wide, "./_data/df_wide.pqt")
+write_csv(df_wide, "./_data/df_wide.csv")
+write_csv(df_wide, "/Users/shawes/Desktop/df_wide.csv")
+
+## Remove unused objects
+rm(df_temp_t0, df_temp_t1, df_temp_t2, df_merge, df_merge2, df_merge3)
+
+```
+
+```{r}
+#| include: FALSE
+# 
+# df_long <-df_temp
+# ## pivot dataframe long
+# df_long <- df_wide %>%
+#   pivot_longer(
+#     cols = ("cu_traits"),
+#     names_to = "time",
+#     names_prefix = "cu_traits_",
+#     values_to = "cu_traits"
+#   )
+# 
+# 
+# df_temp_t0
+# 
+# df_wide
+# df %>% pivot_longer(cols=c('mature_vg_T0', 'mature_vg_T1', 'mature_vg_T2',
+#                            'vg_total_T0', 'vg_total_T1', 'vg_total_T2',
+#                            'cu_traits_T0', 'cu_traits_T1', 'cu_traits_T2',
+#                            'cbcl_agg_T0', 'cbcl_agg_T1', 'cbcl_agg_T2',
+#                            'cbcl_extern_T0', 'cbcl_extern_T1', 'cbcl_extern_T2',
+#                            'cbcl_intern_T0', 'cbcl_intern_T1', 'cbcl_intern_T2', 
+#                            'cbcl_dep_T0', 'cbcl_dep_T1', 'cbcl_dep_T2'),
+#                     names_to='col1_name',
+#                     values_to='col2_name')
+# 
+# ********************************
+# df %>%
+#   group_by(ids) %>%
+#   filter(any(event == 'Baseline') && any(vg_total > 7)) %>%
+#   ungroup
+#   
+#   
+# mydata<-filter(df_temp, event=="Baseline" & vg_total >= 7)
+# df_temp$new <- as.factor(df_temp$new)
+# summary(df_temp$new)
+# 
+# df_temp$new <- ifelse(
+#   df_temp$event == "Baseline" & df_temp$vg_total >= 7,
+#   "yes", "no")
+# 
+# ## Compute mature_vg as dichotomized variable
+# df_temp$mature_vg <- ifelse(
+# df_temp$mature_vg>1
+#     , "yes", "no")
+#   
+# ***********START HERE***********
+# should the mature_vg and other vars be transposed for the long dataset due to the formats used above?
+# 
+# ## drop "event" variable which is all "Baseline" due to pivoting
+# df_long <- (df_long) %>%
+#   select(ids, time, site_id, fam_id, sex, age, raceth, incpar, edupar, iq, mature_vg, 
+#          vg_total, DBD, DBDcu, cu_traits, cbcl_agg, cbcl_extern, cbcl_intern, cbcl_dep)
+# 
+# ## rename time variable & set variable type
+# df_long <- df_long %>% rename("event" = "time")
+# df_long$event <- as.factor(df_long$event)
+# 
+# df_long <- df_long
+# write_dataset(df_long, "./_data", format = "csv")
+# 
+
+```
+
+
+
+
