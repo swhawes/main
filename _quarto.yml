@@ -1,0 +1,62 @@
+project:
+  type: book
+
+book:
+  #title: "Longitudinal Association of Video Gaming With Severe Behavior Problems Among Youth"
+  author: "Bader Chaarani, Samuel Hawes, Raul Gonzalez"
+  chapters:
+    - index.qmd
+    - part: "**Manuscript**"
+      chapters: 
+        - ./manuscript/working_draft.qmd
+    - part: "**Data Wrangling**"
+      chapters: 
+        - etl.qmd
+    - part: "**Analyses**"
+      chapters:
+        - analyses.qmd
+        #- references.qmd
+  page-navigation: true
+  #repo-url: https://github.com/swhawes/
+  #repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  navbar:
+    search: true
+    title: Longitudinal Association of Video Gaming With Severe Behavior Problems Among Youth
+    pinned: true
+    collapsed: true
+    right:
+      - icon: github
+        href: https://github.com/swhawes/
+        aria-label: GitHub
+        #text: blip
+  page-footer:
+    center: 
+      - text: "About"
+        href: test.qmd
+  #cover-image: cover.png
+  #abstract
+
+comments:
+  hypothesis: true
+
+bibliography: references.bib
+#csl: citestyle.csl
+
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+  pdf:
+    documentclass: scrreprt
+    include-in-header: 
+      text: |
+        \usepackage{makeidx}
+        \makeindex
+    include-after-body: 
+      text: |
+        \printindex
+
+
+

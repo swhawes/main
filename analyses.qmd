@@ -1,0 +1,163 @@
+---
+title: "Results"
+format: html
+editor: source
+---
+
+```{r install}
+
+## Install necessary packages (if not already installed)
+if (!("lme4" %in% installed.packages())) install.packages("lme4")
+if (!("lmerTest" %in% installed.packages())) install.packages("lmerTest")
+if (!("tidyverse" %in% installed.packages())) install.packages("tidyverse")
+if (!("arrow" %in% installed.packages())) install.packages("arrow")
+if (!("afex" %in% installed.packages())) install.packages("afex")
+if (!("janitor" %in% installed.packages())) install.packages("janitor")
+if (!("skimr" %in% installed.packages())) install.packages("skimr")
+if (!("sdamr" %in% installed.packages())) install.packages("sdamr")
+if (!("formatR" %in% installed.packages())) install.packages("formatR")
+if (!("report" %in% installed.packages())) install.packages("report")
+if (!("easystats" %in% installed.packages())) install.packages("easystats")
+if (!("emmeans" %in% installed.packages())) install.packages("emmeans")
+if (!("poorman" %in% installed.packages())) install.packages("poorman")
+if (!("parameters" %in% installed.packages())) install.packages("parameters")
+if (!("modelbased" %in% installed.packages())) install.packages("modelbased")
+if (!("effectsize" %in% installed.packages())) install.packages("effectsize")
+if (!("see" %in% installed.packages())) install.packages("see")
+if (!("performance" %in% installed.packages())) install.packages("performance")
+if (!("insight" %in% installed.packages())) install.packages("insight")
+if (!("DT" %in% installed.packages())) install.packages("DT")
+if (!("data.table" %in% installed.packages())) install.packages("data.table")
+if (!("arsenal" %in% installed.packages())) install.packages("arsenal")
+if (!("kableExtra" %in% installed.packages())) install.packages("kableExtra")
+if (!("equatiomatic" %in% installed.packages())) install.packages("equatiomatic")
+if (!("gtsummary" %in% installed.packages())) install.packages("gtsummary")
+if (!("ggstatsplot" %in% installed.packages())) install.packages("ggstatsplot")
+if (!("patchwork" %in% installed.packages())) install.packages("patchwork")
+if (!("papaja" %in% installed.packages())) install.packages("papaja")
+```
+
+```{r load}
+
+## Load packages
+library(lme4)
+library(lmerTest)
+library(tidyverse)
+library(arrow)
+library(afex)
+#library(janitor)
+#library(skimr)
+#library(sdamr)
+library(formatR)
+library(report)
+library(easystats)
+#library(emmeans)
+#library(poorman)
+library(parameters)
+library(modelbased)
+library(effectsize)
+library(see)
+library(performance)
+library(insight)
+library(DT)
+library(data.table)
+library(arsenal)
+library(kableExtra)
+library(equatiomatic)
+library(gtsummary)
+library(ggstatsplot)
+#library(patchwork)
+library(papaja)
+```
+
+```{r config}
+
+# Seed for random number generation
+set.seed(42)
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                      comment=NA, cache=T, code_folding=T,
+                      R.options=list(width=220), fig.align='center', 
+                      out.width='75%', fig.asp=.75, cache.extra = knitr::rand_seed)
+
+
+
+
+```
+
+```{r model}
+#| code-summary: model
+## Load long dataframe
+df_long <- read_parquet("./_data/df_long.pqt")#, lazy = TRUE)
+
+## Linear Mixed Model with a random intercept (LMM-ri)
+#random_intercepts <- lmer(cu_traits ~ 1 + event + vg_total + mature_vg + (1|ids), data = df_long, REML=T)
+
+recall_anova <-lm(formula = cbcl_agg ~ vg_total, data = df_long)
+random_intercepts <- apa_print(recall_anova, es = "pes")
+random_intercepts_p <- apa_print(recall_anova, es = "pes", in_paren = TRUE)
+
+random_intercepts
+random_intercepts_p
+
+## analysis when filtering by mature video users
+#df_long_filtered<-df_long[!(df_long_filtered$mature_vg=="no"),]
+#random_intercepts <- lmer(cu_traits ~ 1 + event + vg_total + sex + (1|ids), data #= df_long_filtered, REML=T)
+
+## removed unused object
+#rm (df_long_filtered)
+```
+
+```{r output}
+#| code-summary: output
+
+## Output and reports extending from the LMM-ri analyses
+summary(random_intercepts)
+confint(random_intercepts, level = 0.95, method = "Wald")
+report(random_intercepts)
+report_performance(random_intercepts)
+report_statistics(random_intercepts)
+random <- estimate_grouplevel(random_intercepts)
+```
+
+```{r report}
+#| code-summary: report
+
+df_long %>%
+  #report() %>%
+  summary()
+
+## remove unused objects
+# rm(df_long_filtered)
+```
+
+
+```{r lavaan}
+#| include: FALSE 
+library(lavaan)
+df_long<- read_csv("./_data/df_long.csv")
+
+model <- ' i =~ 1*cbcl_agg_T0 + 1*cbcl_agg_T1 + 1*cbcl_agg_T2
+           s =~ 0*cbcl_agg_T0 + 1*cbcl_agg_T1 + 2*cbcl_agg_T2
+           
+# regressions
+    i ~ mature_vg_T0*vg_total_T0 #sex + age + edupar + incpar
+    s ~ mature_vg_T0*vg_total_T0 #sex + age + edupar + incpar
+
+# time-varying covariates
+    #t1 ~ c1
+    #t2 ~ c2
+    #t3 ~ c3
+    #t4 ~ c4
+'
+
+fit <- growth(model, data=df_wide)
+summary(fit)
+
+
+```
+
+
+
+
+

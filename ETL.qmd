@@ -48,30 +48,30 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F,
 #df_ndaFile <- readRDS("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/bio_Main/_data/nda4.0.rds")
 
 
- df_temp <- (df_ndaFile) %>%
-   select(subjectid, eventname, site_id_l, rel_family_id, sex_at_birth,
-          demo_brthdat_p, race_ethnicity, demo_prnt_income_p, demo_prnt_ed_p,
-          nihtbx_totalcomp_fullycorrected, nihtbx_flanker_fullycorrected,
-          pubertdev_ss_female_category, pubertdev_ss_male_category,
-          screentime_ss_weekday, screentime_ss_weekend,
-          screentime_13, screentime_wkdy_3,
-          screentime_wknd_9, cbcl_scr_syn_aggressive_r,
-          cbcl_scr_syn_external_r, cbcl_scr_dsm5_opposit_r,
-          cbcl_scr_dsm5_conduct_r, cbcl_scr_dsm5_opposit_t,
-          cbcl_scr_dsm5_conduct_t, cbcl_scr_syn_internal_r,
-          cbcl_scr_dsm5_depress_r, ksads_15_902_p, ksads_15_901_p,
-          ksads_16_897_p, ksads_16_899_p,
-          cbcl_q26_p, prosocial_q1_p,
-          prosocial_q2_p, prosocial_q3_p)
+#  df_temp <- (df_ndaFile) %>%
+#    select(subjectid, eventname, site_id_l, rel_family_id, sex_at_birth,
+#           demo_brthdat_p, race_ethnicity, demo_prnt_income_p, demo_prnt_ed_p,
+#           nihtbx_totalcomp_fullycorrected, nihtbx_flanker_fullycorrected,
+#           pubertdev_ss_female_category, pubertdev_ss_male_category,
+#           screentime_ss_weekday, screentime_ss_weekend,
+#           screentime_13, screentime_wkdy_3,
+#           screentime_wknd_9, cbcl_scr_syn_aggressive_r,
+#           cbcl_scr_syn_external_r, cbcl_scr_dsm5_opposit_r,
+#           cbcl_scr_dsm5_conduct_r, cbcl_scr_dsm5_opposit_t,
+#           cbcl_scr_dsm5_conduct_t, cbcl_scr_syn_internal_r,
+#           cbcl_scr_dsm5_depress_r, ksads_15_902_p, ksads_15_901_p,
+#           ksads_16_897_p, ksads_16_899_p,
+#           cbcl_q26_p, prosocial_q1_p,
+#           prosocial_q2_p, prosocial_q3_p)
 
-df_preclean <- df_temp
-write_parquet(df_preclean, "./_data/df_preclean.pqt")
-write_csv(df_preclean, "./_data/df_preclean.csv")
-write_parquet(df_temp, "./_data/df_temp.pqt")
+# df_preclean <- df_temp
+# write_parquet(df_preclean, "./_data/df_preclean.pqt")
+# write_csv(df_preclean, "./_data/df_preclean.csv")
+# write_parquet(df_temp, "./_data/df_temp.pqt")
 
 # # remove unused objects
 # rm(df_ndaFile, df_preclean)
-rm(df_preclean)
+# rm(df_preclean)
 
 ```
 
@@ -209,7 +209,7 @@ df_temp<-df_temp %>%
 ####################################
 ############Begin: Adding Gaming Hours provided by Bader########################
 
-Gaming_Hours_Bader <- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/Raul_VG/abcd_vg_bhvr/_data/Gaming_Hours_Bader.csv")
+Gaming_Hours_Bader <- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/Gaming_Hours_Bader.csv")
 
 Gaming_Hours_Bader$ids <- as.factor(Gaming_Hours_Bader$ids)
 Gaming_Hours_Bader$Event <- as.factor(Gaming_Hours_Bader$Event)
@@ -394,72 +394,6 @@ write_csv(df_wide, "/Users/shawes/Desktop/df_wide.csv")
 rm(df_temp_t0, df_temp_t1, df_temp_t2, df_merge, df_merge2, df_merge3)
 
 ```
-
-```{r}
-#| include: FALSE
-# 
-# df_long <-df_temp
-# ## pivot dataframe long
-# df_long <- df_wide %>%
-#   pivot_longer(
-#     cols = ("cu_traits"),
-#     names_to = "time",
-#     names_prefix = "cu_traits_",
-#     values_to = "cu_traits"
-#   )
-# 
-# 
-# df_temp_t0
-# 
-# df_wide
-# df %>% pivot_longer(cols=c('mature_vg_T0', 'mature_vg_T1', 'mature_vg_T2',
-#                            'vg_total_T0', 'vg_total_T1', 'vg_total_T2',
-#                            'cu_traits_T0', 'cu_traits_T1', 'cu_traits_T2',
-#                            'cbcl_agg_T0', 'cbcl_agg_T1', 'cbcl_agg_T2',
-#                            'cbcl_extern_T0', 'cbcl_extern_T1', 'cbcl_extern_T2',
-#                            'cbcl_intern_T0', 'cbcl_intern_T1', 'cbcl_intern_T2', 
-#                            'cbcl_dep_T0', 'cbcl_dep_T1', 'cbcl_dep_T2'),
-#                     names_to='col1_name',
-#                     values_to='col2_name')
-# 
-# ********************************
-# df %>%
-#   group_by(ids) %>%
-#   filter(any(event == 'Baseline') && any(vg_total > 7)) %>%
-#   ungroup
-#   
-#   
-# mydata<-filter(df_temp, event=="Baseline" & vg_total >= 7)
-# df_temp$new <- as.factor(df_temp$new)
-# summary(df_temp$new)
-# 
-# df_temp$new <- ifelse(
-#   df_temp$event == "Baseline" & df_temp$vg_total >= 7,
-#   "yes", "no")
-# 
-# ## Compute mature_vg as dichotomized variable
-# df_temp$mature_vg <- ifelse(
-# df_temp$mature_vg>1
-#     , "yes", "no")
-#   
-# ***********START HERE***********
-# should the mature_vg and other vars be transposed for the long dataset due to the formats used above?
-# 
-# ## drop "event" variable which is all "Baseline" due to pivoting
-# df_long <- (df_long) %>%
-#   select(ids, time, site_id, fam_id, sex, age, raceth, incpar, edupar, iq, mature_vg, 
-#          vg_total, DBD, DBDcu, cu_traits, cbcl_agg, cbcl_extern, cbcl_intern, cbcl_dep)
-# 
-# ## rename time variable & set variable type
-# df_long <- df_long %>% rename("event" = "time")
-# df_long$event <- as.factor(df_long$event)
-# 
-# df_long <- df_long
-# write_dataset(df_long, "./_data", format = "csv")
-# 
-
-```
-
 
 
 
