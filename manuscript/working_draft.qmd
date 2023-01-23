@@ -1,5 +1,6 @@
 ---
-title: Longitudinal Association of Video Gaming With Severe Behavior Problems Among Youth
+title: Working Draft
+subtitle: Longitudinal Association of Video Gaming With Severe Behavior Problems Among Youth 
 authors:
   - name: Bader Chaarani
     department: Department of Psychiatry
@@ -46,25 +47,10 @@ biblio-style: unsrt
 
 ---
 
-# "windsorize" Weekly_Gaming_Hours_T2 at <=28?
-
-```{r config}
-#| include: FALSE
-#| echo: FALSE
-
-knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
-                      comment=NA, cache=T, code_folding=T,
-                      R.options=list(width=220), fig.align='center', 
-                      out.width='75%', fig.asp=.75, dev="cairo_pdf")
-
-```
-
 ```{r}
 #| include: FALSE
 #| results: FALSE
 #| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
 
 #setwd("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/abcd_vg_bhvr")
 library(lme4)
@@ -95,9 +81,6 @@ library(corrr)
 
 df_long<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_long.csv")
 ```
-
-&nbsp;         <!-- Option #1 -->
-&nbsp;
 
 # Introduction
 There has been much debate and research on the relationship between violent video games and aggressive behavior problems among youth. Some studies have found that playing violent video games may be associated with increased aggressive thoughts, emotions, and behaviors. However, other research has found no such relationship, or that the relationship is small and may not be significant. It is important to note that aggression is a complex behavior that is influenced by many factors, including genetics, social environment, and individual experiences. There is no single cause of aggression, and it is likely that the relationship between violent video games and aggressive behavior is complex and multifaceted (GP). 

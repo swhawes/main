@@ -1,8 +1,4 @@
----
-title: "Descriptives"
-format: html
-editor: source
----
+# Descriptives {.unnumbered}
 
 ```{r config}
 #| echo: FALSE

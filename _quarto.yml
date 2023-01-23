@@ -1,20 +1,42 @@
 project:
   type: book
 
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: false
+  #comment: NA
+  cache: true
+  cold-folding: true
+  R.options: list(width=220)
+  fig.align: "center"
+  out.width: "75%"
+  fig.asp: .75
+  dev: "cairo_pdf"
+
 book:
   #title: "Longitudinal Association of Video Gaming With Severe Behavior Problems Among Youth"
   author: "Bader Chaarani, Samuel Hawes, Raul Gonzalez"
   chapters:
     - index.qmd
     - part: "**Manuscript**"
-      chapters: 
+      chapters:
         - ./manuscript/working_draft.qmd
     - part: "**Data Wrangling**"
-      chapters: 
+      chapters:
         - etl.qmd
     - part: "**Analyses**"
       chapters:
         - analyses.qmd
+    - part: "**Tables**"
+      chapters:
+        - Table_1.qmd
+        - Table_2.qmd
+    - part: "**Figures**"
+      chapters:
+        - Figure_1.qmd
+        - Figure_2.qmd
         #- references.qmd
   page-navigation: true
   #repo-url: https://github.com/swhawes/
@@ -32,7 +54,7 @@ book:
         aria-label: GitHub
         #text: blip
   page-footer:
-    center: 
+    center:
       - text: "About"
         href: test.qmd
   #cover-image: cover.png
@@ -48,15 +70,15 @@ format:
   html:
     theme: cosmo
     code-copy: true
+    code-fold: show
+    code-summary: "Code"
+    toc: true
   pdf:
     documentclass: scrreprt
-    include-in-header: 
+    include-in-header:
       text: |
         \usepackage{makeidx}
         \makeindex
-    include-after-body: 
+    include-after-body:
       text: |
         \printindex
-
-
-

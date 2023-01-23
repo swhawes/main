@@ -1,52 +1,17 @@
----
-title: "ETL"
-title-block-banner: true
-output:
-  html:
----
-
-# add to etl file and remove from working draft
-
-```{r clear}
-##| include: FALSE
-## Clear workspace environment
-# rm(list = ls()) 
-
-```
+# ETL {.unnumbered}
 
 ```{r install}
 
 ## Install (if necessary) and load packages
 pacman::p_load(tidyverse, arrow, pacman, rio, here)
-
-#p_update(update = FALSE)
-# Update all the packages
-# in the module
-#gfgUpdate()
-
-# Unload the packages, and then continue
-#p_unload(ggplot2, dplyr, stringr)
-
-```
-
-```{r config}
-
-knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
-                      comment=NA, cache=T, code_folding=T,
-                      R.options=list(width=220), fig.align='center', 
-                      out.width='75%', fig.asp=.75)
 ```
 
 ```{r extract}
 #| include: FALSE
 
-# (not added) screentime_ss_weekday, screentime_ss_weekend,
-# (not found) ksads_14_853_p, ksads_14_854_p,
-
 # setwd('/path/to/repo')
-# 
-#df_ndaFile <- readRDS("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/bio_Main/_data/nda4.0.rds")
 
+#df_ndaFile <- readRDS("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/bio_Main/_data/nda4.0.rds")
 
 #  df_temp <- (df_ndaFile) %>%
 #    select(subjectid, eventname, site_id_l, rel_family_id, sex_at_birth,
@@ -75,15 +40,11 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F,
 
 ```
 
-```{r cleaning}
-
+```{r transform}
+# Lazyload dataframe
 df_temp <- read_parquet("./_data/df_preclean.pqt")#, lazy = TRUE)
-#df_temp2 <- read_csv("./_data/df_preclean.csv") #, lazy = TRUE)
-head(df_temp)
 
-# "ksad_adhd1"="ksads_14_853_p", "ksad_adhd2"="ksads_14_854_p",
-
-## Rename Variables
+# Rename Variables
 df_temp <- df_temp %>% rename("ids" = "subjectid",
                     "Event" = "eventname",
                     "SiteID" = "site_id_l",
@@ -118,7 +79,7 @@ df_temp <- df_temp %>% rename("ids" = "subjectid",
                     "prosoc3"="prosocial_q3_p"
                     )
 
-## set variable types
+# Set variable types
 df_temp$ids <- as.factor(df_temp$ids)
 df_temp$Event <- as.factor(df_temp$Event)
 df_temp$SiteID <- as.factor(df_temp$SiteID)
@@ -152,19 +113,18 @@ df_temp$prosoc1 <- as.numeric(df_temp$prosoc1)
 df_temp$prosoc2 <- as.numeric(df_temp$prosoc2)
 df_temp$prosoc3 <- as.numeric(df_temp$prosoc3)
 
-## recode factor levels
+# Recode factor levels
 df_temp$Sex<-recode(df_temp$Sex, 'F' = 'Female', 'M' = 'Male')
 df_temp$Event<-recode(df_temp$Event, 'baseline_year_1_arm_1' = 'Baseline', '6_month_follow_up_arm_1' = '6_month', '1_year_follow_up_y_arm_1'= 'Year_1', '18_month_follow_up_arm_1' = '18_month', '2_year_follow_up_y_arm_1'='Year_2', '30_month_follow_up_arm_1' = '30_month', '3_year_follow_up_y_arm_1'='Year_3')
 
-## relevel factor categories
+# Relevel factor categories
 df_temp$Event <- fct_relevel(df_temp$Event, "Baseline", "Year_1", "Year_2")
 
-## Compute mature_vg as dichotomized variable
+## Compute 'MatureVideoGames' as dichotomized variable
 df_temp$MatureVideoGames <- ifelse(
 df_temp$MatureVideoGames>1
     , "yes", "no")
 df_temp$MatureVideoGames <- as.factor(df_temp$MatureVideoGames)
-df_temp$MatureVideoGames
 
 ## Reverse score the 3 prosociality questions
 prosoc_sum <- 1:3
@@ -176,7 +136,6 @@ df_temp <- df_temp %>%
 ## Compute CU traits variable
 df_temp$CU_Traits <- (df_temp$cbcl_guilt + df_temp$prosoc1_rev + 
                       df_temp$prosoc2_rev + df_temp$prosoc3_rev)
-df_temp$CU_Traits
 
 ## Compute DBD variable & set variable type
 df_temp$DBD <- ifelse(
@@ -217,7 +176,7 @@ Gaming_Hours_Bader$Weekly_Gaming_Hours <- as.numeric(Gaming_Hours_Bader$Weekly_G
 
 Gaming_Hours_Bader$Weekly_Gaming_Hours<-ifelse(Gaming_Hours_Bader$Weekly_Gaming_Hours>28,28,Gaming_Hours_Bader$Weekly_Gaming_Hours)
 
-## relevel factor categories
+# Relevel factor categories
 Gaming_Hours_Bader$Event <- fct_relevel(Gaming_Hours_Bader$Event, "Baseline", "Year_1", "Year_2")
 
 Gaming_Hours_Bader <- (Gaming_Hours_Bader) %>%
@@ -284,7 +243,7 @@ write_parquet(df_long, "./_data/df_long.pqt")
 df_long <- write_csv(df_long, "./_data/df_long.csv")
 write_parquet(df_temp, "./_data/df_temp.pqt")
 
-#Remove unused objects
+# Remove unused objects
 rm(prosoc_sum, Gaming_Hours_Bader)
 
 ```
@@ -304,21 +263,21 @@ df_temp_t0 <- (df_temp_t0) %>%
          DBD, DBDcu, CU_Traits, Aggression, Externalizing, 
          Internalizing, Depression, OppositionalDefiant, ConductDisorder)
 
-## create T1 dataframe
+## Create T1 dataframe
 df_temp_t1 <- df_long %>%
   filter(df_long$Event == "Year_1")
 df_temp_t1 <- (df_temp_t1) %>%
   select(ids, MatureVideoGames, Weekly_Gaming_Hours,
          Aggression, Externalizing, Internalizing)
 
-## create T2 dataframe, filtering by chosen criterion
+## Create T2 dataframe, filtering by chosen criterion
 df_temp_t2 <- df_long %>%
   filter(df_long$Event == "Year_2")
 df_temp_t2 <- (df_temp_t2) %>%
   select(ids, MatureVideoGames, Weekly_Gaming_Hours,
          Aggression, Externalizing, Internalizing)
 
-## merge dataframes together into wide format
+## Merge dataframes together into wide format
 df_merge <- merge(df_temp_t0, df_temp_t1, by='ids')
 df_merge2 <- merge(df_merge, df_temp_t2, by='ids')
 df_merge3 <- df_merge2 %>% rename("Aggression_T2" = "Aggression",
@@ -384,7 +343,6 @@ df_wide <- df_wide %>%
      Aggression_T2 = ifelse(is.na(Aggression_T2), 999[1], Aggression_T2),
      Internalizing_T0 = ifelse(is.na(Internalizing_T0), 999[1], Internalizing_T0),
    )
-df_wide
 
 write_parquet(df_wide, "./_data/df_wide.pqt")
 write_csv(df_wide, "./_data/df_wide.csv")
