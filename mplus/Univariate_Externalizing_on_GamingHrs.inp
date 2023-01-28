@@ -1,0 +1,68 @@
+Data: 
+file is /Users/shawes/desktop/df_wide.txt;
+
+Define:
+INT1 = MatureVideoGames*Weekly_Gaming_Hours_T0;
+!INT2 = MatureVideoGames*Sex;
+!INT3 = Weekly_Gaming_Hours_T0*Sex;
+!INT4 = MatureVideoGames*Weekly_Gaming_Hours_T0*Sex;
+
+Variable: names are 
+ids, SiteID, FamilyID, Sex, Age,
+Race_White, Race_Black, Race_Hispanic, Race_Asian, Race_Other,
+ParentIncome, ParentEducation, IQ, FlankerTest, 
+PubertalDevelopment_F, PubertalDevelopment_M,
+MatureVideoGames,
+Weekly_Gaming_Hours_T0, Weekly_Gaming_Hours_T1, Weekly_Gaming_Hours_T2, 
+Aggression_T0, Aggression_T1, Aggression_T2, 
+Externalizing_T0, Externalizing_T1, Externalizing_T2,
+Internalizing_T0
+;
+
+Usevariables are
+Externalizing_T0, Externalizing_T1, Externalizing_T2,
+!MatureVideoGames,
+Weekly_Gaming_Hours_T0
+!Sex, Race_Black, Race_Hispanic, Race_Asian, Race_Other
+!ParentIncome, ParentEducation, IQ, 
+!FlankerTest, Internalizing_T0,
+!INT1
+!INT2
+!INT3
+!INT4
+;
+
+Missing are all (999, 777);
+
+Stratification = SiteID;
+CLUSTER = FamilyID;
+
+ANALYSIS:
+Estimator = MLR;
+TYPE=complex;
+Integration = Montecarlo;
+
+MODEL:
+
+I S | Externalizing_T0@0 Externalizing_T1@1 Externalizing_T2@2;
+
+!S@0;
+
+I on Weekly_Gaming_Hours_T0;
+S on Weekly_Gaming_Hours_T0; 
+
+
+!I on MatureVideoGames Weekly_Gaming_Hours_T0 
+!Sex Race_Black Race_Hispanic Race_Asian Race_Other
+!ParentIncome ParentEducation IQ FlankerTest Internalizing_T0
+!INT1
+!INT2
+!INT3
+!INT4
+!;
+
+
+
+Output: Sampstat Stdyx CINTERVAL;
+
+

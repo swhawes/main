@@ -135,14 +135,12 @@ var_table %>%
                 font_size = 10,
                 position = "center", fixed_thead = T) %>%
   row_spec(2:3, extra_css = 'vertical-align: middle !important;') %>%
-  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(1, border_right = T) %>%
   column_spec(2, border_right = T) %>%
   column_spec(3, border_right = T) %>%
   column_spec(4, border_right = T) %>%
   footnote(general = "TBD. ") %>%
   scroll_box(width = "75%", height = "500px")
-
-
 
 ```
 

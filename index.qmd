@@ -1,3 +1,41 @@
 # **Welcome** {.unnumbered}
 
 This is the current landing page for the *"Longitudinal Association of Video Gaming With Severe Behavior Problems Among Youth"* project 
+
+
+```{r}
+#| include: FALSE
+#| results: FALSE
+#| echo: FALSE
+
+
+library(lme4)
+library(lmerTest)
+library(tidyverse)
+library(arrow)
+library(afex)
+library(formatR)
+library(report)
+library(easystats)
+library(parameters)
+library(modelbased)
+library(effectsize)
+library(see)
+library(performance)
+library(insight)
+library(DT)
+library(data.table)
+library(arsenal)
+library(kableExtra)
+library(equatiomatic)
+library(gtsummary)
+library(ggstatsplot)
+library(papaja)
+library(stringi)
+library(lavaan)
+library(corrr)
+
+df_long<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_long.csv")
+```
+
+

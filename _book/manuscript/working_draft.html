@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -348,15 +285,12 @@ div.csl-indent {
   <li><a href="#participant-inclusion-criteria" id="toc-participant-inclusion-criteria" class="nav-link" data-scroll-target="#participant-inclusion-criteria">Participant Inclusion Criteria</a></li>
   <li><a href="#demographic-characteristics-and-mental-health-measures" id="toc-demographic-characteristics-and-mental-health-measures" class="nav-link" data-scroll-target="#demographic-characteristics-and-mental-health-measures">Demographic Characteristics and Mental Health Measures</a></li>
   </ul></li>
-  <li><a href="#analytic-strategy" id="toc-analytic-strategy" class="nav-link" data-scroll-target="#analytic-strategy">Analytic Strategy</a>
-  <ul class="collapse">
-  <li><a href="#structural-equation-modeling" id="toc-structural-equation-modeling" class="nav-link" data-scroll-target="#structural-equation-modeling">Structural Equation Modeling</a></li>
-  </ul></li>
+  <li><a href="#analytic-strategy" id="toc-analytic-strategy" class="nav-link" data-scroll-target="#analytic-strategy">Analytic Strategy</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
   <li><a href="#demographic-characteristics" id="toc-demographic-characteristics" class="nav-link" data-scroll-target="#demographic-characteristics">Demographic Characteristics</a></li>
   <li><a href="#individual-behavioral-performance-measures" id="toc-individual-behavioral-performance-measures" class="nav-link" data-scroll-target="#individual-behavioral-performance-measures">Individual Behavioral Performance Measures</a></li>
-  <li><a href="#structural-equation-modeling-1" id="toc-structural-equation-modeling-1" class="nav-link" data-scroll-target="#structural-equation-modeling-1">Structural Equation Modeling</a></li>
+  <li><a href="#structural-equation-modeling" id="toc-structural-equation-modeling" class="nav-link" data-scroll-target="#structural-equation-modeling">Structural Equation Modeling</a></li>
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
   <ul class="collapse">
@@ -458,7 +392,7 @@ div.csl-indent {
 </section>
 <section id="potential-confounders" class="level3">
 <h3 class="anchored" data-anchor-id="potential-confounders">Potential confounders</h3>
-<p>To account for the potentially confounding effects of attentional, cognitive, or emotional dif- ficulties that are often comorbid with DBDs, all analyses included CBCL DSM-oriented attention problems and in- ternalizing subscale scores as covariates. We also covaried for sex, age, race/ethnicity, and parental education.</p>
+<p>To account for the potentially confounding effects of attentional, cognitive, or emotional difficulties that are often comorbid with DBDs, all analyses included CBCL DSM-oriented attention problems and in- ternalizing subscale scores as covariates. We also covaried for sex, age, race/ethnicity, and parental education.</p>
 </section>
 <section id="participant-inclusion-criteria" class="level3">
 <h3 class="anchored" data-anchor-id="participant-inclusion-criteria">Participant Inclusion Criteria</h3>
@@ -471,22 +405,26 @@ div.csl-indent {
 </section>
 <section id="analytic-strategy" class="level2">
 <h2 class="anchored" data-anchor-id="analytic-strategy">Analytic Strategy</h2>
-<p>Analysis of variance and x2 tests were used to compare the demographic characteristics between NVGs and VGs. The Permutation Analysis of Linear Models (PALM) general linear model26 was used to run vertexwise permutation analyses comparing cortical task-specific BOLD signal between NGVs and VGs for correct stop vs correct go and incorrect stop vs correct go conditions of the SST, as well as 0-back vs fixation and 2-back vs fixation conditions of the n-back test, with age (months), sex, scanner serial number, IQ, puberty, and combined parental income included as nuisance covariates. The analyses accommodated the nonindependence of the participants by incorporating information on sibling status as a nested covariate in the model using PALM’s exchangeability blocks,27 which restrict the shuffling to only occur among the observations that share the same family index, that is, within-block only. In addition, performance measures, including SSRT and correct go RT in the SST as well as D and correct RT in the n-back, were compared between NVGs and VGs using analysis of covariance (with the same covariates as those included in neuroimaging analyses). All statistical tests were 2-sided. False discovery rate–corrected P values and statistical maps were considered significant at P &lt; .05.</p>
-<p>We used multinomial logistic regression to examine differences in reward-related brain activation in regions of interest between the following groups: youths with DBDs compared with typically developing youths, youths with DBD only compared with typically developing youths, youths with DBD+CU compared with typically developing youths, and youths with DBD only compared with youths with DBD+CU. We also examined whether sex moderated these associations. Next, we used latent variable modeling to determine whether the spatial pattern of coactivation across all 16 reward- relevant regions (i.e., relative contribution of each region to a broader reward network) differed between groups during reward anticipation and receipt. We specified a second-order factor model in which each (separably lateralized) region of interest loaded onto a right or left reward factor. These first- order right and left lateralized factors were then used as indicators of a higher-order factor, representing an over- arching latent reward network factor (Figure 2). The re- siduals of homologous region-of-interest pairs were specified to correlate (e.g., the left OFC with the right OFC).</p>
-<p>The reward network factor model allowed us to examine group differences in activation at a network level, supple- menting the region-of-interest analyses in several ways. First, we could evaluate how each region contributed to the hy- pothesized reward network and assess whether the network could be modeled similarly across groups. We used mea- surement invariance testing (via the DIFFTEST procedure in Mplus, version 7 [32]) to evaluate the reward network factor model across groups (i.e., configural invariance) and whether each region contributed to the higher-order network equivalently across groups (i.e., metric and scalar invariance) (see the Methods section in the online supplement). Second, our modeling approach allowed us to test for group differ- ences in mean levels of activation at the network level (i.e., not just individual regions), which was made more advantageous given that latent variables are modeled free of measurement error, resulting in increased statistical power.</p>
-<p>All analyses were conducted using Mplus, version 7 (32), with models specified using maximum likelihood estimation with robust standard errors and a Monte Carlo numerical integration algorithm. Complex sampling and recruitment procedures for the ABCD Study were accounted for using cluster correction (i.e., for sibling pairs) and stratification sampling (i.e.&nbsp;study site) procedures (32). The median absolute deviation was used to identify study outliers, with values winsorized at 62.5 times the median absolute deviation. Outlier cases did not exceed 5% for any region.</p>
-<section id="structural-equation-modeling" class="level3">
-<h3 class="anchored" data-anchor-id="structural-equation-modeling">Structural Equation Modeling</h3>
-<p>To address any confounding effects of time spent watching videos, behavioral problems, or psychiatric disorders on BOLD changes associated with video gaming, we used structural equation modeling to model the association between video gaming and activation in the n-back task and SST, with video watching, behavioral problems, and psychiatric disorders scores included as covariates (Figure 1). B Coefficients from the fMRI general linear model (model described in the eMethods in the Supplement) were extracted using MATLAB (MathWorks) for each task and contrast from vertexes showing significant differences between NVGs and VGs in the vertexwise analyses. Mean B coefficients were computed for each contrast and included as the BOLD signal variable in the model. Total behavioral problems and psychiatric disorder scores were calculated from the CBCL20 as the sum of the scores of all of the problem and psychiatric items, respectively. The model was specified in R software, version 4.0.4 (R Foundation for Statistical Computing) using the structural equation.</p>
-</section>
+<p>Descriptive analysis present an overview of demographic characteristics and xxxx, with age (months), sex, race/ethnicity, scanner serial number, IQ, puberty, parental education, parental income, xxxxx across 3 annual assessment waves (t0, t1, t2). Latent growth curve modeling (LGCM) was used to characterize behavior problem trajectories (e.g., aggression, externalizing behaviors) in youth across mid-to-late childhood (ages ~ 9-12). This approach identifies developmental trajectories, allowing for an examination of individual patterns of stability and change across time, as well as unique predictors and outcomes of change. <strong>Next, main effects and interactions were used to predict intercept and slope factor of behavior problems main effects and interactions w/ sex, maturegames, gaming hrs in childhood (baseline) predicted xxxx longitudinally.</strong></p>
+<p>All analyses were conducted using Mplus, version 7 (32), with models specified using maximum likelihood estimation with robust standard errors and a Monte Carlo numerical integration algorithm. Complex sampling and recruitment procedures for the ABCD Study were accounted for using cluster correction (i.e., for sibling pairs) and stratification sampling (i.e.&nbsp;study site) procedures (32). Model fit was assessed according to global fit indices including the comparative fit index (CFI) and the root mean square error of approximation (RMSEA). Cutoff values of .90 or greater were used to indicate acceptable fit and .95 or greater to indicate good fit for CFI (Hu and Bentler, 1999; McDonald and Ho, 2002). RMSEA values between .05 and .10 were considered to represent an acceptable fit, while values less than .05 were considered to indicate good fit (Browne and Cudeck, 1993; McDonald and Ho, 2002).</p>
+<p>In addition, longitudinal and multigroup invariance testing was conducted to determine whether there were any sex-based effects <strong>for any model parameters</strong>. First, a baseline configural model was specified, allowing factor loadings and intercepts to vary across time. Subsequent models were specified by adding parameter constraints, until arriving at a final invariance model with factor loadings, intercepts, factor covariances, and item residual variances constrained to equality across each assessment wave. These models were compared via (Satorra-Bentler) chi-square difference testing, wherein a non-significant chi-square indicates that the more constrained model should be adopted. However, as the chi-square difference test is sensitive to sample size and violations of the normality assumption, we also assessed change in CFI and RMSEA fit indices across models. Changes in CFI equal to or less than .01 and changes in RMSEA of equal to or less than .015 have been proposed as demonstrating evidence of model invariance (Chen, 2007; Cheung and Rensvold, 2002).</p>
+<p>The xxxx model allowed us to examine group differences in xxxx, supplementing the xxxxx analyses in several ways. First, we could evaluate how xxxx contributed to the hypothesized xxxxx and assess whether xxxxx could be modeled similarly across groups. We used measurement invariance testing (via the DIFFTEST procedure in Mplus, version 7 [32]) to evaluate the xxxx model across groups (i.e., configural invariance) and over time to determine whether each xxxx contributed to the xxxx equivalently across groups (i.e., metric and scalar invariance) (see the Methods section in the online supplement). Second, our modeling approach allowed us to test for group differences in mean levels of xxxxx, which was made more advantageous given that latent variables are modeled free of measurement error, resulting in increased statistical power.</p>
 </section>
 <section id="results" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<div class="cell" data-warnings="false" data-messages="false" data-hash="working_draft_cache/html/descriptives_7106a277465c4f8d6cd0da32dd424bf3">
+<p>Descriptive statistics showed</p>
+<dl>
+<dt>groups to be equivalent on demographic variables, except for a lower proportional representation of female and Hispanic/Latinx children in the DBD groups (Table 1). There were no between-group differences on MID task performance (e. g., mean reaction time; Table S2).</dt>
+<dd>
+<p>Demonstration of pipe table syntax</p>
+</dd>
+</dl>
+<p>Results from multinomial logistic regressions are shown in Table 2. No significant group differences were identified in any ROIs for loss anticipation4 nor loss receipt and there were no significant interactions with sex or anxiety. Findings did not significantly differ when covariates were removed (Table S4).</p>
+<div class="cell" data-warnings="false" data-messages="false" data-hash="working_draft_cache/html/descriptives_0fb175add342d7741c41028682fccd72">
 <div class="cell-output-display">
 
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:75%; "><table class="table table-striped" style="font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
-<caption style="font-size: initial !important;">Study Descriptives</caption>
+<caption style="font-size: initial !important;">Descriptives</caption>
  <thead>
   <tr>
    <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;">  </th>
@@ -498,679 +436,235 @@ div.csl-indent {
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> Sex </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> Sex </td>
    <td style="text-align:left;border-right:1px solid;"> 4381 (67.3%) </td>
    <td style="text-align:left;border-right:1px solid;"> 4210 (67.3%) </td>
    <td style="text-align:left;border-right:1px solid;"> 3873 (67.4%) </td>
    <td style="text-align:left;"> 12464 (67.3%) </td>
   </tr>
   <tr>
-   <td style="text-align:left;vertical-align: middle !important;border-right:1px solid;"> Race </td>
+   <td style="text-align:left;vertical-align: middle !important;font-weight: bold;border-right:1px solid;"> Race </td>
    <td style="text-align:left;vertical-align: middle !important;border-right:1px solid;">  </td>
    <td style="text-align:left;vertical-align: middle !important;border-right:1px solid;">  </td>
    <td style="text-align:left;vertical-align: middle !important;border-right:1px solid;">  </td>
    <td style="text-align:left;vertical-align: middle !important;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;vertical-align: middle !important;border-right:1px solid;"> -  Asian </td>
+   <td style="text-align:left;vertical-align: middle !important;font-weight: bold;border-right:1px solid;"> -  Asian </td>
    <td style="text-align:left;vertical-align: middle !important;border-right:1px solid;"> 88 (1.4%) </td>
    <td style="text-align:left;vertical-align: middle !important;border-right:1px solid;"> 83 (1.3%) </td>
    <td style="text-align:left;vertical-align: middle !important;border-right:1px solid;"> 0 </td>
    <td style="text-align:left;vertical-align: middle !important;"> 171 (1.3%) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Black </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Black </td>
    <td style="text-align:left;border-right:1px solid;"> 1227 (18.8%) </td>
    <td style="text-align:left;border-right:1px solid;"> 1133 (18.1%) </td>
    <td style="text-align:left;border-right:1px solid;"> 0 </td>
    <td style="text-align:left;"> 2360 (18.5%) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Hispanic </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Hispanic </td>
    <td style="text-align:left;border-right:1px solid;"> 1388 (21.3%) </td>
    <td style="text-align:left;border-right:1px solid;"> 1315 (21.0%) </td>
    <td style="text-align:left;border-right:1px solid;"> 0 </td>
    <td style="text-align:left;"> 2703 (21.2%) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Other </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Other </td>
    <td style="text-align:left;border-right:1px solid;"> 713 (10.9%) </td>
    <td style="text-align:left;border-right:1px solid;"> 686 (11.0%) </td>
    <td style="text-align:left;border-right:1px solid;"> 0 </td>
    <td style="text-align:left;"> 1399 (11.0%) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  White </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  White </td>
    <td style="text-align:left;border-right:1px solid;"> 3096 (47.5%) </td>
    <td style="text-align:left;border-right:1px solid;"> 3038 (48.6%) </td>
    <td style="text-align:left;border-right:1px solid;"> 0 </td>
    <td style="text-align:left;"> 6134 (48.0%) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> Age </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> Age </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6507 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;"> 6507 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 9.5 (0.5) </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;"> 9.5 (0.5) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 9.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;"> 9.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 8.0 - 11.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;"> 8.0 - 11.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> IQ </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> IQ </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 5968 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 40 </td>
-   <td style="text-align:left;"> 6008 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 47.2 (11.2) </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;border-right:1px solid;"> 47.4 (11.2) </td>
    <td style="text-align:left;"> 47.2 (11.2) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 47.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> 46.5 </td>
-   <td style="text-align:left;"> 47.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 5.0 - 155.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> 29.0 - 71.0 </td>
-   <td style="text-align:left;"> 5.0 - 155.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> FlankerTest </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> FlankerTest </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6071 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4328 </td>
-   <td style="text-align:left;"> 10399 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 46.2 (9.4) </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;border-right:1px solid;"> 46.7 (9.6) </td>
    <td style="text-align:left;"> 46.4 (9.5) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 46.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> 46.0 </td>
-   <td style="text-align:left;"> 46.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 10.0 - 113.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> 19.0 - 81.0 </td>
-   <td style="text-align:left;"> 10.0 - 113.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> ParentIncome </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> ParentIncome </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6512 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;"> 6512 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 86.0 (256.5) </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;"> 86.0 (256.5) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 5.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;"> 5.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 999.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;"> 1.0 - 999.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> ParentEducation </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> ParentEducation </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6513 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;"> 6513 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 18.1 (37.8) </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;"> 18.1 (37.8) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 17.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;"> 17.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 - 777.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;"> 2.0 - 777.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> PubertalDevelopment_F </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> PubertalDevelopment_F </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 1521 </td>
-   <td style="text-align:left;border-right:1px solid;"> 815 </td>
-   <td style="text-align:left;border-right:1px solid;"> 37 </td>
-   <td style="text-align:left;"> 2373 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 2.4 (0.9) </td>
    <td style="text-align:left;border-right:1px solid;"> 2.8 (0.9) </td>
    <td style="text-align:left;border-right:1px solid;"> 3.2 (0.7) </td>
    <td style="text-align:left;"> 2.5 (0.9) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 3.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 3.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 3.0 </td>
-   <td style="text-align:left;"> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 5.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 5.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 - 4.0 </td>
-   <td style="text-align:left;"> 1.0 - 5.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> PubertalDevelopment_M </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> PubertalDevelopment_M </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 3854 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1829 </td>
-   <td style="text-align:left;border-right:1px solid;"> 93 </td>
-   <td style="text-align:left;"> 5776 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 2.0 (0.8) </td>
    <td style="text-align:left;border-right:1px solid;"> 2.0 (0.8) </td>
    <td style="text-align:left;border-right:1px solid;"> 2.3 (0.7) </td>
    <td style="text-align:left;"> 2.0 (0.8) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 </td>
-   <td style="text-align:left;"> 2.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 5.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 5.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 4.0 </td>
-   <td style="text-align:left;"> 1.0 - 5.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> MatureVideoGames </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> MatureVideoGames </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6506 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6250 </td>
-   <td style="text-align:left;border-right:1px solid;"> 5724 </td>
-   <td style="text-align:left;"> 18480 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 1.2 (0.4) </td>
    <td style="text-align:left;border-right:1px solid;"> 1.2 (0.4) </td>
    <td style="text-align:left;border-right:1px solid;"> 1.2 (0.4) </td>
    <td style="text-align:left;"> 1.2 (0.4) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;"> 1.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 2.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 2.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 - 2.0 </td>
-   <td style="text-align:left;"> 1.0 - 2.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> TotalGamingHours </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> TotalGamingHours </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6501 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6248 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0 </td>
-   <td style="text-align:left;"> 12749 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 11.2 (8.3) </td>
    <td style="text-align:left;border-right:1px solid;"> 13.2 (8.3) </td>
    <td style="text-align:left;border-right:1px solid;"> NA </td>
    <td style="text-align:left;"> 12.2 (8.4) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 9.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 11.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;"> 9.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 28.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 28.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> NA </td>
-   <td style="text-align:left;"> 0.0 - 28.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> Weekly_Gaming_Hours </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> Weekly_Gaming_Hours </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6427 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6207 </td>
-   <td style="text-align:left;border-right:1px solid;"> 5411 </td>
-   <td style="text-align:left;"> 18045 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 11.3 (8.3) </td>
    <td style="text-align:left;border-right:1px solid;"> 13.3 (8.3) </td>
    <td style="text-align:left;border-right:1px solid;"> 14.3 (10.6) </td>
    <td style="text-align:left;"> 12.9 (9.1) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 9.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 11.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 14.0 </td>
-   <td style="text-align:left;"> 11.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 28.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 28.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 28.0 </td>
-   <td style="text-align:left;"> 0.0 - 28.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> DBD </td>
-   <td style="text-align:left;border-right:1px solid;"> 1258 (19.5%) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1319 (21.3%) </td>
-   <td style="text-align:left;border-right:1px solid;"> 922 (20.2%) </td>
-   <td style="text-align:left;"> 3499 (20.3%) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> DBDcu </td>
-   <td style="text-align:left;border-right:1px solid;"> 297 (4.6%) </td>
-   <td style="text-align:left;border-right:1px solid;"> 306 (4.9%) </td>
-   <td style="text-align:left;border-right:1px solid;"> 233 (4.1%) </td>
-   <td style="text-align:left;"> 836 (4.6%) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> CU_Traits </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> Aggression </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6477 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6233 </td>
-   <td style="text-align:left;border-right:1px solid;"> 5701 </td>
-   <td style="text-align:left;"> 18411 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
-   <td style="text-align:left;border-right:1px solid;"> 5.0 (1.5) </td>
-   <td style="text-align:left;border-right:1px solid;"> 5.1 (1.5) </td>
-   <td style="text-align:left;border-right:1px solid;"> 5.1 (1.5) </td>
-   <td style="text-align:left;"> 5.1 (1.5) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 4.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4.0 </td>
-   <td style="text-align:left;"> 4.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 4.0 - 12.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4.0 - 12.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4.0 - 12.0 </td>
-   <td style="text-align:left;"> 4.0 - 12.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> Aggression </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6510 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6246 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4444 </td>
-   <td style="text-align:left;"> 17200 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 3.7 (4.8) </td>
    <td style="text-align:left;border-right:1px solid;"> 3.4 (4.6) </td>
    <td style="text-align:left;border-right:1px solid;"> 3.2 (4.4) </td>
    <td style="text-align:left;"> 3.5 (4.6) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 </td>
-   <td style="text-align:left;"> 2.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 36.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 32.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 33.0 </td>
-   <td style="text-align:left;"> 0.0 - 36.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> Externalizing </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> Externalizing </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6510 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6246 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4444 </td>
-   <td style="text-align:left;"> 17200 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 5.1 (6.5) </td>
    <td style="text-align:left;border-right:1px solid;"> 4.8 (6.2) </td>
    <td style="text-align:left;border-right:1px solid;"> 4.4 (6.1) </td>
    <td style="text-align:left;"> 4.8 (6.3) </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 3.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 3.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 </td>
-   <td style="text-align:left;"> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 49.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 47.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 50.0 </td>
-   <td style="text-align:left;"> 0.0 - 50.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> Internalizing </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> Internalizing </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;border-right:1px solid;">  </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6510 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6246 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4444 </td>
-   <td style="text-align:left;"> 17200 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
+   <td style="text-align:left;font-weight: bold;border-right:1px solid;"> -  Mean (SD) </td>
    <td style="text-align:left;border-right:1px solid;"> 5.3 (5.8) </td>
    <td style="text-align:left;border-right:1px solid;"> 5.4 (5.9) </td>
    <td style="text-align:left;border-right:1px solid;"> 5.1 (5.8) </td>
    <td style="text-align:left;"> 5.3 (5.8) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 3.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 3.0 </td>
-   <td style="text-align:left;"> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 51.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 48.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 50.0 </td>
-   <td style="text-align:left;"> 0.0 - 51.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> Depression </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6510 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6246 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4444 </td>
-   <td style="text-align:left;"> 17200 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.4 (2.2) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.6 (2.4) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.6 (2.4) </td>
-   <td style="text-align:left;"> 1.5 (2.3) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;"> 1.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 19.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 19.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 19.0 </td>
-   <td style="text-align:left;"> 0.0 - 19.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> OppositionalDefiant </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6510 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6246 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4444 </td>
-   <td style="text-align:left;"> 17200 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
-   <td style="text-align:left;border-right:1px solid;"> 2.0 (2.2) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.9 (2.1) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.7 (2.1) </td>
-   <td style="text-align:left;"> 1.9 (2.1) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.0 </td>
-   <td style="text-align:left;"> 1.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 10.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 10.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 10.0 </td>
-   <td style="text-align:left;"> 0.0 - 10.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> ConductDisorder </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;border-right:1px solid;">  </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Count </td>
-   <td style="text-align:left;border-right:1px solid;"> 6510 </td>
-   <td style="text-align:left;border-right:1px solid;"> 6246 </td>
-   <td style="text-align:left;border-right:1px solid;"> 4444 </td>
-   <td style="text-align:left;"> 17200 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Mean (SD) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.6 (2.6) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.4 (2.5) </td>
-   <td style="text-align:left;border-right:1px solid;"> 1.4 (2.5) </td>
-   <td style="text-align:left;"> 1.5 (2.6) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Median </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 </td>
-   <td style="text-align:left;"> 0.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;border-right:1px solid;"> -  Min -
-                                                 Max </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 25.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 25.0 </td>
-   <td style="text-align:left;border-right:1px solid;"> 0.0 - 25.0 </td>
-   <td style="text-align:left;"> 0.0 - 25.0 </td>
   </tr>
 </tbody>
 <tfoot>
@@ -1325,7 +819,7 @@ div.csl-indent {
 <p>Item valence (<span class="math inline">\(pes = 0.01\)</span>, 95% CI <span class="math inline">\([0.00, 0.02]\)</span>, <span class="math inline">\(t[5931] = 1.34\)</span>, <span class="math inline">\(p = .181\)</span>) and the task affected <span class="math inline">\(pes = 0.01\)</span>, 95% CI <span class="math inline">\([0.00, 0.02]\)</span>, <span class="math inline">\(t(5931) = 1.34\)</span>, <span class="math inline">\(p = .181\)</span> xxxxx (<span class="math inline">\(pes = 0.00\)</span>, 95% CI <span class="math inline">\([0.00, 0.00]\)</span>, <span class="math inline">\(t[5931] = -0.21\)</span>, <span class="math inline">\(p = .835\)</span>) recall performance, test, <span class="math inline">\(pes = 0.00\)</span>, 95% CI <span class="math inline">\([0.00, 0.00]\)</span>, <span class="math inline">\(t(5931) = -0.21\)</span>, <span class="math inline">\(p = .835\)</span>; the dosage, however, had no effect on recall. There was no significant interaction (<span class="math inline">\(pes = -0.03\)</span>, 95% CI <span class="math inline">\([-0.04, -0.02]\)</span>, <span class="math inline">\(t[5931] = -5.29\)</span>, <span class="math inline">\(p &lt; .001\)</span>).</p>
 <section id="demographic-characteristics" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="demographic-characteristics">Demographic Characteristics</h3>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-2_9a7e42f66d1431bf5689100b5136599d">
+<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-1_a00c99d147221582b661c3d5385df80f">
 <div class="cell-output cell-output-stdout">
 <pre><code>Lorem ipsum dolor sit amet, malesuada tellus leo ullamcorper posuere justo sagittis
 auctor. Nisi cursus, nunc et molestie nisl auctor pellentesque. Class ac ante egestas
@@ -1335,7 +829,7 @@ elementum condimentum, ac magnis sit. Cursus mauris ac sodales eget amet eget vu
 vestibulum venenatis nec. Auctor et natoque a elit fermentum.</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-3_be31d491d7f0ad8fb37f13a06d23deda">
+<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-2_20ea53b5f13922c4ac02437f2489f857">
 
 </div>
 <p>Timmy is 11</p>
@@ -1762,7 +1256,7 @@ beta = 0.03, 95% CI [0.01, 0.04], t(12601) = 3.80, p &lt; .001; Std. beta = 0.01
 <p><img src="working_draft_files/figure-html/my-figure-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-5_d794292678f484e44e2680edce1389e2">
+<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-4_dc7805e640813b6326f4242f81be2b4d">
 <div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-12 ended normally after 75 iterations
 
@@ -1868,217 +1362,25 @@ Variances:
     s                  -0.053  173.779   -0.000    1.000         NA       NA</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-6_566e923aee86c74130898796e69859ca">
-<details open="">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>RICLPM <span class="ot">&lt;-</span> <span class="st">'</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">  # Create between components (random intercepts)</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">  RIx =~ 1*Weekly_Gaming_Hours_T0 + 1*Weekly_Gaming_Hours_T1 + 1*Weekly_Gaming_Hours_T2</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">  RIy =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">  # Create within-person centered variables</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">  wx0 =~ 1*Weekly_Gaming_Hours_T0</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">  wx1 =~ 1*Weekly_Gaming_Hours_T1</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">  wx2 =~ 1*Weekly_Gaming_Hours_T2 </span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">  wy0 =~ 1*Externalizing_T0</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="st">  wy1 =~ 1*Externalizing_T1</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="st">  wy2 =~ 1*Externalizing_T2</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="st">  # Estimate lagged effects between within-person centered variables</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="st">  wx1 + wy1 ~ wx0 + wy0</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="st">  wx2 + wy2 ~ wx1 + wy1</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="st">  #wy2 ~ wy1</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="st">  #wy1 ~ wy0</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="st">  # Estimate covariance between within-person centered variables at first wave</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="st">  wx0 ~~ wy0 # Covariance</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="st">  # Estimate covariances between residuals of within-person centered variables </span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="st">  # (i.e., innovations)</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="st">  wx1 ~~ wy1</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="st">  wx2 ~~ wy2</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="st">  # Estimate variance and covariance of random intercepts</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="st">  RIx ~~ RIx</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="st">  RIy ~~ RIy</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="st">  RIx ~~ RIy</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="st">  # Estimate (residual) variance of within-person centered variables</span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="st">  wx0 ~~ wx0 # Variances</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="st">  wy0 ~~ wy0</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="st">  wx1 ~~ wx1 # Residual variances</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="st">  wy1 ~~ wy1</span></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="st">  wx2 ~~ wx2</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="st">  wy2 ~~ wy2</span></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="st"># regressions</span></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="st">#RIy ~ Weekly_Gaming_Hours_T0</span></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="st">#s ~ Weekly_Gaming_Hours_T0 </span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>RICLPM.fit <span class="ot">&lt;-</span> <span class="fu">lavaan</span>(RICLPM, </span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df_wide,</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimator =</span><span class="st">"MLR"</span>,</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group = "MatureVideoGames",</span></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ordered = c("Externalizing_T0", "Externalizing_T1", "Externalizing_T2"),</span></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>  <span class="at">meanstructure =</span> T, </span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">int.ov.free =</span> T</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="co">#, ordered = c("Externalizing_T0", "Externalizing_T1", "Externfalizing_T2")</span></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(RICLPM.fit, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6-12 ended normally after 1546 iterations
-
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                        26
-
-  Number of observations                          5649
-
-Model Test User Model:
-                                               Standard      Robust
-  Test Statistic                              15681.529   15681.529
-  Degrees of freedom                                  1           1
-  P-value (Chi-square)                            0.000       0.000
-  Scaling correction factor                                      NA
-                                                                   
-
-Model Test Baseline Model:
-
-  Test statistic                                92.121      28.067
-  Degrees of freedom                                15          15
-  P-value                                        0.000       0.021
-  Scaling correction factor                                  3.282
-
-User Model versus Baseline Model:
-
-  Comparative Fit Index (CFI)                     0.000       0.000
-  Tucker-Lewis Index (TLI)                    -3048.849  -17999.239
-                                                                   
-  Robust Comparative Fit Index (CFI)                             NA
-  Robust Tucker-Lewis Index (TLI)                                NA
-
-Loglikelihood and Information Criteria:
-
-  Loglikelihood user model (H0)            -208975.606 -208975.606
-  Loglikelihood unrestricted model (H1)    -201134.842 -201134.842
-                                                                  
-  Akaike (AIC)                              418003.212  418003.212
-  Bayesian (BIC)                            418175.832  418175.832
-  Sample-size adjusted Bayesian (BIC)       418093.212  418093.212
-
-Root Mean Square Error of Approximation:
-
-  RMSEA                                          1.666          NA
-  90 Percent confidence interval - lower         1.644         Inf
-  90 Percent confidence interval - upper         1.688         Inf
-  P-value RMSEA &lt;= 0.05                          0.000       0.000
-                                                                  
-  Robust RMSEA                                                  NA
-  90 Percent confidence interval - lower                        NA
-  90 Percent confidence interval - upper                        NA
-
-Standardized Root Mean Square Residual:
-
-  SRMR                                           3.505       3.505
-
-Parameter Estimates:
-
-  Standard errors                             Sandwich
-  Information bread                           Observed
-  Observed information based on                Hessian
-
-Latent Variables:
-                   Estimate   Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-  RIx =~                                                                 
-    Wkly_Gmng_H_T0     1.000                              83.081    0.508
-    Wkly_Gmng_H_T1     1.000                              83.081    1.000
-    Wkly_Gmng_H_T2     1.000                              83.081    0.323
-  RIy =~                                                                 
-    Externalzng_T0     1.000                              44.276    0.694
-    Externalzng_T1     1.000                              44.276    1.000
-    Externalzng_T2     1.000                              44.276    0.105
-  wx0 =~                                                                 
-    Wkly_Gmng_H_T0     1.000                             140.693    0.861
-  wx1 =~                                                                 
-    Wkly_Gmng_H_T1     1.000                               0.060    0.001
-  wx2 =~                                                                 
-    Wkly_Gmng_H_T2     1.000                             243.055    0.946
-  wy0 =~                                                                 
-    Externalzng_T0     1.000                              45.933    0.720
-  wy1 =~                                                                 
-    Externalzng_T1     1.000                               0.091    0.002
-  wy2 =~                                                                 
-    Externalzng_T2     1.000                             417.779    0.994
-
-Regressions:
-                   Estimate   Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-  wx1 ~                                                                  
-    wx0                0.000       NA                      0.089    0.089
-    wy0               -0.000       NA                     -0.070   -0.070
-  wy1 ~                                                                  
-    wx0                0.000       NA                      0.158    0.158
-    wy0                0.000       NA                      0.084    0.084
-  wx2 ~                                                                  
-    wx1             2625.867       NA                      0.646    0.646
-    wy1             2524.843       NA                      0.941    0.941
-  wy2 ~                                                                  
-    wx1            -5708.520       NA                     -0.817   -0.817
-    wy1             1928.191       NA                      0.418    0.418
-
-Covariances:
-                   Estimate   Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-  wx0 ~~                                                                 
-    wy0              208.813       NA                      0.032    0.032
- .wx1 ~~                                                                 
-   .wy1               -0.001       NA                     -0.240   -0.240
- .wx2 ~~                                                                 
-   .wy2              717.112       NA                      0.861    0.861
-  RIx ~~                                                                 
-    RIy              343.872       NA                      0.093    0.093
-
-Intercepts:
-                   Estimate   Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .Wkly_Gmng_H_T0    24.087       NA                     24.087    0.147
-   .Wkly_Gmng_H_T1    20.197       NA                     20.197    0.243
-   .Wkly_Gmng_H_T2    71.556       NA                     71.556    0.279
-   .Externalzng_T0     5.187       NA                      5.187    0.081
-   .Externalzng_T1     6.684       NA                      6.684    0.151
-   .Externalzng_T2   229.610       NA                    229.610    0.547
-    RIx                0.000                               0.000    0.000
-    RIy                0.000                               0.000    0.000
-    wx0                0.000                               0.000    0.000
-   .wx1                0.000                               0.000    0.000
-   .wx2                0.000                               0.000    0.000
-    wy0                0.000                               0.000    0.000
-   .wy1                0.000                               0.000    0.000
-   .wy2                0.000                               0.000    0.000
-
-Variances:
-                   Estimate   Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-    RIx             6902.370       NA                      1.000    1.000
-    RIy             1960.347       NA                      1.000    1.000
-    wx0            19794.561       NA                      1.000    1.000
-    wy0             2109.804       NA                      1.000    1.000
-   .wx1                0.004       NA                      0.988    0.988
-   .wy1                0.008       NA                      0.967    0.967
-   .wx2            -1632.695       NA                     -0.028   -0.028
-   .wy2              424.479       NA                      0.002    0.002
-   .Wkly_Gmng_H_T0     0.000                               0.000    0.000
-   .Wkly_Gmng_H_T1     0.000                               0.000    0.000
-   .Wkly_Gmng_H_T2     0.000                               0.000    0.000
-   .Externalzng_T0     0.000                               0.000    0.000
-   .Externalzng_T1     0.000                               0.000    0.000
-   .Externalzng_T2     0.000                               0.000    0.000</code></pre>
-</div>
-</div>
 </section>
 <section id="individual-behavioral-performance-measures" class="level3">
 <h3 class="anchored" data-anchor-id="individual-behavioral-performance-measures">Individual Behavioral Performance Measures</h3>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-7_2d0efb88ca466b1b4c3971ebacd0748f">
+<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-5_15eef8eb975a7db79aea1c3d4d5ee418">
+<div class="cell-output cell-output-stdout">
+<pre><code>Lorem ipsum dolor sit amet, nunc, nunc, cubilia pharetra mollis finibus cras morbi ut
+mattis sed. Et, platea et parturient pellentesque cursus velit. Dis sociis in tincidunt
+nam in. Blandit mattis sed ullamcorper eros sed enim sed. Tempus erat eu dui tempus sed.
+Cum sed convallis feugiat amet mi placerat. Vitae ac neque curae vel in pharetra. At a id,
+eu enim at cursus sollicitudin nunc ac mi. Nunc risus nunc, ultricies et sodales elementum
+nec eu quam curabitur, laoreet. Nec nisl. Imperdiet dis consectetur vel eros lobortis
+maximus a turpis eu urna tincidunt diam. Et in tempus, tempus cubilia non, amet. Sapien
+sed molestie sed justo sit donec in. Sed mi habitasse nam sed senectus leo.</code></pre>
+</div>
+</div>
+</section>
+<section id="structural-equation-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="structural-equation-modeling">Structural Equation Modeling</h3>
+<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-6_88383e8364b5ff8bd674cc4a821030f6">
 <div class="cell-output cell-output-stdout">
 <pre><code>Lorem ipsum dolor sit amet, nunc, nunc cubilia pharetra mollis finibus cras morbi ut
 mattis sed. Et platea et parturient pellentesque cursus velit dis sociis in tincidunt. Nam
@@ -2092,82 +1394,77 @@ libero nisi. Amet non sagittis at, metus nunc mattis.</code></pre>
 </div>
 </div>
 </section>
-<section id="structural-equation-modeling-1" class="level3">
-<h3 class="anchored" data-anchor-id="structural-equation-modeling-1">Structural Equation Modeling</h3>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-8_4922513ccf3e82518e2f7cf634f58b87">
-<div class="cell-output cell-output-stdout">
-<pre><code>Lorem ipsum dolor sit amet, sed nibh ligula at ante pretium sit vehicula tortor sed mi
-pharetra varius cubilia ut. Lacus at tristique leo, dui, etiam tempor vestibulum varius
-purus. Orci senectus eu at fringilla per mattis aptent accumsan. Amet faucibus cum, ad
-consectetur sit. Suspendisse dictumst laoreet ipsum. Nisi lacinia integer neque sed amet
-cursus sapien, molestie integer habitasse donec non. Egestas himenaeos tortor aliquam ac
-mus erat sagittis euismod est, nec, amet enim amet.</code></pre>
-</div>
-</div>
-</section>
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-9_eb529a72c0173ee60c251061012e2fdf">
+<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-7_fd47572ab859f93b52f17705e93e55b2">
 <div class="cell-output cell-output-stdout">
-<pre><code>Lorem ipsum dolor sit amet, ultricies sed porta augue finibus ac sapien quis tincidunt
-taciti ipsum. Ac, vestibulum turpis, taciti tempor diam nec, magna sit condimentum vel
-senectus. Magna porta eget vitae rhoncus eu amet ut in cum. Sit per ut sed sapien finibus
-pretium quisque facilisi ut. Fringilla orci sollicitudin at velit sed quam quis, aliquam
-nulla malesuada. Imperdiet nam at quam sed arcu. Nullam in dictum suscipit velit in leo
-sed, mauris nec malesuada mauris. Lorem penatibus quis lobortis molestie turpis cras
-sed pharetra ac blandit magna, ante. Et justo porta et in. Dignissim ex massa, interdum,
-lobortis sed suspendisse. Fringilla in eu ut in, egestas eget duis eu.
+<pre><code>Lorem ipsum dolor sit amet, mauris ullamcorper bibendum leo rhoncus non. Sed semper per
+at. In nunc eget vehicula, sapien sociosqu mauris, sem porta curabitur, etiam eros arcu.
+Ut, erat pulvinar vitae purus molestie molestie, nostra scelerisque eu, ornare vivamus
+diam, quis. Non, ante? Consectetur auctor ipsum sit vitae et penatibus. Netus donec et
+cras vitae sagittis dui.
 
-Euismod, malesuada lectus, metus ut posuere sociosqu convallis a in penatibus! Sed quam
-odio libero maecenas aliquet velit. Curabitur pretium ad in nunc non. Dictum quis velit.
-Faucibus arcu. Tempus ultrices ut ridiculus vel quisque hendrerit, suscipit, ac nullam
-laoreet suspendisse dapibus. Nibh rutrum ut, torquent in sapien ad dictum leo. Curabitur
-risus blandit in! Lobortis malesuada dictum inceptos in.
+Aliquam litora, suscipit sed, lectus. Congue mauris metus, leo eget nec fringilla integer.
+Laoreet nostra eu ornare dapibus congue mi cras. Per vitae, eu class conubia netus
+penatibus ac eu. Turpis vitae lobortis tincidunt. Venenatis mi magna hendrerit vitae
+neque. Sed, convallis sed suspendisse senectus metus ultrices. Libero et purus nec potenti
+id parturient nulla et non sed, id. Congue neque at potenti molestie dictumst? Magna
+cursus consequat neque nibh posuere in gravida. Curabitur, fusce senectus nostra dignissim
+vestibulum iaculis sed dui cum, id, nec justo. Sed porttitor sollicitudin purus ultricies
+sed. Porta augue finibus ac sapien, quis tincidunt, taciti ipsum ac vestibulum turpis.
+Taciti tempor diam nec magna sit condimentum vel senectus magna porta eget. Vitae rhoncus
+eu amet ut. In cum sit per ut sed sapien finibus pretium quisque facilisi, ut, fringilla.
+Orci sollicitudin at velit sed quam quis, aliquam nulla malesuada. Imperdiet nam at quam
+sed arcu nullam in.
 
-Vel nibh viverra suspendisse himenaeos vel. Ut sed mauris suscipit, sem auctor. Odio
-donec libero adipiscing sed. A potenti eu sagittis a suspendisse. Quam, pharetra sed quis
-cursus etiam, vitae id. Tortor non quis tellus natoque, lacus sed nunc sapien, tristique
-nunc justo. Porttitor vehicula sed commodo lacus id est ut arcu velit interdum hac nulla
-nec curabitur. Fusce ullamcorper sed condimentum facilisis eros volutpat nam fermentum
-interdum tempor. Vitae in donec et, ut nec odio ut. Metus, tortor a et posuere turpis enim
-tempor, risus magna.
+Dictum suscipit velit in leo sed mauris nec malesuada mauris. Lorem penatibus quis
+lobortis, molestie turpis cras sed pharetra. Ac blandit magna ante et justo porta et,
+in, dignissim ex. Massa interdum. Lobortis, sed suspendisse fringilla in eu ut in,
+egestas eget duis. Eu, euismod malesuada lectus metus ut posuere sociosqu convallis a
+in. Penatibus sed quam odio libero maecenas aliquet velit curabitur pretium ad in nunc
+non dictum. Quis velit faucibus arcu tempus. Ultrices ut ridiculus, vel quisque hendrerit
+suscipit ac, nullam laoreet suspendisse dapibus. Nibh rutrum ut, torquent in sapien ad.
+Dictum leo curabitur risus blandit in lobortis malesuada, dictum, inceptos in vel nibh.
+Viverra suspendisse himenaeos vel ut sed mauris suscipit sem auctor odio. Donec libero
+adipiscing sed a potenti, eu sagittis.
 
-Habitasse quis pharetra fames nec non magna inceptos eget donec, cursus. Aptent vulputate
-faucibus dictumst felis magna platea conubia ac sed turpis. Nec turpis felis risus turpis
-libero ullamcorper sed eros venenatis, pulvinar mauris. Amet, erat proin diam leo eros.
-Elit ipsum. Montes magna sed magnis augue et netus in eu consequat, nostra urna sed. Eget
-fermentum sollicitudin sociis per. At ad venenatis ipsum sociis eget aptent at maximus
-curabitur efficitur sit.</code></pre>
+A, suspendisse quam pharetra sed. Quis cursus etiam, vitae id. Tortor non quis tellus
+natoque lacus sed nunc. Sapien tristique nunc, justo porttitor vehicula sed commodo lacus
+id est. Ut arcu velit interdum hac. Nulla nec curabitur fusce ullamcorper sed condimentum
+facilisis. Eros volutpat nam fermentum interdum, tempor vitae in, donec et ut. Nec odio,
+ut metus, tortor. A et posuere turpis enim tempor. Risus magna habitasse, quis pharetra
+fames nec non magna. Inceptos eget donec cursus aptent vulputate, faucibus dictumst felis
+magna. Platea conubia ac sed turpis nec turpis felis risus, turpis libero ullamcorper.</code></pre>
 </div>
 </div>
 <section id="limitations" class="level3">
 <h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-10_4b3f33da3a3a7c06b23692d2168977c1">
+<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-8_4922513ccf3e82518e2f7cf634f58b87">
 <div class="cell-output cell-output-stdout">
-<pre><code>Lorem ipsum dolor sit amet, quam augue cum sed, hac nunc non donec vitae nec cursus
-aliquam nunc. Lorem lacinia sed in facilisis lacus at sed porta nulla vivamus eu. Egestas
-ut tempus mattis eget purus, sociosqu pellentesque non ligula amet. Interdum mi. Diam
-nullam sed, ullamcorper nullam et magnis, aliquet, ullamcorper amet. Gravida a quisque
-aliquet habitant euismod eros morbi senectus nunc. Bibendum eros luctus diam varius,
-placerat, congue urna. In, quam egestas tristique hac, lobortis in hendrerit. Vel dolor
-suscipit quam suspendisse, velit. Suspendisse sed sit lacus metus tempus vivamus, ultrices
-egestas, sed. Condimentum in in, enim faucibus, quam porttitor rhoncus? Sed tempor
-ultricies magna tincidunt. A nisl, vehicula turpis erat fringilla euismod class at.</code></pre>
+<pre><code>Lorem ipsum dolor sit amet, urna in quam egestas tristique hac lobortis in hendrerit. Vel
+dolor suscipit, quam. Suspendisse velit suspendisse, sed sit lacus metus, tempus vivamus
+ultrices. Egestas sed condimentum in in. Enim faucibus quam porttitor rhoncus sed. Tempor
+ultricies, magna tincidunt, a nisl vehicula turpis, erat fringilla. Euismod class at
+leo molestie amet platea id lectus lacus, eu. Vulputate ac rhoncus donec pharetra eros
+consectetur laoreet accumsan scelerisque tellus. Odio malesuada sagittis laoreet velit
+nec. Et nulla, nisl nunc, ex cum sodales. Varius in dui non aenean sed, in turpis. Aptent
+eu tortor nunc aptent, ridiculus lectus consectetur aliquam lectus et.</code></pre>
 </div>
 </div>
 </section>
 <section id="conclusions" class="level3">
 <h3 class="anchored" data-anchor-id="conclusions">Conclusions</h3>
-<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-11_c6e3968f752ba50913808b2533c02349">
+<div class="cell" data-hash="working_draft_cache/html/unnamed-chunk-9_521a4077796bbe850139719bf7dc0d33">
 <div class="cell-output cell-output-stdout">
-<pre><code>Lorem ipsum dolor sit amet, velit morbi, tincidunt vel turpis. Inceptos enim eget ac a
-urna amet lacus. Sapien cursus, et, tincidunt turpis sit sed ridiculus. Lacinia feugiat
-enim in interdum lacinia, libero pharetra eu auctor faucibus enim sit, nibh. Id tristique
-montes et non aenean aliquet dictumst sed blandit. Sem erat in leo sed sed fermentum felis
-ultrices. Libero litora sodales gravida urna ut potenti volutpat est. Mollis at lorem,
-faucibus, odio a ante ex sed finibus. Mattis in felis cras montes proin per egestas sed,
-ultrices. Class mauris sapien elementum ac est ut.</code></pre>
+<pre><code>Lorem ipsum dolor sit amet, urna in quam egestas tristique hac lobortis in hendrerit. Vel
+dolor suscipit, quam. Suspendisse velit suspendisse, sed sit lacus metus, tempus vivamus
+ultrices. Egestas sed condimentum in in. Enim faucibus quam porttitor rhoncus sed. Tempor
+ultricies, magna tincidunt, a nisl vehicula turpis, erat fringilla. Euismod class at
+leo molestie amet platea id lectus lacus, eu. Vulputate ac rhoncus donec pharetra eros
+consectetur laoreet accumsan scelerisque tellus. Odio malesuada sagittis laoreet velit
+nec. Et nulla, nisl nunc, ex cum sodales. Varius in dui non aenean sed, in turpis. Aptent
+eu tortor nunc aptent, ridiculus lectus consectetur aliquam lectus et.</code></pre>
 </div>
 </div>
 <div style="page-break-after: always;"></div>

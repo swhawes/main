@@ -1,0 +1,766 @@
+Mplus VERSION 7.4 (Mac)
+MUTHEN & MUTHEN
+01/27/2023   1:23 PM
+
+INPUT INSTRUCTIONS
+
+  Data:
+  file is /Users/shawes/desktop/df_wide.txt;
+
+  Define:
+  !INT1 = MatureVideoGames*Weekly_Gaming_Hours_T0;
+  INT2 = MatureVideoGames*Sex;
+  !INT3 = Weekly_Gaming_Hours_T0*Sex;
+  !INT4 = MatureVideoGames*Weekly_Gaming_Hours_T0*Sex;
+
+  Variable: names are
+  ids, SiteID, FamilyID, Sex, Age,
+  Race_White, Race_Black, Race_Hispanic, Race_Asian, Race_Other,
+  ParentIncome, ParentEducation, IQ, FlankerTest,
+  PubertalDevelopment_F, PubertalDevelopment_M,
+  MatureVideoGames,
+  Weekly_Gaming_Hours_T0, Weekly_Gaming_Hours_T1, Weekly_Gaming_Hours_T2,
+  Aggression_T0, Aggression_T1, Aggression_T2,
+  Externalizing_T0, Externalizing_T1, Externalizing_T2,
+  Internalizing_T0
+  ;
+
+  Usevariables are
+  Externalizing_T0, Externalizing_T1, Externalizing_T2,
+  MatureVideoGames,
+  Weekly_Gaming_Hours_T0,
+  Sex,
+  Race_Black, Race_Hispanic, Race_Asian, Race_Other
+  ParentIncome, ParentEducation, IQ,
+  FlankerTest, Internalizing_T0,
+  !INT1
+  INT2
+  !INT3
+  !INT4
+  ;
+
+  Missing are all (999, 777);
+
+  Stratification = SiteID;
+  CLUSTER = FamilyID;
+
+  ANALYSIS:
+  Estimator = MLR;
+  TYPE=complex;
+  Integration = Montecarlo;
+
+  MODEL:
+
+  I S | Externalizing_T0@0 Externalizing_T1@1 Externalizing_T2@2;
+
+  !S@0;
+
+  I on MatureVideoGames Weekly_Gaming_Hours_T0 Sex
+  Race_Black Race_Hispanic Race_Asian Race_Other
+  ParentIncome ParentEducation IQ
+  FlankerTest Internalizing_T0
+  !INT1
+  INT2
+  !INT3
+  !INT4
+  ;
+
+  S on MatureVideoGames Weekly_Gaming_Hours_T0 Sex
+  Race_Black Race_Hispanic Race_Asian Race_Other
+  ParentIncome ParentEducation IQ
+  FlankerTest Internalizing_T0
+  !INT1
+  INT2
+  !INT3
+  !INT4
+  ;
+
+
+  !I on MatureVideoGames Weekly_Gaming_Hours_T0
+  !Sex Race_Black Race_Hispanic Race_Asian Race_Other
+  !ParentIncome ParentEducation IQ FlankerTest Internalizing_T0
+  !INT1
+  !INT2
+  !INT3
+  !INT4
+  ;
+
+
+
+  Output: Sampstat Stdyx CINTERVAL;
+
+
+
+
+
+*** WARNING in ANALYSIS command
+  The INTEGRATION option is not available with this analysis.
+  INTEGRATION will be ignored.
+  Specify ALGORITHM=INTEGRATION to use this option.
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING
+  Clusters with the same IDs have been found in different strata.  These
+  clusters are assumed to be different because clusters are not allowed
+  to appear in more than one stratum.
+*** WARNING
+  Data set contains unknown or missing values for GROUPING,
+  PATTERN, COHORT, CLUSTER and/or STRATIFICATION variables.
+  Number of cases with unknown or missing values:  2
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  1016
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        4631
+
+Number of dependent variables                                    3
+Number of independent variables                                 13
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   EXTERNALIZ  EXTERNALIZ  EXTERNALIZ
+
+Observed independent variables
+   MATUREVI    WEEKLY_G    SEX         RACE_BLA    RACE_HIS    RACE_ASI
+   RACE_OTH    PARENTIN    PARENTED    IQ          FLANKERT    INTERNAL
+   INT2
+
+Continuous latent variables
+   I           S
+
+Variables with special functions
+
+  Stratification        SITEID
+  Cluster variable      FAMILYID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  /Users/shawes/desktop/df_wide.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             4
+     Number of strata                      22
+     Number of clusters                  4122
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              EXTERNAL      EXTERNAL      EXTERNAL      MATUREVI      WEEKLY_G
+              ________      ________      ________      ________      ________
+ EXTERNAL       1.000
+ EXTERNAL       0.998         0.998
+ EXTERNAL       0.769         0.768         0.769
+ MATUREVI       1.000         0.998         0.769         1.000
+ WEEKLY_G       1.000         0.998         0.769         1.000         1.000
+ SEX            1.000         0.998         0.769         1.000         1.000
+ RACE_BLA       1.000         0.998         0.769         1.000         1.000
+ RACE_HIS       1.000         0.998         0.769         1.000         1.000
+ RACE_ASI       1.000         0.998         0.769         1.000         1.000
+ RACE_OTH       1.000         0.998         0.769         1.000         1.000
+ PARENTIN       1.000         0.998         0.769         1.000         1.000
+ PARENTED       1.000         0.998         0.769         1.000         1.000
+ IQ             1.000         0.998         0.769         1.000         1.000
+ FLANKERT       1.000         0.998         0.769         1.000         1.000
+ INTERNAL       1.000         0.998         0.769         1.000         1.000
+ INT2           1.000         0.998         0.769         1.000         1.000
+
+
+           Covariance Coverage
+              SEX           RACE_BLA      RACE_HIS      RACE_ASI      RACE_OTH
+              ________      ________      ________      ________      ________
+ SEX            1.000
+ RACE_BLA       1.000         1.000
+ RACE_HIS       1.000         1.000         1.000
+ RACE_ASI       1.000         1.000         1.000         1.000
+ RACE_OTH       1.000         1.000         1.000         1.000         1.000
+ PARENTIN       1.000         1.000         1.000         1.000         1.000
+ PARENTED       1.000         1.000         1.000         1.000         1.000
+ IQ             1.000         1.000         1.000         1.000         1.000
+ FLANKERT       1.000         1.000         1.000         1.000         1.000
+ INTERNAL       1.000         1.000         1.000         1.000         1.000
+ INT2           1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              PARENTIN      PARENTED      IQ            FLANKERT      INTERNAL
+              ________      ________      ________      ________      ________
+ PARENTIN       1.000
+ PARENTED       1.000         1.000
+ IQ             1.000         1.000         1.000
+ FLANKERT       1.000         1.000         1.000         1.000
+ INTERNAL       1.000         1.000         1.000         1.000         1.000
+ INT2           1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              INT2
+              ________
+ INT2           1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              EXTERNAL      EXTERNAL      EXTERNAL      MATUREVI      WEEKLY_G
+              ________      ________      ________      ________      ________
+      1         4.898         4.714         4.446         1.231        10.842
+
+
+           Means
+              SEX           RACE_BLA      RACE_HIS      RACE_ASI      RACE_OTH
+              ________      ________      ________      ________      ________
+      1         1.679         0.157         0.201         0.012         0.105
+
+
+           Means
+              PARENTIN      PARENTED      IQ            FLANKERT      INTERNAL
+              ________      ________      ________      ________      ________
+      1         4.833        16.583        47.528        46.242         5.260
+
+
+           Means
+              INT2
+              ________
+      1         2.113
+
+
+           Covariances
+              EXTERNAL      EXTERNAL      EXTERNAL      MATUREVI      WEEKLY_G
+              ________      ________      ________      ________      ________
+ EXTERNAL      38.873
+ EXTERNAL      28.812        37.125
+ EXTERNAL      27.402        28.138        36.765
+ MATUREVI       0.215         0.208         0.240         0.178
+ WEEKLY_G       3.643         2.493         2.842         0.497        65.159
+ SEX            0.132         0.114         0.116         0.046         0.584
+ RACE_BLA       0.101         0.064         0.004         0.011         0.345
+ RACE_HIS      -0.044        -0.027        -0.017         0.009        -0.049
+ RACE_ASI      -0.034        -0.036        -0.032        -0.002        -0.028
+ RACE_OTH       0.059         0.081         0.090         0.004         0.079
+ PARENTIN      -1.746        -1.694        -1.225        -0.086        -1.477
+ PARENTED      -1.409        -1.186        -0.696        -0.171        -1.775
+ IQ            -7.243        -6.275        -6.109        -0.255        -6.763
+ FLANKERT      -3.066        -2.430        -2.260         0.067        -0.206
+ INTERNAL      21.374        15.901        15.082         0.027         1.709
+ INT2           0.544         0.502         0.541         0.380         1.583
+
+
+           Covariances
+              SEX           RACE_BLA      RACE_HIS      RACE_ASI      RACE_OTH
+              ________      ________      ________      ________      ________
+ SEX            0.218
+ RACE_BLA      -0.011         0.133
+ RACE_HIS       0.002        -0.032         0.160
+ RACE_ASI       0.000        -0.002        -0.002         0.012
+ RACE_OTH      -0.003        -0.017        -0.021        -0.001         0.094
+ PARENTIN       0.030        -0.103        -0.080         0.009         0.003
+ PARENTED       0.035        -0.172        -0.257         0.020         0.007
+ IQ            -0.081        -0.194         0.083         0.077        -0.320
+ FLANKERT       0.010         0.196         0.126         0.047        -0.222
+ INTERNAL      -0.064        -0.096         0.028        -0.020         0.048
+ INT2           0.329         0.008         0.019        -0.003         0.004
+
+
+           Covariances
+              PARENTIN      PARENTED      IQ            FLANKERT      INTERNAL
+              ________      ________      ________      ________      ________
+ PARENTIN       6.961
+ PARENTED       2.894         6.548
+ IQ             1.970         2.247       121.759
+ FLANKERT       0.543        -0.509        53.253        84.869
+ INTERNAL      -1.582        -0.561        -3.835        -3.338        32.722
+ INT2          -0.106        -0.270        -0.556         0.112        -0.023
+
+
+           Covariances
+              INT2
+              ________
+ INT2           1.092
+
+
+           Correlations
+              EXTERNAL      EXTERNAL      EXTERNAL      MATUREVI      WEEKLY_G
+              ________      ________      ________      ________      ________
+ EXTERNAL       1.000
+ EXTERNAL       0.758         1.000
+ EXTERNAL       0.725         0.762         1.000
+ MATUREVI       0.082         0.081         0.094         1.000
+ WEEKLY_G       0.072         0.051         0.058         0.146         1.000
+ SEX            0.045         0.040         0.041         0.233         0.155
+ RACE_BLA       0.044         0.029         0.002         0.072         0.117
+ RACE_HIS      -0.018        -0.011        -0.007         0.055        -0.015
+ RACE_ASI      -0.049        -0.054        -0.047        -0.038        -0.032
+ RACE_OTH       0.031         0.043         0.048         0.030         0.032
+ PARENTIN      -0.106        -0.105        -0.077        -0.077        -0.069
+ PARENTED      -0.088        -0.076        -0.045        -0.159        -0.086
+ IQ            -0.105        -0.093        -0.091        -0.055        -0.076
+ FLANKERT      -0.053        -0.043        -0.040         0.017        -0.003
+ INTERNAL       0.599         0.456         0.435         0.011         0.037
+ INT2           0.084         0.079         0.085         0.862         0.188
+
+
+           Correlations
+              SEX           RACE_BLA      RACE_HIS      RACE_ASI      RACE_OTH
+              ________      ________      ________      ________      ________
+ SEX            1.000
+ RACE_BLA      -0.065         1.000
+ RACE_HIS       0.011        -0.217         1.000
+ RACE_ASI       0.005        -0.048        -0.056         1.000
+ RACE_OTH      -0.022        -0.148        -0.172        -0.038         1.000
+ PARENTIN       0.025        -0.108        -0.076         0.031         0.004
+ PARENTED       0.029        -0.185        -0.251         0.070         0.009
+ IQ            -0.016        -0.048         0.019         0.063        -0.095
+ FLANKERT       0.002         0.058         0.034         0.046        -0.079
+ INTERNAL      -0.024        -0.046         0.012        -0.032         0.027
+ INT2           0.674         0.022         0.046        -0.025         0.013
+
+
+           Correlations
+              PARENTIN      PARENTED      IQ            FLANKERT      INTERNAL
+              ________      ________      ________      ________      ________
+ PARENTIN       1.000
+ PARENTED       0.429         1.000
+ IQ             0.068         0.080         1.000
+ FLANKERT       0.022        -0.022         0.524         1.000
+ INTERNAL      -0.105        -0.038        -0.061        -0.063         1.000
+ INT2          -0.038        -0.101        -0.048         0.012        -0.004
+
+
+           Correlations
+              INT2
+              ________
+ INT2           1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -126639.951
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     EXTERNALIZING_T       4.898       2.197       0.000   24.75%       0.000      2.000      3.000
+            4631.000      38.873       6.361      49.000    0.02%       4.000      8.000
+     EXTERNALIZING_T       4.711       2.154       0.000   25.85%       0.000      2.000      3.000
+            4623.000      37.122       5.684      47.000    0.02%       4.000      8.000
+     EXTERNALIZING_T       4.376       2.471       0.000   28.66%       0.000      1.000      2.000
+            3562.000      36.291       8.203      50.000    0.03%       3.000      7.000
+     MATUREVIDEOGAME       1.231       1.273       1.000   76.85%       1.000      1.000      1.000
+            4631.000       0.178      -0.379       2.000   23.15%       1.000      2.000
+     WEEKLY_GAMING_H      10.842       0.820       0.000    3.26%       3.500      7.000      9.000
+            4631.000      65.159      -0.332      28.000    9.09%      11.000     18.000
+     SEX                   1.679      -0.766       1.000   32.11%       1.000      2.000      2.000
+            4631.000       0.218      -1.413       2.000   67.89%       2.000      2.000
+     RACE_BLACK            0.157       1.881       0.000   84.26%       0.000      0.000      0.000
+            4631.000       0.133       1.539       1.000   15.74%       0.000      0.000
+     RACE_HISPANIC         0.201       1.495       0.000   79.94%       0.000      0.000      0.000
+            4631.000       0.160       0.236       1.000   20.06%       0.000      1.000
+     RACE_ASIAN            0.012       8.846       0.000   98.77%       0.000      0.000      0.000
+            4631.000       0.012      76.258       1.000    1.23%       0.000      0.000
+     RACE_OTHER            0.105       2.574       0.000   89.48%       0.000      0.000      0.000
+            4631.000       0.094       4.627       1.000   10.52%       0.000      0.000
+     PARENTINCOME          4.833      -0.057       1.000   17.45%       2.000      4.000      5.000
+            4631.000       6.961      -1.183      10.000    1.30%       6.000      7.000
+     PARENTEDUCATION      16.583      -1.102       2.000    0.02%      15.000     16.000     18.000
+            4631.000       6.548       1.892      21.000    2.50%      18.000     19.000
+     IQ                   47.528       0.457       5.000    0.02%      38.000     44.000     47.000
+            4631.000     121.759       1.103     126.000    0.02%      50.000     56.000
+     FLANKERTEST          46.242       0.318      10.000    0.04%      38.000     44.000     46.000
+            4631.000      84.869       0.916     101.000    0.02%      48.000     54.000
+     INTERNALIZING_T       5.260       1.948       0.000   16.02%       1.000      2.000      3.000
+            4631.000      32.722       5.145      49.000    0.02%       5.000      9.000
+     INT2                  2.113       0.840       1.000   29.26%       1.000      2.000      2.000
+            4631.000       1.092      -0.465       4.000   20.30%       2.000      4.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       34
+
+Loglikelihood
+
+          H0 Value                      -36582.843
+          H0 Scaling Correction Factor      1.6651
+            for MLR
+          H1 Value                      -36549.544
+          H1 Scaling Correction Factor      1.5225
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   73233.685
+          Bayesian (BIC)                 73452.663
+          Sample-Size Adjusted BIC       73344.624
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             56.617*
+          Degrees of Freedom                    14
+          P-Value                           0.0000
+          Scaling Correction Factor         1.1763
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.026
+          90 Percent C.I.                    0.019  0.033
+          Probability RMSEA <= .05           1.000
+
+CFI/TLI
+
+          CFI                                0.994
+          TLI                                0.982
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           7342.344
+          Degrees of Freedom                    42
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.006
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ I        |
+    EXTERNALIZ         1.000      0.000    999.000    999.000
+    EXTERNALIZ         1.000      0.000    999.000    999.000
+    EXTERNALIZ         1.000      0.000    999.000    999.000
+
+ S        |
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         1.000      0.000    999.000    999.000
+    EXTERNALIZ         2.000      0.000    999.000    999.000
+
+ I        ON
+    MATUREVIDE         0.306      0.967      0.316      0.752
+    WEEKLY_GAM         0.013      0.010      1.286      0.199
+    SEX                0.467      0.582      0.802      0.422
+    RACE_BLACK         0.888      0.243      3.648      0.000
+    RACE_HISPA        -0.411      0.196     -2.097      0.036
+    RACE_ASIAN        -1.171      0.290     -4.033      0.000
+    RACE_OTHER         0.269      0.270      0.996      0.319
+    PARENTINCO        -0.043      0.030     -1.433      0.152
+    PARENTEDUC        -0.106      0.034     -3.162      0.002
+    IQ                -0.035      0.008     -4.564      0.000
+    FLANKERTES         0.010      0.009      1.111      0.267
+    INTERNALIZ         0.634      0.021     30.728      0.000
+    INT2               0.186      0.515      0.362      0.717
+
+ S        ON
+    MATUREVIDE         1.481      0.615      2.409      0.016
+    WEEKLY_GAM        -0.002      0.005     -0.294      0.769
+    SEX                0.676      0.349      1.936      0.053
+    RACE_BLACK        -0.350      0.120     -2.903      0.004
+    RACE_HISPA         0.116      0.104      1.122      0.262
+    RACE_ASIAN        -0.171      0.212     -0.809      0.419
+    RACE_OTHER         0.184      0.135      1.362      0.173
+    PARENTINCO        -0.009      0.014     -0.599      0.549
+    PARENTEDUC         0.048      0.016      3.024      0.002
+    IQ                 0.000      0.004     -0.003      0.997
+    FLANKERTES         0.002      0.005      0.477      0.633
+    INTERNALIZ        -0.103      0.010    -10.560      0.000
+    INT2              -0.713      0.321     -2.221      0.026
+
+ S        WITH
+    I                 -0.693      0.587     -1.179      0.238
+
+ Intercepts
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    I                  2.967      1.271      2.336      0.020
+    S                 -1.967      0.719     -2.737      0.006
+
+ Residual Variances
+    EXTERNALIZ         5.736      0.911      6.295      0.000
+    EXTERNALIZ         9.887      0.648     15.247      0.000
+    EXTERNALIZ         5.890      1.256      4.690      0.000
+    I                 18.407      1.113     16.544      0.000
+    S                  1.937      0.508      3.813      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ I        |
+    EXTERNALIZ         0.922      0.013     71.869      0.000
+    EXTERNALIZ         0.914      0.015     62.182      0.000
+    EXTERNALIZ         0.950      0.028     33.898      0.000
+
+ S        |
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.245      0.026      9.415      0.000
+    EXTERNALIZ         0.509      0.060      8.500      0.000
+
+ I        ON
+    MATUREVIDE         0.023      0.072      0.316      0.752
+    WEEKLY_GAM         0.018      0.014      1.289      0.197
+    SEX                0.038      0.048      0.803      0.422
+    RACE_BLACK         0.057      0.016      3.637      0.000
+    RACE_HISPA        -0.029      0.014     -2.106      0.035
+    RACE_ASIAN        -0.023      0.006     -3.889      0.000
+    RACE_OTHER         0.014      0.015      0.995      0.320
+    PARENTINCO        -0.020      0.014     -1.435      0.151
+    PARENTEDUC        -0.048      0.015     -3.151      0.002
+    IQ                -0.068      0.015     -4.578      0.000
+    FLANKERTES         0.017      0.015      1.112      0.266
+    INTERNALIZ         0.635      0.016     39.232      0.000
+    INT2               0.034      0.094      0.362      0.718
+
+ S        ON
+    MATUREVIDE         0.409      0.174      2.348      0.019
+    WEEKLY_GAM        -0.008      0.028     -0.294      0.769
+    SEX                0.207      0.108      1.917      0.055
+    RACE_BLACK        -0.083      0.030     -2.777      0.005
+    RACE_HISPA         0.031      0.027      1.119      0.263
+    RACE_ASIAN        -0.012      0.015     -0.806      0.420
+    RACE_OTHER         0.037      0.027      1.349      0.177
+    PARENTINCO        -0.015      0.025     -0.597      0.551
+    PARENTEDUC         0.081      0.028      2.890      0.004
+    IQ                 0.000      0.027     -0.003      0.997
+    FLANKERTES         0.014      0.029      0.477      0.633
+    INTERNALIZ        -0.387      0.051     -7.628      0.000
+    INT2              -0.488      0.224     -2.182      0.029
+
+ S        WITH
+    I                 -0.116      0.084     -1.377      0.168
+
+ Intercepts
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    I                  0.520      0.224      2.321      0.020
+    S                 -1.288      0.486     -2.650      0.008
+
+ Residual Variances
+    EXTERNALIZ         0.150      0.024      6.336      0.000
+    EXTERNALIZ         0.254      0.013     19.105      0.000
+    EXTERNALIZ         0.163      0.033      5.016      0.000
+    I                  0.566      0.021     27.465      0.000
+    S                  0.830      0.043     19.337      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    EXTERNAL           0.850      0.024     35.934      0.000
+    EXTERNAL           0.746      0.013     56.069      0.000
+    EXTERNAL           0.837      0.033     25.696      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    I                  0.434      0.021     21.071      0.000
+    S                  0.170      0.043      3.948      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.109E-06
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ I        |
+    EXTERNALIZ       1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    EXTERNALIZ       1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    EXTERNALIZ       1.000       1.000       1.000       1.000       1.000       1.000       1.000
+
+ S        |
+    EXTERNALIZ       0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNALIZ       1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    EXTERNALIZ       2.000       2.000       2.000       2.000       2.000       2.000       2.000
+
+ I        ON
+    MATUREVIDE      -2.186      -1.591      -1.286       0.306       1.897       2.202       2.797
+    WEEKLY_GAM      -0.013      -0.007      -0.004       0.013       0.029       0.032       0.038
+    SEX             -1.032      -0.673      -0.490       0.467       1.424       1.607       1.965
+    RACE_BLACK       0.261       0.411       0.488       0.888       1.289       1.365       1.515
+    RACE_HISPA      -0.915      -0.794      -0.733      -0.411      -0.088      -0.027       0.094
+    RACE_ASIAN      -1.918      -1.740      -1.648      -1.171      -0.693      -0.602      -0.423
+    RACE_OTHER      -0.427      -0.260      -0.175       0.269       0.713       0.798       0.965
+    PARENTINCO      -0.119      -0.101      -0.091      -0.043       0.006       0.016       0.034
+    PARENTEDUC      -0.193      -0.172      -0.161      -0.106      -0.051      -0.040      -0.020
+    IQ              -0.055      -0.050      -0.048      -0.035      -0.022      -0.020      -0.015
+    FLANKERTES      -0.014      -0.008      -0.005       0.010       0.026       0.029       0.034
+    INTERNALIZ       0.581       0.593       0.600       0.634       0.668       0.674       0.687
+    INT2            -1.140      -0.823      -0.661       0.186       1.033       1.195       1.512
+
+ S        ON
+    MATUREVIDE      -0.102       0.276       0.470       1.481       2.492       2.685       3.064
+    WEEKLY_GAM      -0.015      -0.012      -0.010      -0.002       0.007       0.009       0.012
+    SEX             -0.223      -0.008       0.102       0.676       1.250       1.360       1.575
+    RACE_BLACK      -0.660      -0.586      -0.548      -0.350      -0.152      -0.114      -0.039
+    RACE_HISPA      -0.151      -0.087      -0.054       0.116       0.287       0.320       0.384
+    RACE_ASIAN      -0.717      -0.587      -0.520      -0.171       0.177       0.244       0.375
+    RACE_OTHER      -0.164      -0.081      -0.038       0.184       0.406       0.449       0.532
+    PARENTINCO      -0.045      -0.037      -0.032      -0.009       0.015       0.019       0.028
+    PARENTEDUC       0.007       0.017       0.022       0.048       0.075       0.080       0.090
+    IQ              -0.010      -0.007      -0.006       0.000       0.006       0.007       0.010
+    FLANKERTES      -0.010      -0.007      -0.006       0.002       0.010       0.012       0.015
+    INTERNALIZ      -0.128      -0.122      -0.119      -0.103      -0.087      -0.084      -0.078
+    INT2            -1.540      -1.342      -1.241      -0.713      -0.185      -0.084       0.114
+
+ S        WITH
+    I               -2.206      -1.844      -1.659      -0.693       0.274       0.459       0.820
+
+ Intercepts
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    I               -0.305       0.477       0.877       2.967       5.058       5.458       6.240
+    S               -3.819      -3.376      -3.150      -1.967      -0.785      -0.558      -0.116
+
+ Residual Variances
+    EXTERNAL         3.389       3.950       4.237       5.736       7.235       7.522       8.083
+    EXTERNAL         8.217       8.616       8.820       9.887      10.954      11.158      11.558
+    EXTERNAL         2.655       3.428       3.824       5.890       7.956       8.351       9.124
+    I               15.541      16.226      16.577      18.407      20.237      20.588      21.273
+    S                0.628       0.941       1.101       1.937       2.773       2.933       3.246
+
+
+CONFIDENCE INTERVALS OF STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ I        |
+    EXTERNALIZ       0.889       0.897       0.901       0.922       0.943       0.947       0.955
+    EXTERNALIZ       0.877       0.886       0.890       0.914       0.939       0.943       0.952
+    EXTERNALIZ       0.878       0.895       0.904       0.950       0.996       1.005       1.022
+
+ S        |
+    EXTERNALIZ       0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNALIZ       0.178       0.194       0.202       0.245       0.288       0.296       0.312
+    EXTERNALIZ       0.355       0.391       0.410       0.509       0.607       0.626       0.663
+
+ I        ON
+    MATUREVIDE      -0.162      -0.118      -0.095       0.023       0.140       0.163       0.207
+    WEEKLY_GAM      -0.018      -0.009      -0.005       0.018       0.040       0.045       0.053
+    SEX             -0.084      -0.055      -0.040       0.038       0.116       0.131       0.161
+    RACE_BLACK       0.017       0.026       0.031       0.057       0.082       0.087       0.097
+    RACE_HISPA      -0.064      -0.056      -0.051      -0.029      -0.006      -0.002       0.006
+    RACE_ASIAN      -0.038      -0.034      -0.032      -0.023      -0.013      -0.011      -0.008
+    RACE_OTHER      -0.023      -0.014      -0.009       0.014       0.038       0.043       0.052
+    PARENTINCO      -0.055      -0.047      -0.042      -0.020       0.003       0.007       0.016
+    PARENTEDUC      -0.087      -0.077      -0.073      -0.048      -0.023      -0.018      -0.009
+    IQ              -0.106      -0.097      -0.092      -0.068      -0.043      -0.039      -0.030
+    FLANKERTES      -0.022      -0.013      -0.008       0.017       0.041       0.046       0.055
+    INTERNALIZ       0.594       0.604       0.609       0.635       0.662       0.667       0.677
+    INT2            -0.209      -0.151      -0.121       0.034       0.189       0.219       0.277
+
+ S        ON
+    MATUREVIDE      -0.040       0.068       0.122       0.409       0.695       0.750       0.858
+    WEEKLY_GAM      -0.080      -0.063      -0.054      -0.008       0.038       0.046       0.063
+    SEX             -0.071      -0.005       0.029       0.207       0.384       0.418       0.484
+    RACE_BLACK      -0.161      -0.142      -0.133      -0.083      -0.034      -0.025      -0.006
+    RACE_HISPA      -0.040      -0.023      -0.014       0.031       0.075       0.084       0.101
+    RACE_ASIAN      -0.052      -0.042      -0.038      -0.012       0.013       0.018       0.027
+    RACE_OTHER      -0.034      -0.017      -0.008       0.037       0.082       0.091       0.108
+    PARENTINCO      -0.079      -0.063      -0.056      -0.015       0.026       0.034       0.049
+    PARENTEDUC       0.009       0.026       0.035       0.081       0.127       0.136       0.153
+    IQ              -0.070      -0.054      -0.045       0.000       0.045       0.053       0.070
+    FLANKERTES      -0.061      -0.043      -0.034       0.014       0.061       0.071       0.088
+    INTERNALIZ      -0.517      -0.486      -0.470      -0.387      -0.303      -0.287      -0.256
+    INT2            -1.064      -0.926      -0.856      -0.488      -0.120      -0.050       0.088
+
+ S        WITH
+    I               -0.333      -0.281      -0.255      -0.116       0.023       0.049       0.101
+
+ Intercepts
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    I               -0.057       0.081       0.152       0.520       0.889       0.960       1.098
+    S               -2.540      -2.241      -2.088      -1.288      -0.489      -0.335      -0.036
+
+ Residual Variances
+    EXTERNAL         0.089       0.104       0.111       0.150       0.189       0.196       0.211
+    EXTERNAL         0.220       0.228       0.232       0.254       0.276       0.280       0.288
+    EXTERNAL         0.079       0.100       0.110       0.163       0.217       0.227       0.247
+    I                0.513       0.525       0.532       0.566       0.600       0.606       0.619
+    S                0.720       0.746       0.760       0.830       0.901       0.915       0.941
+
+
+     Beginning Time:  13:23:48
+        Ending Time:  13:23:49
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

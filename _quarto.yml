@@ -48,6 +48,7 @@ book:
     title: Longitudinal Association of Video Gaming With Severe Behavior Problems Among Youth
     pinned: true
     collapsed: true
+    background: blue
     right:
       - icon: github
         href: https://github.com/swhawes/

@@ -1,0 +1,470 @@
+Mplus VERSION 7.4 (Mac)
+MUTHEN & MUTHEN
+01/27/2023  12:53 PM
+
+INPUT INSTRUCTIONS
+
+  Data:
+  file is /Users/shawes/desktop/df_wide.txt;
+
+  Define:
+  INT1 = MatureVideoGames*Weekly_Gaming_Hours_T0;
+  !INT2 = MatureVideoGames*Sex;
+  !INT3 = Weekly_Gaming_Hours_T0*Sex;
+  !INT4 = MatureVideoGames*Weekly_Gaming_Hours_T0*Sex;
+
+  Variable: names are
+  ids, SiteID, FamilyID, Sex, Age,
+  Race_White, Race_Black, Race_Hispanic, Race_Asian, Race_Other,
+  ParentIncome, ParentEducation, IQ, FlankerTest,
+  PubertalDevelopment_F, PubertalDevelopment_M,
+  MatureVideoGames,
+  Weekly_Gaming_Hours_T0, Weekly_Gaming_Hours_T1, Weekly_Gaming_Hours_T2,
+  Aggression_T0, Aggression_T1, Aggression_T2,
+  Externalizing_T0, Externalizing_T1, Externalizing_T2,
+  Internalizing_T0
+  ;
+
+  Usevariables are
+  Externalizing_T0, Externalizing_T1, Externalizing_T2,
+  !MatureVideoGames,
+  !Weekly_Gaming_Hours_T0
+  Sex
+  !Race_Black, Race_Hispanic, Race_Asian, Race_Other
+  !ParentIncome, ParentEducation, IQ,
+  !FlankerTest, Internalizing_T0,
+  !INT1
+  !INT2
+  !INT3
+  !INT4
+  ;
+
+  Missing are all (999, 777);
+
+  Stratification = SiteID;
+  CLUSTER = FamilyID;
+
+  ANALYSIS:
+  Estimator = MLR;
+  TYPE=complex;
+  Integration = Montecarlo;
+
+  MODEL:
+
+  I S | Externalizing_T0@0 Externalizing_T1@1 Externalizing_T2@2;
+
+  !S@0;
+
+  I on Sex;
+  S on Sex;
+
+
+  !I on MatureVideoGames Weekly_Gaming_Hours_T0
+  !Sex Race_Black Race_Hispanic Race_Asian Race_Other
+  !ParentIncome ParentEducation IQ FlankerTest Internalizing_T0
+  !INT1
+  !INT2
+  !INT3
+  !INT4
+  !;
+
+
+
+  Output: Sampstat Stdyx CINTERVAL;
+
+
+
+
+
+*** WARNING in ANALYSIS command
+  The INTEGRATION option is not available with this analysis.
+  INTEGRATION will be ignored.
+  Specify ALGORITHM=INTEGRATION to use this option.
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING
+  Clusters with the same IDs have been found in different strata.  These
+  clusters are assumed to be different because clusters are not allowed
+  to appear in more than one stratum.
+*** WARNING
+  Data set contains unknown or missing values for GROUPING,
+  PATTERN, COHORT, CLUSTER and/or STRATIFICATION variables.
+  Number of cases with unknown or missing values:  2
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        5647
+
+Number of dependent variables                                    3
+Number of independent variables                                  1
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   EXTERNALIZ  EXTERNALIZ  EXTERNALIZ
+
+Observed independent variables
+   SEX
+
+Continuous latent variables
+   I           S
+
+Variables with special functions
+
+  Stratification        SITEID
+  Cluster variable      FAMILYID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  /Users/shawes/desktop/df_wide.txt
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             5
+     Number of strata                      22
+     Number of clusters                  4955
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              EXTERNAL      EXTERNAL      EXTERNAL      SEX
+              ________      ________      ________      ________
+ EXTERNAL       1.000
+ EXTERNAL       0.998         0.998
+ EXTERNAL       0.774         0.772         0.774
+ SEX            1.000         0.998         0.774         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              EXTERNAL      EXTERNAL      EXTERNAL      SEX
+              ________      ________      ________      ________
+      1         5.009         4.749         4.498         1.674
+
+
+           Covariances
+              EXTERNAL      EXTERNAL      EXTERNAL      SEX
+              ________      ________      ________      ________
+ EXTERNAL      40.531
+ EXTERNAL      29.503        37.952
+ EXTERNAL      27.593        28.099        37.212
+ SEX            0.195         0.181         0.132         0.220
+
+
+           Correlations
+              EXTERNAL      EXTERNAL      EXTERNAL      SEX
+              ________      ________      ________      ________
+ EXTERNAL       1.000
+ EXTERNAL       0.752         1.000
+ EXTERNAL       0.710         0.748         1.000
+ SEX            0.065         0.063         0.046         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -50121.559
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     EXTERNALIZING_T       5.009       2.166       0.000   24.64%       0.000      2.000      3.000
+            5646.000      40.533       6.056      49.000    0.02%       4.000      9.000
+     EXTERNALIZING_T       4.747       2.155       0.000   26.30%       0.000      2.000      3.000
+            5636.000      37.961       5.620      47.000    0.02%       4.000      8.000
+     EXTERNALIZING_T       4.426       2.387       0.000   29.03%       0.000      1.000      2.000
+            4368.000      36.689       7.446      50.000    0.02%       3.000      8.000
+     SEX                   1.674      -0.741       1.000   32.64%       1.000      2.000      2.000
+            5647.000       0.220      -1.451       2.000   67.36%       2.000      2.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       10
+
+Loglikelihood
+
+          H0 Value                      -46386.128
+          H0 Scaling Correction Factor      3.0106
+            for MLR
+          H1 Value                      -46385.853
+          H1 Scaling Correction Factor      2.6842
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   92792.256
+          Bayesian (BIC)                 92858.644
+          Sample-Size Adjusted BIC       92826.867
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.521*
+          Degrees of Freedom                     2
+          P-Value                           0.7705
+          Scaling Correction Factor         1.0523
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.018
+          Probability RMSEA <= .05           1.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.001
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           3484.816
+          Degrees of Freedom                     6
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.001
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ I        |
+    EXTERNALIZ         1.000      0.000    999.000    999.000
+    EXTERNALIZ         1.000      0.000    999.000    999.000
+    EXTERNALIZ         1.000      0.000    999.000    999.000
+
+ S        |
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         1.000      0.000    999.000    999.000
+    EXTERNALIZ         2.000      0.000    999.000    999.000
+
+ I        ON
+    SEX                0.912      0.175      5.204      0.000
+
+ S        ON
+    SEX               -0.138      0.072     -1.923      0.054
+
+ S        WITH
+    I                 -1.866      0.783     -2.382      0.017
+
+ Intercepts
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    I                  3.481      0.298     11.689      0.000
+    S                 -0.025      0.123     -0.200      0.841
+
+ Residual Variances
+    EXTERNALIZ         9.151      1.298      7.052      0.000
+    EXTERNALIZ         9.138      0.686     13.320      0.000
+    EXTERNALIZ         8.629      1.393      6.195      0.000
+    I                 31.207      1.605     19.445      0.000
+    S                  1.190      0.615      1.934      0.053
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ I        |
+    EXTERNALIZ         0.880      0.017     51.937      0.000
+    EXTERNALIZ         0.910      0.014     65.773      0.000
+    EXTERNALIZ         0.918      0.029     32.138      0.000
+
+ S        |
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.177      0.045      3.978      0.000
+    EXTERNALIZ         0.358      0.095      3.755      0.000
+
+ I        ON
+    SEX                0.076      0.015      5.223      0.000
+
+ S        ON
+    SEX               -0.059      0.035     -1.690      0.091
+
+ S        WITH
+    I                 -0.306      0.068     -4.531      0.000
+
+ Intercepts
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    EXTERNALIZ         0.000      0.000    999.000    999.000
+    I                  0.621      0.054     11.457      0.000
+    S                 -0.022      0.112     -0.201      0.841
+
+ Residual Variances
+    EXTERNALIZ         0.226      0.030      7.570      0.000
+    EXTERNALIZ         0.241      0.014     16.692      0.000
+    EXTERNALIZ         0.232      0.033      7.041      0.000
+    I                  0.994      0.002    445.894      0.000
+    S                  0.996      0.004    239.643      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    EXTERNAL           0.774      0.030     25.968      0.000
+    EXTERNAL           0.759      0.014     52.605      0.000
+    EXTERNAL           0.768      0.033     23.331      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    I                  0.006      0.002      2.612      0.009
+    S                  0.004      0.004      0.845      0.398
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.801E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ I        |
+    EXTERNALIZ       1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    EXTERNALIZ       1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    EXTERNALIZ       1.000       1.000       1.000       1.000       1.000       1.000       1.000
+
+ S        |
+    EXTERNALIZ       0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNALIZ       1.000       1.000       1.000       1.000       1.000       1.000       1.000
+    EXTERNALIZ       2.000       2.000       2.000       2.000       2.000       2.000       2.000
+
+ I        ON
+    SEX              0.461       0.568       0.624       0.912       1.200       1.255       1.363
+
+ S        ON
+    SEX             -0.323      -0.279      -0.256      -0.138      -0.020       0.003       0.047
+
+ S        WITH
+    I               -3.883      -3.401      -3.154      -1.866      -0.577      -0.330       0.152
+
+ Intercepts
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    I                2.714       2.898       2.991       3.481       3.971       4.065       4.249
+    S               -0.340      -0.265      -0.226      -0.025       0.177       0.216       0.291
+
+ Residual Variances
+    EXTERNAL         5.808       6.608       7.016       9.151      11.286      11.694      12.493
+    EXTERNAL         7.371       7.793       8.009       9.138      10.266      10.482      10.905
+    EXTERNAL         5.042       5.899       6.338       8.629      10.921      11.360      12.217
+    I               27.073      28.062      28.567      31.207      33.847      34.353      35.341
+    S               -0.395      -0.016       0.178       1.190       2.202       2.396       2.775
+
+
+CONFIDENCE INTERVALS OF STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ I        |
+    EXTERNALIZ       0.836       0.847       0.852       0.880       0.908       0.913       0.924
+    EXTERNALIZ       0.874       0.883       0.887       0.910       0.932       0.937       0.945
+    EXTERNALIZ       0.845       0.862       0.871       0.918       0.965       0.974       0.992
+
+ S        |
+    EXTERNALIZ       0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNALIZ       0.063       0.090       0.104       0.177       0.251       0.265       0.292
+    EXTERNALIZ       0.112       0.171       0.201       0.358       0.515       0.545       0.604
+
+ I        ON
+    SEX              0.039       0.048       0.052       0.076       0.100       0.105       0.114
+
+ S        ON
+    SEX             -0.150      -0.128      -0.117      -0.059      -0.002       0.009       0.031
+
+ S        WITH
+    I               -0.480      -0.439      -0.417      -0.306      -0.195      -0.174      -0.132
+
+ Intercepts
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    EXTERNAL         0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    I                0.482       0.515       0.532       0.621       0.711       0.728       0.761
+    S               -0.311      -0.242      -0.207      -0.022       0.162       0.197       0.266
+
+ Residual Variances
+    EXTERNAL         0.149       0.167       0.177       0.226       0.275       0.284       0.303
+    EXTERNAL         0.204       0.213       0.217       0.241       0.265       0.269       0.278
+    EXTERNAL         0.147       0.167       0.178       0.232       0.286       0.296       0.317
+    I                0.988       0.990       0.991       0.994       0.998       0.999       1.000
+    S                0.986       0.988       0.990       0.996       1.003       1.005       1.007
+
+
+     Beginning Time:  12:53:10
+        Ending Time:  12:53:10
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen
