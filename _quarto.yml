@@ -29,11 +29,11 @@ book:
     #- part: "**Analyses**"
     #chapters:
     #- analyses.qmd
-    - part: "**Tables**"
+    - part: "Tables"
       # chapters:
       #   - Table_1.qmd
       #   - Table_2.qmd
-    - part: "**Figures**"
+    - part: "Figures"
       # chapters:
       #   - Figure_1.qmd
       #   - Figure_2.qmd
@@ -41,7 +41,7 @@ book:
   page-navigation: true
   #repo-url: https://github.com/swhawes/
   #repo-actions: [edit]
-  downloads: [pdf, epub]
+  downloads: [pdf, docx]
   sharing: [twitter, facebook]
   navbar:
     search: true

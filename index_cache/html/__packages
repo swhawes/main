@@ -1,3 +1,10 @@
+base
+methods
+utils
+datasets
+grDevices
+graphics
+stats
 Matrix
 lme4
 lmerTest
@@ -24,6 +31,7 @@ modelbased
 performance
 parameters
 see
+emmeans
 DT
 data.table
 arsenal
@@ -36,5 +44,6 @@ papaja
 stringi
 lavaan
 corrr
-emmeans
 trackdown
+officedown
+officer
