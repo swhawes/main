@@ -2,6 +2,8 @@
 
 This is the current landing page for the *"Longitudinal Association of Video Gaming With Severe Behavior Problems Among Youth"* project 
 
+1) compile to word, pdf, (gdocs), and html formats
+2) 
 
 ```{r}
 #| include: FALSE
@@ -17,6 +19,7 @@ library(afex)
 library(formatR)
 library(report)
 library(easystats)
+library(emmeans)
 library(parameters)
 library(modelbased)
 library(effectsize)
@@ -34,6 +37,9 @@ library(papaja)
 library(stringi)
 library(lavaan)
 library(corrr)
+library(trackdown)
+library(officedown)
+library(officer)
 
 df_long<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_long.csv")
 ```

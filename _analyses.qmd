@@ -1,0 +1,486 @@
+# Results {.unnumbered}
+
+```{r install}
+#| echo: false
+
+## Install necessary packages (if not already installed)
+# if (!("lme4" %in% installed.packages())) install.packages("lme4")
+# if (!("lmerTest" %in% installed.packages())) install.packages("lmerTest")
+# if (!("tidyverse" %in% installed.packages())) install.packages("tidyverse")
+# if (!("arrow" %in% installed.packages())) install.packages("arrow")
+# if (!("afex" %in% installed.packages())) install.packages("afex")
+# if (!("janitor" %in% installed.packages())) install.packages("janitor")
+# if (!("skimr" %in% installed.packages())) install.packages("skimr")
+# if (!("sdamr" %in% installed.packages())) install.packages("sdamr")
+# if (!("formatR" %in% installed.packages())) install.packages("formatR")
+# if (!("report" %in% installed.packages())) install.packages("report")
+# if (!("easystats" %in% installed.packages())) install.packages("easystats")
+# if (!("emmeans" %in% installed.packages())) install.packages("emmeans")
+# if (!("poorman" %in% installed.packages())) install.packages("poorman")
+# if (!("parameters" %in% installed.packages())) install.packages("parameters")
+# if (!("modelbased" %in% installed.packages())) install.packages("modelbased")
+# if (!("effectsize" %in% installed.packages())) install.packages("effectsize")
+# if (!("see" %in% installed.packages())) install.packages("see")
+# if (!("performance" %in% installed.packages())) install.packages("performance")
+# if (!("insight" %in% installed.packages())) install.packages("insight")
+# if (!("DT" %in% installed.packages())) install.packages("DT")
+# if (!("data.table" %in% installed.packages())) install.packages("data.table")
+# if (!("arsenal" %in% installed.packages())) install.packages("arsenal")
+# if (!("kableExtra" %in% installed.packages())) install.packages("kableExtra")
+# if (!("equatiomatic" %in% installed.packages())) install.packages("equatiomatic")
+# if (!("gtsummary" %in% installed.packages())) install.packages("gtsummary")
+# if (!("ggstatsplot" %in% installed.packages())) install.packages("ggstatsplot")
+# if (!("patchwork" %in% installed.packages())) install.packages("patchwork")
+# if (!("papaja" %in% installed.packages())) install.packages("papaja")
+```
+
+```{r load}
+#| echo: false
+
+## Load packages
+# library(lme4)
+# library(lmerTest)
+# library(tidyverse)
+# library(arrow)
+# library(afex)
+# library(formatR)
+# library(report)
+# library(easystats)
+# library(parameters)
+# library(modelbased)
+# library(effectsize)
+# library(see)
+# library(performance)
+# library(insight)
+# library(DT)
+# library(data.table)
+# library(arsenal)
+# library(kableExtra)
+# library(equatiomatic)
+# library(gtsummary)
+# library(ggstatsplot)
+# library(papaja)
+```
+
+test
+<!-- 
+```{r config}
+
+# Seed for random number generation
+set.seed(42)
+
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, 
+                      comment=NA, cache=T, code_folding=T,
+                      R.options=list(width=220), fig.align='center', 
+                      out.width='75%', fig.asp=.75, cache.extra = knitr::rand_seed)
+
+```{r model}
+## Load long dataframe
+df_long <- read_parquet("./_data/df_long.pqt")#, lazy = TRUE)
+
+## Linear Mixed Model with a random intercept (LMM-ri)
+random_intercepts <- lmer(Aggression ~ 1 + Event + Sex + Weekly_Gaming_Hours + MatureVideoGames + (1|ids), data = df_long, REML=T)
+
+# recall_anova <-lm(formula = Aggression ~ Weekly_Gaming_Hours, data = df_long)
+# #random_intercepts <- MatureVideoGames(recall_anova, es = "pes")
+# random_intercepts <- apa_print(recall_anova, es = "pes", in_paren = TRUE)
+
+# #random_intercepts
+random_intercepts
+
+
+# ```
+
+# ```{r output}
+# #| code-summary: output
+
+# ## Output and reports extending from the LMM-ri analyses
+# summary(random_intercepts)
+# confint(random_intercepts, level = 0.95, method = "Wald")
+# report(random_intercepts)
+# report_performance(random_intercepts)
+# report_statistics(random_intercepts)
+# random <- estimate_grouplevel(random_intercepts)
+# ```
+
+# ```{r report}
+# #| code-summary: report
+
+# df_long %>%
+#   #report() %>%
+#   summary()
+
+# ## remove unused objects
+# # rm(df_long_filtered)
+# ```
+
+
+# ```{r lavaan}
+# #| include: FALSE 
+# library(lavaan)
+# df_long<- read_csv("./_data/df_long.csv")
+
+# model <- ' i =~ 1*Aggression_T0 + 1*Aggression_T1 + 1*Aggression_T2
+#            s =~ 0*Aggression_T0 + 1*Aggression_T1 + 2*Aggression_T2
+           
+# # regressions
+#     i ~ MatureVideoGames*Weekly_Gaming_Hours_T0 #sex + age + edupar + incpar
+#     s ~ MatureVideoGames*Weekly_Gaming_Hours_T0 #sex + age + edupar + incpar
+
+# # time-varying covariates
+#     #t1 ~ c1
+#     #t2 ~ c2
+#     #t3 ~ c3
+#     #t4 ~ c4
+# '
+
+# fit <- growth(model, data=df_wide)
+# summary(fit)
+
+
+
+```
+
+
+
+<!-- RICLPM <- '
+  # Create between components (random intercepts)
+  RIx =~ 1*Weekly_Gaming_Hours_T0 + 1*Weekly_Gaming_Hours_T1 + 1*Weekly_Gaming_Hours_T2
+  RIy =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+  
+  # Create within-person centered variables
+  wx0 =~ 1*Weekly_Gaming_Hours_T0
+  wx1 =~ 1*Weekly_Gaming_Hours_T1
+  wx2 =~ 1*Weekly_Gaming_Hours_T2 
+  wy0 =~ 1*Externalizing_T0
+  wy1 =~ 1*Externalizing_T1
+  wy2 =~ 1*Externalizing_T2
+  
+  # Estimate lagged effects between within-person centered variables
+  wx1 + wy1 ~ wx0 + wy0
+  wx2 + wy2 ~ wx1 + wy1
+  #wy2 ~ wy1
+  #wy1 ~ wy0
+  
+  # Estimate covariance between within-person centered variables at first wave
+  wx0 ~~ wy0 # Covariance
+  
+  # Estimate covariances between residuals of within-person centered variables 
+  # (i.e., innovations)
+  wx1 ~~ wy1
+  wx2 ~~ wy2
+  
+  # Estimate variance and covariance of random intercepts
+  RIx ~~ RIx
+  RIy ~~ RIy
+  RIx ~~ RIy
+
+  # Estimate (residual) variance of within-person centered variables
+  wx0 ~~ wx0 # Variances
+  wy0 ~~ wy0
+  wx1 ~~ wx1 # Residual variances
+  wy1 ~~ wy1
+  wx2 ~~ wx2
+  wy2 ~~ wy2
+  
+# regressions
+#RIy ~ Weekly_Gaming_Hours_T0
+#s ~ Weekly_Gaming_Hours_T0 
+'
+
+RICLPM.fit <- lavaan(RICLPM, 
+  data = df_wide,
+  estimator ="MLR",
+  #group = "MatureVideoGames",
+  #ordered = c("Externalizing_T0", "Externalizing_T1", "Externalizing_T2"),
+  meanstructure = T, 
+  int.ov.free = T
+)
+
+#, ordered = c("Externalizing_T0", "Externalizing_T1", "Externfalizing_T2")
+
+summary(RICLPM.fit, standardized = TRUE, fit.measures = TRUE) -->
+
+
+```
+
+<!-- 
+{r}
+#| echo: FALSE
+
+## PubertalDevelopment_F + PubertalDevelopment_M
+L_FEreg <-lm(formula = Aggression ~ TotalGamingHours + MatureVideoGames + 
+               Sex + Race + Age + IQ + FlankerTest + 
+               ParentIncome + ParentEducation + Internalizing, 
+             data = df_long)
+
+recall_FEreg_results <- apa_print(L_FEreg, es = "pes")
+recall_FEreg_results_p <- apa_print(L_FEreg, es = "pes", in_paren = TRUE)
+
+apa_table(
+  recall_FEreg_results_p$table
+  , align = c("l", "r", "c", "r", "r", "r")
+  , caption = "(Longitudinal Fixed Effects Regression)"
+  , note = "(.)"
+)
+
+# # ## Linear Mixed Model with a random intercept (LMM-ri)
+# #random_intercepts <- lmer(cu_traits ~ 1 + event + vg_total + mature_vg + (1|ids), data = df_long, REML=T)
+
+
+-->
+
+
+Item valence 
+(`r recall_FEreg_results_p$full$TotalGamingHours`) 
+and the task affected
+`r recall_FEreg_results$full$TotalGamingHours`
+xxxxx
+(`r recall_FEreg_results_p$full$ParentEducation`) recall performance,
+test, 
+`r recall_FEreg_results$full$ParentEducation`; the dosage,
+however, had no effect on recall.
+There was no significant interaction 
+(`r recall_FEreg_results_p$full$IQ`).
+```
+
+```{r comment=NA, echo = FALSE}
+a = 5
+b = 6
+c = a+b
+```
+
+Timmy is `r c` 
+
+
+```{r output}
+#| code-summary: output
+#| echo: FALSE
+
+## Linear Mixed Model with a random intercept (LMM-ri)
+#RI <- lmer(Aggression ~ Event + Weekly_Gaming_Hours + (1|ids),
+#           data = df_long, REML=T)
+
+## Linear Mixed Model with a random intercept & random slope (LMM-ris)
+#RIS <- lmer(Aggression ~ Event + Weekly_Gaming_Hours + 
+#              + (1 + Event | ids), data = df_long, REML=T)
+
+## Linear Mixed Model with a random intercept (LMM-ri)
+random_intercepts <- lmer(Aggression ~ 1 + Weekly_Gaming_Hours + MatureVideoGames + 
+                            Sex + Race + Externalizing +
+                            Internalizing + Depression + (1|ids), 
+                          data = df_long, REML=T)
+
+summary(random_intercepts)
+confint(random_intercepts, level = 0.95, method = "Wald")
+random <- estimate_grouplevel(random_intercepts)
+
+#str(df_long$ParentIncomeDel) 
+#ParentEducationDel 
+
+```
+
+
+```{r }
+#| code-summary: output
+#| include: FALSE
+
+# Output and reports extending from the LMM-ri analyses
+summary(random_intercepts)
+confint(random_intercepts, level = 0.95, method = "Wald")
+random <- estimate_grouplevel(random_intercepts)
+
+```
+
+```{r reportz}
+#| code-summary: output
+#| echo: FALSE
+
+report(random_intercepts)
+
+```
+
+```{r performance}
+#| code-summary: output
+#| echo: FALSE
+
+report_performance(random_intercepts)
+```
+
+```{r statistics}
+#| code-summary: output
+#| echo: FALSE
+
+report_statistics(random_intercepts)
+
+```
+
+```{r extrct-FE}
+#| code-summary: output
+#| echo: FALSE
+
+## Obtain LMM-ri model parameters to plot/graph of results
+model_intercept <- as.numeric(fixef(random_intercepts)[1])
+model_slope <- as.numeric(fixef(random_intercepts)[2])
+```
+
+```{r extrct-RE}
+#| class.source: 'fold-hide'
+#| echo: FALSE
+
+intercepts <- rep(coef(random_intercepts)$ids[,1], each = 4)
+```
+
+
+```{r meanplot}
+#| echo: FALSE
+#| column: screen-inset-shaded
+#| layout-nrow: 2
+
+## Estimated means plot
+means <- estimate_means(random_intercepts)
+plot(means)
+
+```
+
+```{r barplot}
+#| echo: FALSE
+#| include: FALSE
+
+# Basic ggplot2 barplot with mean
+# p<-df_long %>%
+#     filter(!is.na(Sex)) %>% # filter on non-missing values  
+#     ggplot(aes(x = MatureGames, y = Aggression, fill = Sex)) + #fill = sex
+#     geom_col(position = "dodge",
+#            stat = "summary",
+#            fun = "mean",
+#            #fill = "#AA4A44",
+#            #color = "#0099f9"
+#            ) +
+#     #scale_fill_brewer(palette = "Set1") +
+#     scale_fill_manual(values = c("#3db5ff", "#0099f9")) +
+    #scale_fill_gradient(high = "#B00B69", low = "#0e0e63") +
+    #geom_text(aes(label = cu_traits), position = position_dodge(0.9), 
+              #vjust = 2, size = 4, color = "#ffffff") +
+    # labs(title = "Behavior Problems by Video Game Groups", subtitle = "Simple bar chart",
+    #      caption = "Simple caption", x = "Video Game Group", y = "CBCL Aggression") +
+    #           #coord_flip() +
+    # #geom_hline(yintercept = mean(df$cbcl_agg), linetype = "dashed", size = 1) +
+    # theme_minimal() +
+    # theme(
+    #       plot.title = element_text(color = "#0099f9", size = 20, hjust = 0.5),
+    #       plot.subtitle = element_text(face = "bold", hjust = 1),
+    #       plot.caption = element_text(face = "italic", hjust = 0),
+    #       axis.title.x = element_text(color = "#0099f9", size = 15, face = "bold"),
+    #       axis.title.y = element_text(size = 15, face = "italic")
+ # )
+#p
+```
+
+```{r lmmri-graph}
+#| echo: FALSE
+#| label: my-figure
+##| fig-asp: 0.61
+##| fig-cap: |
+##|   This is a caption for my figure, 
+##|   using YAML formatting, etc.#| 
+
+#options(tinytex.verbose = TRUE)
+
+#random_intercepts <- lmer(cbcl_agg ~ 1 + event + vg_total+ sex + (1|ids), data = df, #REML=T)
+
+## LMM-ri plot of estimated random intercepts 
+model <- lmer(Aggression ~ Sex + (1 | IQ), data = df_long)
+preds <- estimate_relation(model, include_random = TRUE)
+
+## Adding fixed effect trajectory to LMM-ri plot 
+fixed_pred <- estimate_relation(model) # This time, include_random is FALSE (default)
+plot(preds, ribbon = list(alpha = 0)) + # Previous plot
+  geom_ribbon(data = fixed_pred, aes(x = Sex, ymin = CI_low, ymax = CI_high), alpha = 0.4) +
+  geom_line(data = fixed_pred, aes(x = Sex, y = Predicted), linewidth = 1) 
+
+# Race
+# PrntIncome
+# PrntEdu
+# MatureGames
+# Aggression
+# Externalizing
+# Internalizing
+# Depression
+# TotalGamingHrs
+
+######
+# ggplot(df_long_sub, aes(x = Event, y = Aggression, color=Sex, shape=Sex)) + 
+# geom_abline(slope = model_slope, intercept = model_intercept, linetype = "solid", color = "red", linewidth = 1) + 
+# geom_point(color = "grey70") + 
+# geom_smooth(method=lm, se=FALSE, fullrange=TRUE)+
+# scale_shape() + 
+# geom_segment(aes(x = Event, xend = Event, y = Aggression, yend = fitted(Aggression)), color = "grey70") + 
+# scale_y_continuous(expand = c(0, 0), breaks = c(0, 20, 40, 60, 80, 100), limits = c(0, 100)) + 
+# scale_x_continuous(expand = c(0, 0), breaks = c(1, 2, 3, 4), limits = c(0, 4)) +
+# theme(panel.background = element_blank(),         
+#         panel.grid.major = element_blank(),
+#         panel.grid.minor = element_blank(),
+#         panel.border = element_rect(colour = "black", fill = NA),
+#         legend.position = "none",
+#         axis.text = element_text(size = 14), 
+#         axis.title = element_text(size = 14)) +
+#         labs (x = "Event", y= "Aggression")
+
+#Save the plot
+#ggsave("random_intercept.png", units = "in", width = 9, height = 6, dpi = 300)  
+
+
+
+```
+
+
+
+Externalizing Growth model indices: (x2 = .006(1), p = .93; CFI = 1; RMSEA =1)
+Externalizing Growth model parameters: intercept x = .89***, var = ***; slope x = .23***, var = *
+
+Univariate MatureVG --> Externalizing intercept = .11***(.01); Externalizing slope = -.01(.03);
+Univariate GamingHrs --> Externalizing intercept = .09***(.01); Externalizing slope = -.04(.03);
+Univariate Sex --> Externalizing intercept = .07***(.01); Externalizing slope = -.06(.03);
+
+Covariates MatureVG --> Externalizing intercept = .07***(.01); Externalizing slope = .03(.03);
+Covariates GamingHrs --> Externalizing intercept = .03**(.01); Externalizing slope = -.01(.02);
+Covariates Sex --> Externalizing intercept = .07***(.01); Externalizing slope = -.03(.02);
+
+FM_NoInt MatureVG --> Externalizing intercept = .05**(.01); Externalizing slope = .04(.03);
+FM_NoInt GamingHrs --> Externalizing intercept = .01(.01); Externalizing slope = -.01(.03);
+FM_NoInt Sex --> Externalizing intercept = .05***(.01); Externalizing slope = -.03(.02);
+
+TwoWayInt MatureVGxGamingHrs --> Externalizing intercept = .09*(.04); Externalizing slope = -.14(.10);
+TwoWayInt MatureVGxSex --> Externalizing intercept = .03(.09); Externalizing slope = -.42(-.22);
+TwoWayInt GamingHrsxSex --> Externalizing intercept = .01(.05); Externalizing slope = .07(.11);
+
+ThreeWayInt --> Externalizing intercept = .21(.29); Externalizing slope = .22(.76);
+
+xxxx MatureVG --> Externalizing intercept = .xx(.xx); Externalizing slope = .xx(.xx);
+xxxx GamingHrs --> Externalizing intercept = .xx(.xx); Externalizing slope = .xx(.xx);
+xxxx Sex --> Externalizing intercept = .xx(.xx); Externalizing slope = .xx(.xx);
+
+## Additional models we considered:
+LCM-SR; RI-CLPM; Mixture models, linear growth model
+
+
+|    | MVG (n = xxx)| NMVG (n = xxx) | Total (n = xxx) |
+|---------|:-----|------:|:------:|
+| Weekly Gaming Hrs     | 123  |   123 |  123   |
+| Externalizing     | 123  |   123 |  123   |
+| Aggression    | x    |     x |   x    |
+| Internalizing     | 123  |   123 |  123   |
+| Other    | x    |     x |   x    |
+| Age      | 12   |    12 |   12   |
+| Sex     | 123  |   123 |  123   |
+| Race/Ethnicity    | 1    |     1 |   1    |
+| White      | 12   |    12 |   12   |
+| Black     | 123  |   123 |  123   |
+| Hispanic    | x    |     x |   x    |
+| Asian     | 123  |   123 |  123   |
+| Other    | x    |     x |   x    |
+| Parent Education     | 123  |   123 |  123   |
+| Parent Inome    | x    |     x |   x    |
+| IQ     | 123  |   123 |  123   |
+| Flanker    | x    |     x |   x    |

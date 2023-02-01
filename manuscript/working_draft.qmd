@@ -39,6 +39,14 @@ sansfont: arial
 monofont: arial
 fontsize: 15pt
 indent: true
+# format: 
+#   pdf: 
+#     geometry: 
+#       - top=30mm
+#       - left=20mm
+#   docx: default
+# prefer-html: true
+
 output: 
   rticles::arxiv_article
 
@@ -53,7 +61,6 @@ It is also important to consider that not all youth who play violent video games
 
 # Methods
 \label{sec:headings}
-
 ## Sample
 The ABCD sample was largely recruited through public, private, and charter elementary schools. The ABCD study adopted a population neuroscience approach to recruitment [@falk2013; @paus2013] by using epidemiologically informed procedures to ensure demographic variation in its sample that would mirror the variation in the US population of 9- and 10-year-olds [@garavan2018]. A probability sampling of schools was conducted within the defined catchment areas of the study’s nationally distributed set of 21 recruitment sites in the US. All children in each sampled school were invited to participate after classroom-based presentations, distribution of study materials, and telephone screening for eligibility. Exclusions included common MRI contraindications (such as cardiac pacemakers and defibrillators, internal pacing wires, cochlear and metallic implants, and Swan-Ganz catheters), inability to understand or speak English fluently, uncorrected vision, hearing or sensorimotor impairments, history of major neurologic disorders, gestational age less than 28 weeks, birth weight less than 1200 g, birth complications that resulted in hospitalization for more than 1 month, current diagnosis of schizophrenia, moderate or severe autism spectrum disorder, history of traumatic brain injury, or unwillingness to complete assessments. The ABCD study sample also includes 2105 monozygotic and dizygotic twins. The ABCD study’s anonymized data, including all assessment domains, are released annually to the research community. Data on race and ethnicity are not included in the ABCD study data. Information on how to access ABCD study data through the National Institute of Mental Health Data Archive is available on the ABCD study
 data-sharing webpage.
@@ -64,49 +71,36 @@ Participants were enrolled in the ongoing, longitudinal ABCD Study, and the stud
 ### Screen Time Survey
 Participants were administered a screen time survey that asked how much time they spend engaged in different types of screen time on a typical weekday and a typical weekend day. The different screen time categories were as follows: “Watch TV shows or movies?”; “Watch videos (such as YouTube)?”; “Play video games on a computer, console, phone, or other device (Xbox, Play Station, iPad)?”; “Text on a cell phone, tablet, or computer (eg, GChat, Whatsapp, etc.)?”; “Visit social networking sites like Facebook, Twitter, Instagram, etc?”; and “Video chat (Skype, Facetime, etc)?” For each of these activities, the participants responded with how much time they spent per day doing them. They could answer none, less than 30 minutes, 30 minutes, 1 hour, 2 hours, 3 hours, or 4 hours. Answers were mostly none for the texting, social networking, and video chatting categories, as expected for this age range. For each participant, a total weekly video-gaming score was derived as the sum of (video-gaming hours per weekday × 5) + (video-gaming hours per weekend day × 2). Using the video-gaming score, we defined a group of NVGs who never played video games (0 gaming hours per week) and a group of VGs who played 3 hours per day (21 hours per week) or more. This threshold was selected because it exceeds the American Academy of Pediatrics screen time guidelines [@2022z], which recommends that video-gaming time be limited to 1 to 2 hours per day for older children.
 
-### Severe Behavior Problems
+### Youth Behavior Problems
 Mental health symptoms were evaluated using the Child Behavior Checklist (CBCL) [@achenbach2000] and the Schedule for Affective Disorders and Schizophrenia for School-Age Children–Present and Lifetime version for DSM-5 (K-SADS-PL) [@kaufman1997; @kobak2013]. Raw scores of behavioral (externalizing, aggression, oppositional-defiant problems, conduct problems) and psychiatric categories (Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition diagnoses of depression oppositional-defiant disorder, and conduct disorder) were obtained via parent-report of the self-administered computerized version of each of these measures.
 
-### Callous-unemotional traits
-We classified callous-unemotional traits using a four-item measure derived and validated in previous studies using data from the ABCD Study [@hawes2021; @waller2020] that included one item from the CBCL–Parent Report (“lack of guilt after misbehaving”) and three (reverse-scored) items from the Strengths and Difficulties Questionnaire–Parent Report [@goodman1997] (e.g., “is helpful if someone is hurt or upset”). This measure showed strong psychometric properties, including discrimi- nant (e.g., crossover suppression effect between callous-unemotional traits and anxiety) and convergent validity, measurement invariance, independent replication, and overlap with other commonly used measures of callous-unemotional traits [@hawes2020c]. Finally, we also derived maximum a posteriori scale scores that provided person-specific callous-unemotional trait factor scores.
-
-### Group classification
-To attain a robust sample size to explore DBD groups, we inclusively classified the presence of DBDs on the basis of youths scoring at or above the borderline clinical range (i.e., T-scores > 67) on either the CBCL DSM- oriented conduct problems subscale or oppositional defiant problems subscale or receiving a K-SADS-PL conduct disorder or oppositional defiant disorder diagnosis (N=995) [@hawes2021; @byrd2021]. Youths with DBDs were further categorized on the basis of extremes of callous-unemotional traits. The DBD+CU group had high callous-unemotional traits based on a conjunction of summed scores >4 on the summed callous-unemotional traits measure and callous-unemotional maximum a posteriori scores in the 90th percentile (DBD+CU traits, N=198). To maximize phenotypic differences between groups, youths in the DBD-only group had summed scores of zero on the callous-unemotional traits measure (N=276).
-
-### Potential confounders 
-To account for the potentially confounding effects of attentional, cognitive, or emotional difficulties that are often comorbid with DBDs, all analyses included CBCL DSM-oriented attention problems and in- ternalizing subscale scores as covariates. We also covaried for sex, age, race/ethnicity, and parental education.
+### Potential confounders
+The youth’s age, sex, and race/ethnicity, as well as family income and parental education were reported by the parent at the baseline assessment. Several control variables were included to account for the potential effects of attentional, cognitive, or emotional difficulties that are often comorbid with behavior problems. This includes scores on measures from the the National Institutes of Health Toolbox (http://www.nihtoolbox.org) including 1) the Flanker Task–– a response inhibition/conflict monitoring task that measures the ability to modulate responding under congruent versus incongruent stimulus contexts [@Thompson2019] and 2) the mean of crystalized and fluid intelligence composite scores [@zelazo2013]. Additionally, scores on the CBCL DSM-oriented internalizing subscale [@achenbach2000] were also input as model covariates. 
 
 ### Participant Inclusion Criteria
 Participants were included if they had (1) xxxxx, (2) xxxxx, and (3) had complete information on the screen time survey and for all other variables (CBCL, age, sex, and parental income).
 
-### Demographic Characteristics and Mental Health Measures
-The child’s age and sex were reported by the parent at the baseline assessment. A trained researcher measured children’s height (to the nearest inch) and weight (to the nearest 0.1 lb). Height and weight were assessed 2 times, and means were recorded. Height and weight were converted to body mass index (BMI) age-, sex-, weight-, and height-specific z scores (according to the Centers for Disease Control and Prevention age-, sex-, height-, and weight-specific BMI cutoffs [@kuczmarski2002]). IQ scores were derived from the National Institutes of Health Toolbox cognition battery [@zelazo2013] as the mean of crystalized intelligence and fluid intelligence composite, age-corrected scores. Demographic characteristics were compared between VGs and NVGs using a 2-tailed t test except for sex, which was compared using a x2 test (Table 1). 
-
 ## Analytic Strategy
-Descriptive analysis present an overview of demographic characteristics and xxxx, with age (months), sex, race/ethnicity, scanner serial number, IQ, puberty, parental education, parental income, xxxxx across 3 annual assessment waves (t0, t1, t2). Latent growth curve modeling (LGCM) was used to characterize behavior problem trajectories (e.g., aggression, externalizing behaviors) in youth across mid-to-late childhood (ages ~ 9-12). This approach identifies developmental trajectories, allowing for an examination of individual patterns of stability and change across time, as well as unique predictors and outcomes of change. **Next, main effects and interactions were used to predict intercept and slope factor of behavior problems main effects and interactions w/ sex, maturegames, gaming hrs in childhood (baseline) predicted xxxx longitudinally.**
+Descriptive analysis present an overview of demographic characteristics and xxxx, with age (months), sex, race/ethnicity, scanner serial number, IQ, puberty, parental education, parental income. Latent growth curve modeling (LGCM) was used to characterize behavior problem trajectories (e.g., aggression, externalizing behaviors) in youth across mid-to-late childhood (ages ~ 9-12). This approach identifies developmental trajectories, allowing for an examination of individual patterns of stability and change across time, as well as unique predictors and outcomes of change. **Next, main effects and interactions were used to predict intercept and slope factor of behavior problems main effects and interactions w/ sex, maturegames, gaming hrs in childhood (baseline) predicted xxxx longitudinally.**
 
-All analyses were conducted using Mplus, version 7 (32), with models specified using maximum likelihood estimation with robust standard errors and a Monte Carlo numerical integration algorithm. Complex sampling and recruitment procedures for the ABCD Study were accounted for using cluster correction (i.e., for sibling pairs) and stratification sampling (i.e. study site) procedures (32). Model fit was assessed according to global fit indices including the comparative fit index (CFI) and the root mean square error of approximation (RMSEA). Cutoff values of .90 or greater were used to indicate acceptable fit and .95 or greater to indicate good fit for CFI (Hu and Bentler, 1999; McDonald and Ho, 2002). RMSEA values between .05 and .10 were considered to represent an acceptable fit, while values less than .05 were considered to indicate good fit (Browne and Cudeck, 1993; McDonald and Ho, 2002).
+All analyses were conducted using xxxxxxx (xxxx), with models specified using maximum likelihood estimation with robust standard errors and a Monte Carlo numerical integration algorithm. Complex sampling and recruitment procedures for the ABCD Study were accounted for using cluster correction (i.e., for sibling pairs) and stratification sampling (i.e. study site) procedures (32). Model fit was assessed according to global fit indices including the comparative fit index (CFI) and the root mean square error of approximation (RMSEA). Cutoff values of .90 or greater were used to indicate acceptable fit and .95 or greater to indicate good fit for CFI (Hu and Bentler, 1999; McDonald and Ho, 2002). RMSEA values between .05 and .10 were considered to represent an acceptable fit, while values less than .05 were considered to indicate good fit (Browne and Cudeck, 1993; McDonald and Ho, 2002).
 
 In addition, longitudinal and multigroup invariance testing was conducted to determine whether there were any sex-based effects **for any model parameters**. First, a baseline configural model was specified, allowing factor loadings and intercepts to vary across time. Subsequent models were specified by adding parameter constraints, until arriving at a final invariance model with factor loadings, intercepts, factor covariances, and item residual variances constrained to equality across each assessment wave. These models were compared via (Satorra-Bentler) chi-square difference testing, wherein a non-significant chi-square indicates that the more constrained model should be adopted. However, as the chi-square difference test is sensitive to sample size and violations of the normality assumption, we also assessed change in CFI and RMSEA fit indices across models. Changes in CFI equal to or less than .01 and changes in RMSEA of equal to or less than .015 have been proposed as demonstrating evidence of model invariance (Chen, 2007; Cheung and Rensvold, 2002).
 
 The xxxx model allowed us to examine group differences in xxxx, supplementing the xxxxx analyses in several ways. First, we could evaluate how xxxx contributed to the hypothesized xxxxx and assess whether xxxxx could be modeled similarly across groups. We used measurement invariance testing (via the DIFFTEST procedure in Mplus, version 7 [32]) to evaluate the xxxx model across groups (i.e., configural invariance) and over time  to determine whether each xxxx contributed to the xxxx equivalently across groups (i.e., metric and scalar invariance) (see the Methods section in the online supplement). Second, our modeling approach allowed us to test for group differences in mean levels of xxxxx, which was made more advantageous given that latent variables are modeled free of measurement error, resulting in increased statistical power.
 
 ## Results
-Descriptive statistics showed 
 
-groups to be equivalent on demographic variables, except for a lower proportional representation of female and Hispanic/Latinx children in the DBD groups (Table 1). There were no between-group differences on MID task performance (e. g., mean reaction time; Table S2).
+#### Descriptives Results
+Descriptive statistics are provided in [Table 1]. Add some additinal intial text here...
 
-: Demonstration of pipe table syntax
-
-Results from multinomial logistic regressions are shown in Table 2. No significant group differences were identified in any ROIs for loss anticipation4 nor loss receipt and there were no significant interactions with sex or anxiety. Findings did not significantly differ when covariates were removed (Table S4).
 
 ```{r descriptives}
 #| results: "asis"
 #| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
+#| warning: FALSE
 
-df_long<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_long.csv")
+df_long<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_long.csv", show_col_types = FALSE)
 
 ## Create a (grouped) descriptives table 
 descriptives  <- tableby.control(test=FALSE, total=TRUE, cat.simplify=TRUE,
@@ -130,323 +124,174 @@ var_table <- tableby(Event ~
 # Push variable table object through kable and kable_styling
 var_table %>%
   summary(text = TRUE, digits.pct=1, digits=1) %>%
-  kable(caption = "Descriptives") %>%
+  kable(caption = "Table 1. Descriptives") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE, #html_font = "Cambria",
                 font_size = 10,
                 position = "center", fixed_thead = T) %>%
   row_spec(2:3, extra_css = 'vertical-align: middle !important;') %>%
-  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(1:3, bold = T, border_right = T) %>%
   column_spec(2, border_right = T) %>%
   column_spec(3, border_right = T) %>%
+  #column_spec(3, background = spec_color(mtcars$drat[1:8], end = 0.7), border_right = T) %>%
   column_spec(4, border_right = T) %>%
   footnote(general = "TBD. ") %>%
   scroll_box(width = "75%", height = "500px")
-
-
-
 ```
 
-```{r FEreg}
+#### Growth Curve Model Results 
+The unconditional latent growth curve model of externalizing problems showed evidence of appropriate fit (χ2 (1) = .006, p = .93; CFI = 1.00, RMSEA = 1.00). The mean estimated intercept (M = 5.01, SE = 0.08) differed significantly from zero and the linear slope (M = -0.25, SE = 0.03) was significant in the negative direction. We also note a statistically significant variance estimate for the model intercept (δ2 = 31.41, p < .001), but a non-significant variance estimate for the linear slope (δ2 = 1.21, p = .05).
+
+```{r}
 #| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
-
-## Longitudinal Fixed Effects Regression
-## Load long dataframe
-#as_tibble(df_long)
-
-## PubertalDevelopment_F + PubertalDevelopment_M
-L_FEreg <-lm(formula = Aggression ~ TotalGamingHours + MatureVideoGames + 
-               Sex + Race + Age + IQ + FlankerTest + 
-               ParentIncome + ParentEducation + Internalizing, 
-             data = df_long)
-
-recall_FEreg_results <- apa_print(L_FEreg, es = "pes")
-recall_FEreg_results_p <- apa_print(L_FEreg, es = "pes", in_paren = TRUE)
-
-apa_table(
-  recall_FEreg_results_p$table
-  , align = c("l", "r", "c", "r", "r", "r")
-  , caption = "(Longitudinal Fixed Effects Regression)"
-  , note = "(.)"
-)
-
-# # ## Linear Mixed Model with a random intercept (LMM-ri)
-# #random_intercepts <- lmer(cu_traits ~ 1 + event + vg_total + mature_vg + (1|ids), data = df_long, REML=T)
-
-```
-
-Item valence 
-(`r recall_FEreg_results_p$full$TotalGamingHours`) 
-and the task affected
-`r recall_FEreg_results$full$TotalGamingHours`
-xxxxx
-(`r recall_FEreg_results_p$full$ParentEducation`) recall performance,
-test, 
-`r recall_FEreg_results$full$ParentEducation`; the dosage,
-however, had no effect on recall.
-There was no significant interaction 
-(`r recall_FEreg_results_p$full$IQ`).
-
-### Demographic Characteristics
-```{r comment=NA, echo = FALSE}
-cat(sapply(
-  stri_wrap(stri_rand_lipsum(1), 90, simplify=FALSE),
-  stri_flatten, collapse='\n'), sep='\n\n')
-```
-
-```{r comment=NA, echo = FALSE}
-a = 5
-b = 6
-c = a+b
-```
-
-Timmy is `r c` 
-
-```{r output}
-#| code-summary: output
-#| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
-
-## Linear Mixed Model with a random intercept (LMM-ri)
-#RI <- lmer(Aggression ~ Event + Weekly_Gaming_Hours + (1|ids),
-#           data = df_long, REML=T)
-
-## Linear Mixed Model with a random intercept & random slope (LMM-ris)
-#RIS <- lmer(Aggression ~ Event + Weekly_Gaming_Hours + 
-#              + (1 + Event | ids), data = df_long, REML=T)
-
-## Linear Mixed Model with a random intercept (LMM-ri)
-random_intercepts <- lmer(Aggression ~ 1 + Weekly_Gaming_Hours + MatureVideoGames + 
-                            Sex + Race + Externalizing +
-                            Internalizing + Depression + (1|ids), 
-                          data = df_long, REML=T)
-
-summary(random_intercepts)
-confint(random_intercepts, level = 0.95, method = "Wald")
-random <- estimate_grouplevel(random_intercepts)
-
-#str(df_long$ParentIncomeDel) 
-#ParentEducationDel 
-
-```
-
-In text reporting test  
-(r random_intercepts$Aggression`) 
-In text reporting test 
-r rrandom_intercepts`
-In text reporting test 
-(r random_intercepts$Sex`) recall performance,
-In text reporting test 
-r random_intercepts$Sex`; the dosage,
-In text reporting test 
-There was no significant interaction 
-r random_intercepts$Depression`).
-
-```{r }
-#| code-summary: output
-#| include: FALSE
-#| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
-
-# Output and reports extending from the LMM-ri analyses
-summary(random_intercepts)
-confint(random_intercepts, level = 0.95, method = "Wald")
-random <- estimate_grouplevel(random_intercepts)
-
-```
-
-```{r reportz}
-#| code-summary: output
-#| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
-
-report(random_intercepts)
-
-```
-
-```{r performance}
-#| code-summary: output
-#| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
-
-report_performance(random_intercepts)
-```
-
-```{r statistics}
-#| code-summary: output
-#| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
-
-report_statistics(random_intercepts)
-
-```
-
-```{r extrct-FE}
-#| code-summary: output
-#| echo: FALSE
-#| warnings: FALSE
-#| messages: FALSE
-
-## Obtain LMM-ri model parameters to plot/graph of results
-model_intercept <- as.numeric(fixef(random_intercepts)[1])
-model_slope <- as.numeric(fixef(random_intercepts)[2])
-```
-
-```{r extrct-RE}
-#| class.source: 'fold-hide'
-#| message: FALSE
+#| results: FALSE
 #| warning: FALSE
-#| echo: FALSE
 
-intercepts <- rep(coef(random_intercepts)$ids[,1], each = 4)
+df_wide<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_wide.csv", show_col_types = FALSE)
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
 ```
 
+#### Univariate Regression Results
+Next we examined univariate effects of all study predictors and covariates with the intercept and slope factors of the Externalizing growth curve. These results show several significant associations with the growth curve intercept. Most notably, the 'Total Weekly Gaming Hours' (r = .09, se = .01, p<.001), whether or not the youth played mature rated video games (r = .11, se = .01, p<.001), and whether or not the participant was male (r = .07, se = .01, p<.001) were each significantly associated with the the Externalizing LGCM intercept in the positive direction. There were no significant associations with the Externalizing LGCM slope.
 
-```{r meanplot}
-#| messages: FALSE
+```{r}
+#| echo: FALSE
+#| results: FALSE
+#| warning: false
+
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Weekly_Gaming_Hours_T0
+s ~ Weekly_Gaming_Hours_T0
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
 #| warning: FALSE
-#| echo: FALSE
-#| column: screen-inset-shaded
-#| layout-nrow: 2
-
-## Estimated means plot
-means <- estimate_means(random_intercepts)
-plot(means)
-
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ MatureVideoGames
+s ~ MatureVideoGames
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
 ```
 
-```{r barplot}
-#| messages: FALSE
+```{r}
+#| echo: FALSE
+#| results: FALSE
 #| warning: FALSE
-#| echo: FALSE
-#| include: FALSE
 
-# Basic ggplot2 barplot with mean
-# p<-df_long %>%
-#     filter(!is.na(Sex)) %>% # filter on non-missing values  
-#     ggplot(aes(x = MatureGames, y = Aggression, fill = Sex)) + #fill = sex
-#     geom_col(position = "dodge",
-#            stat = "summary",
-#            fun = "mean",
-#            #fill = "#AA4A44",
-#            #color = "#0099f9"
-#            ) +
-#     #scale_fill_brewer(palette = "Set1") +
-#     scale_fill_manual(values = c("#3db5ff", "#0099f9")) +
-    #scale_fill_gradient(high = "#B00B69", low = "#0e0e63") +
-    #geom_text(aes(label = cu_traits), position = position_dodge(0.9), 
-              #vjust = 2, size = 4, color = "#ffffff") +
-    # labs(title = "Behavior Problems by Video Game Groups", subtitle = "Simple bar chart",
-    #      caption = "Simple caption", x = "Video Game Group", y = "CBCL Aggression") +
-    #           #coord_flip() +
-    # #geom_hline(yintercept = mean(df$cbcl_agg), linetype = "dashed", size = 1) +
-    # theme_minimal() +
-    # theme(
-    #       plot.title = element_text(color = "#0099f9", size = 20, hjust = 0.5),
-    #       plot.subtitle = element_text(face = "bold", hjust = 1),
-    #       plot.caption = element_text(face = "italic", hjust = 0),
-    #       axis.title.x = element_text(color = "#0099f9", size = 15, face = "bold"),
-    #       axis.title.y = element_text(size = 15, face = "italic")
- # )
-#p
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Sex
+s ~ Sex
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
 ```
 
-```{r lmmri-graph}
-#| echo: FALSE
-#| messages: FALSE
-#| warning: FALSE
-#| label: my-figure
-##| fig-asp: 0.61
-##| fig-cap: |
-##|   This is a caption for my figure, 
-##|   using YAML formatting, etc.#| 
-
-#options(tinytex.verbose = TRUE)
-
-#random_intercepts <- lmer(cbcl_agg ~ 1 + event + vg_total+ sex + (1|ids), data = df, #REML=T)
-
-## LMM-ri plot of estimated random intercepts 
-model <- lmer(Aggression ~ Sex + (1 | IQ), data = df_long)
-preds <- estimate_relation(model, include_random = TRUE)
-
-## Adding fixed effect trajectory to LMM-ri plot 
-fixed_pred <- estimate_relation(model) # This time, include_random is FALSE (default)
-plot(preds, ribbon = list(alpha = 0)) + # Previous plot
-  geom_ribbon(data = fixed_pred, aes(x = Sex, ymin = CI_low, ymax = CI_high), alpha = 0.4) +
-  geom_line(data = fixed_pred, aes(x = Sex, y = Predicted), linewidth = 1) 
-
-# Race
-# PrntIncome
-# PrntEdu
-# MatureGames
-# Aggression
-# Externalizing
-# Internalizing
-# Depression
-# TotalGamingHrs
-
-######
-# ggplot(df_long_sub, aes(x = Event, y = Aggression, color=Sex, shape=Sex)) + 
-# geom_abline(slope = model_slope, intercept = model_intercept, linetype = "solid", color = "red", linewidth = 1) + 
-# geom_point(color = "grey70") + 
-# geom_smooth(method=lm, se=FALSE, fullrange=TRUE)+
-# scale_shape() + 
-# geom_segment(aes(x = Event, xend = Event, y = Aggression, yend = fitted(Aggression)), color = "grey70") + 
-# scale_y_continuous(expand = c(0, 0), breaks = c(0, 20, 40, 60, 80, 100), limits = c(0, 100)) + 
-# scale_x_continuous(expand = c(0, 0), breaks = c(1, 2, 3, 4), limits = c(0, 4)) +
-# theme(panel.background = element_blank(),         
-#         panel.grid.major = element_blank(),
-#         panel.grid.minor = element_blank(),
-#         panel.border = element_rect(colour = "black", fill = NA),
-#         legend.position = "none",
-#         axis.text = element_text(size = 14), 
-#         axis.title = element_text(size = 14)) +
-#         labs (x = "Event", y= "Aggression")
-
-#Save the plot
-#ggsave("random_intercept.png", units = "in", width = 9, height = 6, dpi = 300)  
-
-
-
-```
+#### Multivariate Regression Results
+Next we examined effects separately for each of the three primary study predictors (i.e., Total Weekly Gaming Hours, Mature Games, Sex) in a model with the full set of study covariates (i.e., race/ethnicity, parent income, parent education, IQ, Flanker, internalizing). The first model showed that, although attenuated, the effect of 'Total Weekly Gaming Hours' on the Externalizing LGCM intercept factor remained significant when included in the full covariate model (r = .03, se = .01, p = .01). Similarly, the subsequent two analyses showed that the effects of 'Mature Games' (r = .07, se = .01, p < .001) and 'Sex' (r = .07, se = .02, p < .001) on the Externalizing LGCM intercept factor remained significant when included in the full covariate model. There were no significant associations with the Externalizing LGCM slope.
 
 
 ```{r}
 #| echo: FALSE
+#| results: FALSE
+#| warning: FALSE
 
-df_wide<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_wide.csv")
-
-model <-  'i =~ 1*Aggression_T0 + 1*Aggression_T1 + 1*Aggression_T2
-          s =~ 0*Aggression_T0 + 1*Aggression_T1 + 2*Aggression_T2
-          
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
 # regressions
-i ~ Internalizing_T0 + Sex + Age + ParentIncome + ParentEducation + 
-MatureVideoGames + Weekly_Gaming_Hours_T0 + MatureVideoGames*Weekly_Gaming_Hours_T0
+i ~ Weekly_Gaming_Hours_T0 + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+
+s ~ Weekly_Gaming_Hours_T0 + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
 '
-fit <- growth(model, data=df_wide, estimator ="MLR")
-summary(fit, standardized = TRUE, fit.measures = TRUE)
-
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
 ```
 
-### Individual Behavioral Performance Measures
-```{r comment=NA, echo = FALSE}
-cat(sapply(
-  stri_wrap(stri_rand_lipsum(1), 90, simplify=FALSE),
-  stri_flatten, collapse='\n'), sep='\n\n')
+```{r}
+#| echo: FALSE
+#| results: FALSE
+#| warning: false
+
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ MatureVideoGames + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+s ~ MatureVideoGames + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
 ```
 
-### Structural Equation Modeling
-```{r comment=NA, echo = FALSE}
-cat(sapply(
-  stri_wrap(stri_rand_lipsum(1), 90, simplify=FALSE),
-  stri_flatten, collapse='\n'), sep='\n\n')
+```{r}
+#| echo: FALSE
+#| results: FALSE
+#| warning: FALSE
+
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Sex + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+s ~ Sex + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
 ```
+
+#### Hierarchical Regression Results
+Finally, we conducted analyses that included all study predictors and covariates in a single model. These results showed that the effects for 'Mature Games' (r = .05, se = .01, p < .001) and 'Sex' (r = .06, se = .01, p < .001) remained significant, however the effect of 'Total Weekly Gaming Hours' (r = .02, se = .01, p = .19) was reduced to non-significance.
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+#| warning: FALSE
+
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Weekly_Gaming_Hours_T0 + MatureVideoGames + Sex + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+s ~ Weekly_Gaming_Hours_T0 + MatureVideoGames + Sex + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+#### Two-Way Interaction Results
+Subsequent to examination of model main effects, we proceeded to test a series of 3 unique two-way interaction effects between our study predictors of primary interest ('Total Weekly Gaming Hours', 'Mature Games', 'Sex'). Results demonstrated a significant two-way interaction between 'Total Weekly Gaming Hours' and 'Mature Games' (r = .09, se = .04, p = .01) in the prediction of the Externalizing LGCM intercept factor. Further probing of this interaction effect revealed **?xxxxxx?**. There was no evidence of any additional significant interactions identified in the prediction of the Externalizing LGCM intercept or slope factors. 
+
+##### Add Figure to this section
+
+#### Three-Way Interaction Results
+Finally, there was no evidence of a three-way interaction between 'Total Weekly Gaming Hours', 'Mature Games', and 'Sex' in the prediction of Externalizing LGCM intercept or slope factors. 
 
 ## Discussion
 ```{r comment=NA, echo = FALSE}

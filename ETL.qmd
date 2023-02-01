@@ -314,39 +314,45 @@ df_wide$SiteID <- as.numeric(df_wide$SiteID)
 df_wide$FamilyID <- as.numeric(df_wide$FamilyID)
 
 # Recode missing to 999
-df_wide <- df_wide %>%
-   mutate(
-     SiteID = ifelse(is.na(SiteID), 999[1], SiteID),
-     FamilyID = ifelse(is.na(FamilyID), 999[1], FamilyID),
-     Sex = ifelse(is.na(Sex), 999[1], Sex),
-     Age = ifelse(is.na(Age), 999[1], Age),
-     Race_White = ifelse(is.na(Race_White), 999[1], Race_White),
-     Race_Black = ifelse(is.na(Race_Black), 999[1], Race_Black),
-     Race_Hispanic = ifelse(is.na(Race_Hispanic), 999[1], Race_Hispanic),
-     Race_Asian = ifelse(is.na(Race_Asian), 999[1], Race_Asian),
-     Race_Other = ifelse(is.na(Race_Other), 999[1], Race_Other),
-     ParentIncome = ifelse(is.na(ParentIncome), 999[1], ParentIncome),
-     ParentEducation = ifelse(is.na(ParentEducation), 999[1], ParentEducation),
-     IQ  = ifelse(is.na(IQ), 999[1], IQ),
-     FlankerTest = ifelse(is.na(FlankerTest), 999[1], FlankerTest),
-     PubertalDevelopment_F = ifelse(is.na(PubertalDevelopment_F), 999[1], PubertalDevelopment_F),
-     PubertalDevelopment_M = ifelse(is.na(PubertalDevelopment_M), 999[1], PubertalDevelopment_M),
-     MatureVideoGames = ifelse(is.na(MatureVideoGames), 999[1], MatureVideoGames),
-     Weekly_Gaming_Hours_T0 = ifelse(is.na(Weekly_Gaming_Hours_T0), 999[1], Weekly_Gaming_Hours_T0),
-     Weekly_Gaming_Hours_T1 = ifelse(is.na(Weekly_Gaming_Hours_T1), 999[1], Weekly_Gaming_Hours_T1),
-     Weekly_Gaming_Hours_T2 = ifelse(is.na(Weekly_Gaming_Hours_T2), 999[1], Weekly_Gaming_Hours_T2),
-     Externalizing_T0 = ifelse(is.na(Externalizing_T0), 999[1], Externalizing_T0),
-     Externalizing_T1 = ifelse(is.na(Externalizing_T1), 999[1], Externalizing_T1),
-     Externalizing_T2 = ifelse(is.na(Externalizing_T2), 999[1], Externalizing_T2),
-     Aggression_T0 = ifelse(is.na(Aggression_T0), 999[1], Aggression_T0),
-     Aggression_T1 = ifelse(is.na(Aggression_T1), 999[1], Aggression_T1),
-     Aggression_T2 = ifelse(is.na(Aggression_T2), 999[1], Aggression_T2),
-     Internalizing_T0 = ifelse(is.na(Internalizing_T0), 999[1], Internalizing_T0),
-   )
+# df_wide <- df_wide %>%
+#    mutate(
+#      SiteID = ifelse(is.na(SiteID), 999[1], SiteID),
+#      FamilyID = ifelse(is.na(FamilyID), 999[1], FamilyID),
+#      Sex = ifelse(is.na(Sex), 999[1], Sex),
+#      Age = ifelse(is.na(Age), 999[1], Age),
+#      Race_White = ifelse(is.na(Race_White), 999[1], Race_White),
+#      Race_Black = ifelse(is.na(Race_Black), 999[1], Race_Black),
+#      Race_Hispanic = ifelse(is.na(Race_Hispanic), 999[1], Race_Hispanic),
+#      Race_Asian = ifelse(is.na(Race_Asian), 999[1], Race_Asian),
+#      Race_Other = ifelse(is.na(Race_Other), 999[1], Race_Other),
+#      ParentIncome = ifelse(is.na(ParentIncome), 999[1], ParentIncome),
+#      ParentEducation = ifelse(is.na(ParentEducation), 999[1], ParentEducation),
+#      IQ  = ifelse(is.na(IQ), 999[1], IQ),
+#      FlankerTest = ifelse(is.na(FlankerTest), 999[1], FlankerTest),
+#      PubertalDevelopment_F = ifelse(is.na(PubertalDevelopment_F), 999[1], PubertalDevelopment_F),
+#      PubertalDevelopment_M = ifelse(is.na(PubertalDevelopment_M), 999[1], PubertalDevelopment_M),
+#      MatureVideoGames = ifelse(is.na(MatureVideoGames), 999[1], MatureVideoGames),
+#      Weekly_Gaming_Hours_T0 = ifelse(is.na(Weekly_Gaming_Hours_T0), 999[1], Weekly_Gaming_Hours_T0),
+#      Weekly_Gaming_Hours_T1 = ifelse(is.na(Weekly_Gaming_Hours_T1), 999[1], Weekly_Gaming_Hours_T1),
+#      Weekly_Gaming_Hours_T2 = ifelse(is.na(Weekly_Gaming_Hours_T2), 999[1], Weekly_Gaming_Hours_T2),
+#      Externalizing_T0 = ifelse(is.na(Externalizing_T0), 999[1], Externalizing_T0),
+#      Externalizing_T1 = ifelse(is.na(Externalizing_T1), 999[1], Externalizing_T1),
+#      Externalizing_T2 = ifelse(is.na(Externalizing_T2), 999[1], Externalizing_T2),
+#      Aggression_T0 = ifelse(is.na(Aggression_T0), 999[1], Aggression_T0),
+#      Aggression_T1 = ifelse(is.na(Aggression_T1), 999[1], Aggression_T1),
+#      Aggression_T2 = ifelse(is.na(Aggression_T2), 999[1], Aggression_T2),
+#      Internalizing_T0 = ifelse(is.na(Internalizing_T0), 999[1], Internalizing_T0),
+#    )
+
+####
+#df_wide[df_wide == 999] <- NA
+#df_wide
+####
 
 write_parquet(df_wide, "./_data/df_wide.pqt")
 write_csv(df_wide, "./_data/df_wide.csv")
 write_csv(df_wide, "/Users/shawes/Desktop/df_wide.csv")
+
 
 ## Remove unused objects
 rm(df_temp_t0, df_temp_t1, df_temp_t2, df_merge, df_merge2, df_merge3)

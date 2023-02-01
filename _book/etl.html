@@ -92,7 +92,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./analyses.html" rel="next">
 <link href="./manuscript/working_draft.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -248,59 +247,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true"><strong>Analyses</strong></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./analyses.html" class="sidebar-item-text sidebar-link">Results</a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">**Tables**</span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true"><strong>Tables</strong></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Table_1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Table_1.html</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Table_2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Table_2.html</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true"><strong>Figures</strong></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Figure_1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Figure_1.html</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Figure_2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Figure_2.html</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">**Figures**</span>
   </li>
     </ul>
     </div>
@@ -545,7 +495,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(prosoc_sum, Gaming_Hours_Bader)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="etl_cache/html/transpose_9730684e87fc681a25dcfcc4725138d3">
+<div class="cell" data-hash="etl_cache/html/transpose_bf9459dfbf011f74648196a4ee8a3c36">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create T0 dataframe</span></span>
@@ -612,42 +562,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>df_wide<span class="sc">$</span>FamilyID <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(df_wide<span class="sc">$</span>FamilyID)</span>
 <span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode missing to 999</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>df_wide <span class="ot">&lt;-</span> df_wide <span class="sc">%&gt;%</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(</span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>     <span class="at">SiteID =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(SiteID), <span class="dv">999</span>[<span class="dv">1</span>], SiteID),</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>     <span class="at">FamilyID =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(FamilyID), <span class="dv">999</span>[<span class="dv">1</span>], FamilyID),</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>     <span class="at">Sex =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Sex), <span class="dv">999</span>[<span class="dv">1</span>], Sex),</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>     <span class="at">Age =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Age), <span class="dv">999</span>[<span class="dv">1</span>], Age),</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>     <span class="at">Race_White =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Race_White), <span class="dv">999</span>[<span class="dv">1</span>], Race_White),</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>     <span class="at">Race_Black =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Race_Black), <span class="dv">999</span>[<span class="dv">1</span>], Race_Black),</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>     <span class="at">Race_Hispanic =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Race_Hispanic), <span class="dv">999</span>[<span class="dv">1</span>], Race_Hispanic),</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>     <span class="at">Race_Asian =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Race_Asian), <span class="dv">999</span>[<span class="dv">1</span>], Race_Asian),</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>     <span class="at">Race_Other =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Race_Other), <span class="dv">999</span>[<span class="dv">1</span>], Race_Other),</span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>     <span class="at">ParentIncome =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(ParentIncome), <span class="dv">999</span>[<span class="dv">1</span>], ParentIncome),</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>     <span class="at">ParentEducation =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(ParentEducation), <span class="dv">999</span>[<span class="dv">1</span>], ParentEducation),</span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>     <span class="at">IQ  =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(IQ), <span class="dv">999</span>[<span class="dv">1</span>], IQ),</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>     <span class="at">FlankerTest =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(FlankerTest), <span class="dv">999</span>[<span class="dv">1</span>], FlankerTest),</span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>     <span class="at">PubertalDevelopment_F =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(PubertalDevelopment_F), <span class="dv">999</span>[<span class="dv">1</span>], PubertalDevelopment_F),</span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>     <span class="at">PubertalDevelopment_M =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(PubertalDevelopment_M), <span class="dv">999</span>[<span class="dv">1</span>], PubertalDevelopment_M),</span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>     <span class="at">MatureVideoGames =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(MatureVideoGames), <span class="dv">999</span>[<span class="dv">1</span>], MatureVideoGames),</span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>     <span class="at">Weekly_Gaming_Hours_T0 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Weekly_Gaming_Hours_T0), <span class="dv">999</span>[<span class="dv">1</span>], Weekly_Gaming_Hours_T0),</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>     <span class="at">Weekly_Gaming_Hours_T1 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Weekly_Gaming_Hours_T1), <span class="dv">999</span>[<span class="dv">1</span>], Weekly_Gaming_Hours_T1),</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>     <span class="at">Weekly_Gaming_Hours_T2 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Weekly_Gaming_Hours_T2), <span class="dv">999</span>[<span class="dv">1</span>], Weekly_Gaming_Hours_T2),</span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>     <span class="at">Externalizing_T0 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Externalizing_T0), <span class="dv">999</span>[<span class="dv">1</span>], Externalizing_T0),</span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>     <span class="at">Externalizing_T1 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Externalizing_T1), <span class="dv">999</span>[<span class="dv">1</span>], Externalizing_T1),</span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>     <span class="at">Externalizing_T2 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Externalizing_T2), <span class="dv">999</span>[<span class="dv">1</span>], Externalizing_T2),</span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>     <span class="at">Aggression_T0 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Aggression_T0), <span class="dv">999</span>[<span class="dv">1</span>], Aggression_T0),</span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>     <span class="at">Aggression_T1 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Aggression_T1), <span class="dv">999</span>[<span class="dv">1</span>], Aggression_T1),</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>     <span class="at">Aggression_T2 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Aggression_T2), <span class="dv">999</span>[<span class="dv">1</span>], Aggression_T2),</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>     <span class="at">Internalizing_T0 =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Internalizing_T0), <span class="dv">999</span>[<span class="dv">1</span>], Internalizing_T0),</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="co"># df_wide &lt;- df_wide %&gt;%</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="co">#    mutate(</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="co">#      SiteID = ifelse(is.na(SiteID), 999[1], SiteID),</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="co">#      FamilyID = ifelse(is.na(FamilyID), 999[1], FamilyID),</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co">#      Sex = ifelse(is.na(Sex), 999[1], Sex),</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="co">#      Age = ifelse(is.na(Age), 999[1], Age),</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="co">#      Race_White = ifelse(is.na(Race_White), 999[1], Race_White),</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="co">#      Race_Black = ifelse(is.na(Race_Black), 999[1], Race_Black),</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="co">#      Race_Hispanic = ifelse(is.na(Race_Hispanic), 999[1], Race_Hispanic),</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co">#      Race_Asian = ifelse(is.na(Race_Asian), 999[1], Race_Asian),</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="co">#      Race_Other = ifelse(is.na(Race_Other), 999[1], Race_Other),</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co">#      ParentIncome = ifelse(is.na(ParentIncome), 999[1], ParentIncome),</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="co">#      ParentEducation = ifelse(is.na(ParentEducation), 999[1], ParentEducation),</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="co">#      IQ  = ifelse(is.na(IQ), 999[1], IQ),</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="co">#      FlankerTest = ifelse(is.na(FlankerTest), 999[1], FlankerTest),</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="co">#      PubertalDevelopment_F = ifelse(is.na(PubertalDevelopment_F), 999[1], PubertalDevelopment_F),</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="co">#      PubertalDevelopment_M = ifelse(is.na(PubertalDevelopment_M), 999[1], PubertalDevelopment_M),</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="co">#      MatureVideoGames = ifelse(is.na(MatureVideoGames), 999[1], MatureVideoGames),</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="co">#      Weekly_Gaming_Hours_T0 = ifelse(is.na(Weekly_Gaming_Hours_T0), 999[1], Weekly_Gaming_Hours_T0),</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="co">#      Weekly_Gaming_Hours_T1 = ifelse(is.na(Weekly_Gaming_Hours_T1), 999[1], Weekly_Gaming_Hours_T1),</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="co">#      Weekly_Gaming_Hours_T2 = ifelse(is.na(Weekly_Gaming_Hours_T2), 999[1], Weekly_Gaming_Hours_T2),</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="co">#      Externalizing_T0 = ifelse(is.na(Externalizing_T0), 999[1], Externalizing_T0),</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="co">#      Externalizing_T1 = ifelse(is.na(Externalizing_T1), 999[1], Externalizing_T1),</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="co">#      Externalizing_T2 = ifelse(is.na(Externalizing_T2), 999[1], Externalizing_T2),</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="co">#      Aggression_T0 = ifelse(is.na(Aggression_T0), 999[1], Aggression_T0),</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="co">#      Aggression_T1 = ifelse(is.na(Aggression_T1), 999[1], Aggression_T1),</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="co">#      Aggression_T2 = ifelse(is.na(Aggression_T2), 999[1], Aggression_T2),</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="co">#      Internalizing_T0 = ifelse(is.na(Internalizing_T0), 999[1], Internalizing_T0),</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="co">#    )</span></span>
 <span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="fu">write_parquet</span>(df_wide, <span class="st">"./_data/df_wide.pqt"</span>)</span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df_wide, <span class="st">"./_data/df_wide.csv"</span>)</span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df_wide, <span class="st">"/Users/shawes/Desktop/df_wide.csv"</span>)</span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove unused objects</span></span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(df_temp_t0, df_temp_t1, df_temp_t2, df_merge, df_merge2, df_merge3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="do">####</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="co">#df_wide[df_wide == 999] &lt;- NA</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="co">#df_wide</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="do">####</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="fu">write_parquet</span>(df_wide, <span class="st">"./_data/df_wide.pqt"</span>)</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df_wide, <span class="st">"./_data/df_wide.csv"</span>)</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df_wide, <span class="st">"/Users/shawes/Desktop/df_wide.csv"</span>)</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove unused objects</span></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(df_temp_t0, df_temp_t1, df_temp_t2, df_merge, df_merge2, df_merge3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -794,9 +750,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./analyses.html" class="pagination-link">
-        <span class="nav-page-text">Results</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

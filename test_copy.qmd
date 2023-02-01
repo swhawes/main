@@ -1,0 +1,303 @@
+---
+title: Working Draft
+
+format: 
+  pdf: 
+    geometry: 
+      - top=30mm
+      - left=20mm
+  docx: default
+prefer-html: true
+
+---
+
+```{r}
+#| include: FALSE
+#| results: FALSE
+#| echo: FALSE
+
+
+library(lme4)
+library(lmerTest)
+library(tidyverse)
+library(arrow)
+library(afex)
+library(formatR)
+library(report)
+library(easystats)
+library(emmeans)
+library(parameters)
+library(modelbased)
+library(effectsize)
+library(see)
+library(performance)
+library(insight)
+library(DT)
+library(data.table)
+library(arsenal)
+library(kableExtra)
+library(equatiomatic)
+library(gtsummary)
+library(ggstatsplot)
+library(papaja)
+library(stringi)
+library(lavaan)
+library(corrr)
+library(trackdown)
+
+df_long<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_long.csv")
+```
+
+# Introduction
+There has been much debate and research on the relationship between violent video games and aggressive behavior problems among youth. Some studies have found that playing violent video games may be associated with increased aggressive thoughts, emotions, and behaviors. However, other research has found no such relationship, or that the relationship is small and may not be significant. It is important to note that aggression is a complex behavior that is influenced by many factors, including genetics, social environment, and individual experiences. There is no single cause of aggression, and it is likely that the relationship between violent video games and aggressive behavior is complex and multifaceted (GP). 
+
+It is also important to consider that not all youth who play violent video games will exhibit aggressive behavior, and not all youth who exhibit aggressive behavior have played violent video games. It is possible that other factors, such as a history of exposure to violence, family or social problems, or individual psychological or psychiatric conditions, may contribute more significantly to aggressive behavior problems. Overall, it is important to consider the potential impact of violent video games on youth, as well as the many other factors that may influence aggressive behavior. However, more research is needed to fully understand the relationship between violent video games and aggressive behavior problems among youth (GP).
+
+# Methods
+\label{sec:headings}
+
+## Sample
+The ABCD sample was largely recruited through public, private, and charter elementary schools. The ABCD study adopted a population neuroscience approach to recruitment [@falk2013; @paus2013] by using epidemiologically informed procedures to ensure demographic variation in its sample that would mirror the variation in the US population of 9- and 10-year-olds [@garavan2018]. A probability sampling of schools was conducted within the defined catchment areas of the study’s nationally distributed set of 21 recruitment sites in the US. All children in each sampled school were invited to participate after classroom-based presentations, distribution of study materials, and telephone screening for eligibility. Exclusions included common MRI contraindications (such as cardiac pacemakers and defibrillators, internal pacing wires, cochlear and metallic implants, and Swan-Ganz catheters), inability to understand or speak English fluently, uncorrected vision, hearing or sensorimotor impairments, history of major neurologic disorders, gestational age less than 28 weeks, birth weight less than 1200 g, birth complications that resulted in hospitalization for more than 1 month, current diagnosis of schizophrenia, moderate or severe autism spectrum disorder, history of traumatic brain injury, or unwillingness to complete assessments. The ABCD study sample also includes 2105 monozygotic and dizygotic twins. The ABCD study’s anonymized data, including all assessment domains, are released annually to the research community. Data on race and ethnicity are not included in the ABCD study data. Information on how to access ABCD study data through the National Institute of Mental Health Data Archive is available on the ABCD study
+data-sharing webpage.
+
+Participants were enrolled in the ongoing, longitudinal ABCD Study, and the study data were from the annual 4.0 data release (https://data-archive.nimh.nih.gov/abcd). The ABCD Study recruited 11,874 healthy children, ages 9–10, to be followed into early adulthood. Participants across 21 study sites were recruited through public and private elementary schools, with sampling approaches intended to yield a final sample that approximated national sociodemographic characteristics. The ABCD study was approved by the appropriate institutional review boards: most ABCD research sites rely on a central Institutional Review Board at the University of California, San Diego for the ethical review and approval of the research protocol, with a few sites obtaining local IRB approval. Participants provided written assent, and their legal guardians written consent, for participation.
+
+## Measures
+### Screen Time Survey
+Participants were administered a screen time survey that asked how much time they spend engaged in different types of screen time on a typical weekday and a typical weekend day. The different screen time categories were as follows: “Watch TV shows or movies?”; “Watch videos (such as YouTube)?”; “Play video games on a computer, console, phone, or other device (Xbox, Play Station, iPad)?”; “Text on a cell phone, tablet, or computer (eg, GChat, Whatsapp, etc.)?”; “Visit social networking sites like Facebook, Twitter, Instagram, etc?”; and “Video chat (Skype, Facetime, etc)?” For each of these activities, the participants responded with how much time they spent per day doing them. They could answer none, less than 30 minutes, 30 minutes, 1 hour, 2 hours, 3 hours, or 4 hours. Answers were mostly none for the texting, social networking, and video chatting categories, as expected for this age range. For each participant, a total weekly video-gaming score was derived as the sum of (video-gaming hours per weekday × 5) + (video-gaming hours per weekend day × 2). Using the video-gaming score, we defined a group of NVGs who never played video games (0 gaming hours per week) and a group of VGs who played 3 hours per day (21 hours per week) or more. This threshold was selected because it exceeds the American Academy of Pediatrics screen time guidelines [@2022z], which recommends that video-gaming time be limited to 1 to 2 hours per day for older children.
+
+### Youth Behavior Problems
+Mental health symptoms were evaluated using the Child Behavior Checklist (CBCL) [@achenbach2000] and the Schedule for Affective Disorders and Schizophrenia for School-Age Children–Present and Lifetime version for DSM-5 (K-SADS-PL) [@kaufman1997; @kobak2013]. Raw scores of behavioral (externalizing, aggression, oppositional-defiant problems, conduct problems) and psychiatric categories (Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition diagnoses of depression oppositional-defiant disorder, and conduct disorder) were obtained via parent-report of the self-administered computerized version of each of these measures.
+
+### Potential confounders
+The youth’s age, sex, and race/ethnicity, as well as family income and parental education were reported by the parent at the baseline assessment. Several control variables were included to account for the potential effects of attentional, cognitive, or emotional difficulties that are often comorbid with behavior problems. This includes scores on measures from the the National Institutes of Health Toolbox (http://www.nihtoolbox.org) including 1) the Flanker Task–– a response inhibition/conflict monitoring task that measures the ability to modulate responding under congruent versus incongruent stimulus contexts [@Thompson2019] and 2) the mean of crystalized and fluid intelligence composite scores [@zelazo2013]. Additionally, scores on the CBCL DSM-oriented internalizing subscale [@achenbach2000] were also input as model covariates. 
+
+### Participant Inclusion Criteria
+Participants were included if they had (1) xxxxx, (2) xxxxx, and (3) had complete information on the screen time survey and for all other variables (CBCL, age, sex, and parental income).
+
+## Analytic Strategy
+Descriptive analysis present an overview of demographic characteristics and xxxx, with age (months), sex, race/ethnicity, scanner serial number, IQ, puberty, parental education, parental income. Latent growth curve modeling (LGCM) was used to characterize behavior problem trajectories (e.g., aggression, externalizing behaviors) in youth across mid-to-late childhood (ages ~ 9-12). This approach identifies developmental trajectories, allowing for an examination of individual patterns of stability and change across time, as well as unique predictors and outcomes of change. **Next, main effects and interactions were used to predict intercept and slope factor of behavior problems main effects and interactions w/ sex, maturegames, gaming hrs in childhood (baseline) predicted xxxx longitudinally.**
+
+All analyses were conducted using xxxxxxx (xxxx), with models specified using maximum likelihood estimation with robust standard errors and a Monte Carlo numerical integration algorithm. Complex sampling and recruitment procedures for the ABCD Study were accounted for using cluster correction (i.e., for sibling pairs) and stratification sampling (i.e. study site) procedures (32). Model fit was assessed according to global fit indices including the comparative fit index (CFI) and the root mean square error of approximation (RMSEA). Cutoff values of .90 or greater were used to indicate acceptable fit and .95 or greater to indicate good fit for CFI (Hu and Bentler, 1999; McDonald and Ho, 2002). RMSEA values between .05 and .10 were considered to represent an acceptable fit, while values less than .05 were considered to indicate good fit (Browne and Cudeck, 1993; McDonald and Ho, 2002).
+
+In addition, longitudinal and multigroup invariance testing was conducted to determine whether there were any sex-based effects **for any model parameters**. First, a baseline configural model was specified, allowing factor loadings and intercepts to vary across time. Subsequent models were specified by adding parameter constraints, until arriving at a final invariance model with factor loadings, intercepts, factor covariances, and item residual variances constrained to equality across each assessment wave. These models were compared via (Satorra-Bentler) chi-square difference testing, wherein a non-significant chi-square indicates that the more constrained model should be adopted. However, as the chi-square difference test is sensitive to sample size and violations of the normality assumption, we also assessed change in CFI and RMSEA fit indices across models. Changes in CFI equal to or less than .01 and changes in RMSEA of equal to or less than .015 have been proposed as demonstrating evidence of model invariance (Chen, 2007; Cheung and Rensvold, 2002).
+
+The xxxx model allowed us to examine group differences in xxxx, supplementing the xxxxx analyses in several ways. First, we could evaluate how xxxx contributed to the hypothesized xxxxx and assess whether xxxxx could be modeled similarly across groups. We used measurement invariance testing (via the DIFFTEST procedure in Mplus, version 7 [32]) to evaluate the xxxx model across groups (i.e., configural invariance) and over time  to determine whether each xxxx contributed to the xxxx equivalently across groups (i.e., metric and scalar invariance) (see the Methods section in the online supplement). Second, our modeling approach allowed us to test for group differences in mean levels of xxxxx, which was made more advantageous given that latent variables are modeled free of measurement error, resulting in increased statistical power.
+
+## Results
+
+#### Descriptives Results
+Descriptive statistics are provided in [Table 1]. Add some additinal intial text here...
+
+
+```{r descriptives}
+#| results: "asis"
+#| echo: FALSE
+
+df_long<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_long.csv")
+
+## Create a (grouped) descriptives table 
+descriptives  <- tableby.control(test=FALSE, total=TRUE, cat.simplify=TRUE,
+                               numeric.test="kwt", cat.test="chisq",
+                               numeric.stats=c("meansd" 
+                                               ), # "N", , "median", "range" "Nmiss2"
+                               cat.stats=c("countpct"), #"Nmiss2"
+                               stats.labels=list(meansd="Mean (SD)"
+                                                 )) #N='Count', median ='Median', range='Min -Max', Nmiss2 ='Missing'
+
+## Setting up descriptives table for study variables
+var_table <- tableby(Event ~ 
+                       Sex + Race + Age + IQ + FlankerTest +
+                       ParentIncome + ParentEducation +  
+                       PubertalDevelopment_F + PubertalDevelopment_M + 
+                       MatureVideoGames + TotalGamingHours + Weekly_Gaming_Hours +
+                       Aggression + Externalizing + 
+                       Internalizing,
+                     data=df_long, control=descriptives)
+
+# Push variable table object through kable and kable_styling
+var_table %>%
+  summary(text = TRUE, digits.pct=1, digits=1) %>%
+  kable(caption = "Table 1. Descriptives") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, #html_font = "Cambria",
+                font_size = 10,
+                position = "center", fixed_thead = T) %>%
+  row_spec(2:3, extra_css = 'vertical-align: middle !important;') %>%
+  column_spec(1:3, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T) %>%
+  column_spec(3, border_right = T) %>%
+  #column_spec(3, background = spec_color(mtcars$drat[1:8], end = 0.7), border_right = T) %>%
+  column_spec(4, border_right = T) %>%
+  footnote(general = "TBD. ") %>%
+  scroll_box(width = "75%", height = "500px")
+```
+
+#### Growth Curve Model Results 
+The unconditional latent growth curve model of externalizing problems showed evidence of appropriate fit (χ2 (1) = .006, p = .93; CFI = 1.00, RMSEA = 1.00). The mean estimated intercept (M = 5.01, SE = 0.08) differed significantly from zero and the linear slope (M = -0.25, SE = 0.03) was significant in the negative direction. We also note a statistically significant variance estimate for the model intercept (δ2 = 31.41, p < .001), but a non-significant variance estimate for the linear slope (δ2 = 1.21, p = .05).
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+df_wide<- read_csv("/Users/shawes/Library/CloudStorage/GoogleDrive-swh004@gmail.com/My Drive/Projects/gaming_behav/main/_data/df_wide.csv")
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+#### Univariate Regression Results
+Next we examined univariate effects of all study predictors and covariates with the intercept and slope factors of the Externalizing growth curve. These results show several significant associations with the growth curve intercept. Most notably, the 'Total Weekly Gaming Hours' (r = .09, se = .01, p<.001), whether or not the youth played mature rated video games (r = .11, se = .01, p<.001), and whether or not the participant was male (r = .07, se = .01, p<.001) were each significantly associated with the the Externalizing LGCM intercept in the positive direction. There were no significant associations with the Externalizing LGCM slope.
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Weekly_Gaming_Hours_T0
+s ~ Weekly_Gaming_Hours_T0
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ MatureVideoGames
+s ~ MatureVideoGames
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Sex
+s ~ Sex
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+#### Multivariate Regression Results
+Next we examined effects separately for each of the three primary study predictors (i.e., Total Weekly Gaming Hours, Mature Games, Sex) in a model with the full set of study covariates (i.e., race/ethnicity, parent income, parent education, IQ, Flanker, internalizing). The first model showed that, although attenuated, the effect of 'Total Weekly Gaming Hours' on the Externalizing LGCM intercept factor remained significant when included in the full covariate model (r = .03, se = .01, p = .01). Similarly, the subsequent two analyses showed that the effects of 'Mature Games' (r = .07, se = .01, p < .001) and 'Sex' (r = .07, se = .02, p < .001) on the Externalizing LGCM intercept factor remained significant when included in the full covariate model. There were no significant associations with the Externalizing LGCM slope.
+
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Weekly_Gaming_Hours_T0 + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+
+s ~ Weekly_Gaming_Hours_T0 + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ MatureVideoGames + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+s ~ MatureVideoGames + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Sex + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+s ~ Sex + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+#### Hierarchical Regression Results
+Finally, we conducted analyses that included all study predictors and covariates in a single model. These results showed that the effects for 'Mature Games' (r = .05, se = .01, p < .001) and 'Sex' (r = .06, se = .01, p < .001) remained significant, however the effect of 'Total Weekly Gaming Hours' (r = .02, se = .01, p = .19) was reduced to non-significance.
+
+```{r}
+#| echo: FALSE
+#| results: FALSE
+model <- ' i =~ 1*Externalizing_T0 + 1*Externalizing_T1 + 1*Externalizing_T2
+           s =~ 0*Externalizing_T0 + 1*Externalizing_T1 + 2*Externalizing_T2
+# regressions
+i ~ Weekly_Gaming_Hours_T0 + MatureVideoGames + Sex + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+s ~ Weekly_Gaming_Hours_T0 + MatureVideoGames + Sex + SiteID + FamilyID + Age +  
+Race_Black + Race_Hispanic + Race_Asian + Race_Other + 
+ParentIncome + ParentEducation + IQ + FlankerTest
+'
+ fit <- growth(model, data=df_wide, missing = "FIML")
+ summary(fit)
+```
+
+#### Two-Way Interaction Results
+Subsequent to examination of model main effects, we proceeded to test a series of 3 unique two-way interaction effects between our study predictors of primary interest ('Total Weekly Gaming Hours', 'Mature Games', 'Sex'). Results demonstrated a significant two-way interaction between 'Total Weekly Gaming Hours' and 'Mature Games' (r = .09, se = .04, p = .01) in the prediction of the Externalizing LGCM intercept factor. Further probing of this interaction effect revealed **?xxxxxx?**. There was no evidence of any additional significant interactions identified in the prediction of the Externalizing LGCM intercept or slope factors. 
+
+##### Add Figure to this section
+
+#### Three-Way Interaction Results
+Finally, there was no evidence of a three-way interaction between 'Total Weekly Gaming Hours', 'Mature Games', and 'Sex' in the prediction of Externalizing LGCM intercept or slope factors. 
+
+## Discussion
+```{r comment=NA, echo = FALSE}
+cat(sapply(
+  stri_wrap(stri_rand_lipsum(4), 90, simplify=FALSE),
+  stri_flatten, collapse='\n'), sep='\n\n')
+```
+
+### Limitations
+```{r comment=NA, echo = FALSE}
+cat(sapply(
+  stri_wrap(stri_rand_lipsum(1), 90, simplify=FALSE),
+  stri_flatten, collapse='\n'), sep='\n\n')
+```
+
+### Conclusions
+```{r comment=NA, echo = FALSE}
+cat(sapply(
+  stri_wrap(stri_rand_lipsum(1), 90, simplify=FALSE),
+  stri_flatten, collapse='\n'), sep='\n\n')
+```
+
+\newpage
+
+## References
+\label{sec:bibliography}
+
+
+
+

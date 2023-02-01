@@ -26,18 +26,18 @@ book:
     - part: "**Data Wrangling**"
       chapters:
         - etl.qmd
-    - part: "**Analyses**"
-      chapters:
-        - analyses.qmd
+    #- part: "**Analyses**"
+    #chapters:
+    #- analyses.qmd
     - part: "**Tables**"
-      chapters:
-        - Table_1.qmd
-        - Table_2.qmd
+      # chapters:
+      #   - Table_1.qmd
+      #   - Table_2.qmd
     - part: "**Figures**"
-      chapters:
-        - Figure_1.qmd
-        - Figure_2.qmd
-        #- references.qmd
+      # chapters:
+      #   - Figure_1.qmd
+      #   - Figure_2.qmd
+      #- references.qmd
   page-navigation: true
   #repo-url: https://github.com/swhawes/
   #repo-actions: [edit]
@@ -61,6 +61,8 @@ book:
   #cover-image: cover.png
   #abstract
 
+output: word_document
+
 comments:
   hypothesis: true
 
@@ -83,3 +85,8 @@ format:
     include-after-body:
       text: |
         \printindex
+  docx:
+    reference-doc: default #custom-reference-doc.docx
+    #toc: true
+    #number-sections: true
+    #highlight-style: github
